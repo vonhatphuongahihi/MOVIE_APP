@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/details_screen"
+    android:layout_width="match_parent"
+    android:layout_height="978dp"
+    android:background="@drawable/drawable_shape">
+
+    <ImageView
+        android:id="@+id/container_mask_group"
+        android:layout_width="451.66dp"
+        android:layout_height="345.67dp"
+        android:layout_gravity="top|left"
+        android:scaleType="centerInside"
+        android:src="@drawable/container_mask_group" />
+
+    <ImageView
+        android:id="@+id/image_rectangle12"
+        android:layout_width="451.66dp"
+        android:layout_height="345.67dp"
+        android:layout_gravity="top|left"
+        android:background="@drawable/image_rectangle12"
+        android:scaleType="centerInside" />
+
+    <ImageView
+        android:id="@+id/image_rectangle22"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_marginLeft="28.61dp"
+        android:layout_marginTop="53dp"
+        android:layout_gravity="top|left"
+        android:background="@drawable/image_rectangle22"
+        android:scaleType="centerInside" />
+
+    <ImageView
+        android:id="@+id/container_group"
+        android:layout_width="43.36dp"
+        android:layout_height="43.36dp"
+        android:layout_marginLeft="33.72dp"
+        android:layout_marginRight="374.58dp"
+        android:layout_marginTop="57.81dp"
+        android:layout_marginBottom="876.83dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/container_group5" />
+
+    <ImageView
+        android:id="@+id/image_group"
+        android:layout_width="77.08dp"
+        android:layout_height="77.08dp"
+        android:layout_marginLeft="187.89dp"
+        android:layout_marginRight="186.69dp"
+        android:layout_marginTop="134.9dp"
+        android:layout_marginBottom="766.02dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/image_group" />
+
+    <TextView
+        android:id="@+id/text_star_wars2"
+        android:layout_width="393dp"
+        android:layout_height="36dp"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="28.91dp"
+        android:layout_marginTop="374.04dp"
+        android:layout_marginBottom="-0.54dp"
+        android:fontFamily="@font/windsorb"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Star Wars: The Last Jedi"
+        android:textColor="#FFFFFFFF"
+        android:textSize="23dp" />
+
+    <ImageView
+        android:id="@+id/image_vector1"
+        android:layout_width="393.85dp"
+        android:layout_height="0.24dp"
+        android:layout_marginLeft="28.91dp"
+        android:layout_marginTop="564.64dp"
+        android:layout_gravity="top|left"
+        android:scaleType="centerInside"
+        android:src="@drawable/image_vector1" />
+
+    <ImageView
+        android:id="@+id/image_vector2"
+        android:layout_width="393.85dp"
+        android:layout_height="0.24dp"
+        android:layout_marginLeft="28.91dp"
+        android:layout_marginTop="465.87dp"
+        android:layout_gravity="top|left"
+        android:scaleType="centerInside"
+        android:src="@drawable/image_vector2" />
+
+    <FrameLayout
+        android:id="@+id/container_group3"
+        android:layout_width="125.26dp"
+        android:layout_height="55.4dp"
+        android:layout_marginLeft="22.61dp"
+        android:layout_marginTop="486dp"
+        android:layout_gravity="top|left">
+
+        <TextView
+            android:id="@+id/text_release_date"
+            android:layout_width="114.42dp"
+            android:layout_height="29dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="-2.26dp"
+            android:layout_marginBottom="-2.26dp"
+            android:layout_gravity="top|left"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Release date"
+            android:fontFamily="@font/uvnbaihoc"
+            android:textColor="#FFFFFFFF"
+            android:textSize="19.27dp" />
+
+        <TextView
+            android:id="@+id/text_december"
+            android:layout_width="140dp"
+            android:layout_height="20.48dp"
+            android:layout_marginTop="34.93dp"
+            android:layout_marginBottom="0dp"
+            android:fontFamily="@font/utmavo"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="December 9, 2017"
+            android:textColor="#FFBCBCBC"
+            android:textSize="14dp"
+            tools:ignore="TextSizeCheck" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_synopsis"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="28.91dp"
+        android:layout_marginTop="581.89dp"
+        android:layout_marginBottom="-2.26dp"
+        android:fontFamily="@font/uvnbaihoc"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Synopsis"
+        android:textColor="#FFFFFFFF"
+        android:textSize="19.27dp" />
+
+    <TextView
+        android:id="@+id/text_related_movies"
+        android:layout_width="138.51dp"
+        android:layout_height="29dp"
+        android:layout_marginLeft="28.91dp"
+        android:layout_marginTop="725.22dp"
+        android:layout_marginBottom="-2.26dp"
+        android:layout_gravity="top|left"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Related Movies"
+        android:fontFamily="@font/uvnbaihoc"
+        android:textColor="#FFFFFFFF"
+        android:textSize="19.27dp" />
+
+    <FrameLayout
+        android:id="@+id/container_group4"
+        android:layout_width="80.27dp"
+        android:layout_height="30.11dp"
+        android:layout_marginBottom="432.39dp"
+        android:layout_marginLeft="200dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/container_group4">
+
+        <ImageView
+            android:id="@+id/image_rectangle2"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/image_rectangle2"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/text_action"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="2.5dp"
+            android:layout_marginRight="19dp"
+            android:layout_marginBottom="4.95dp"
+            android:fontFamily="@font/utmavo"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Action"
+            android:textColor="#FFBCBCBC"
+            android:textSize="14dp"
+            tools:ignore="TextSizeCheck" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/container_group5"
+        android:layout_width="80dp"
+        android:layout_height="30.11dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="432.39dp"
+        android:layout_marginLeft="300dp"
+        android:background="@drawable/container_group">
+        <ImageView
+            android:id="@+id/image_rectangle3"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/image_rectangle3"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/text_sci_fi"
+            android:layout_width="match_parent"
+            android:layout_height="19dp"
+            android:layout_marginLeft="18.07dp"
+            android:layout_marginTop="6.16dp"
+            android:layout_marginRight="16.86dp"
+            android:layout_marginBottom="4.95dp"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Sci-Fi"
+            android:textColor="#FFBCBCBC"
+            tools:ignore="TextSizeCheck"
+            android:textSize="14dp" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_genre"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginLeft="210.78dp"
+        android:layout_marginTop="483.13dp"
+        android:layout_marginBottom="-2.26dp"
+        android:layout_gravity="top|left"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Genre"
+        android:fontFamily="@font/uvnbaihoc"
+        android:textColor="#FFFFFFFF"
+        android:textSize="19.27dp" />
+
+    <FrameLayout
+        android:id="@+id/container_group8"
+        android:layout_width="171.03dp"
+        android:layout_height="175.85dp"
+        android:layout_marginLeft="28.91dp"
+        android:layout_marginTop="767.22dp"
+        android:layout_gravity="top|left">
+
+        <ImageView
+            android:id="@+id/container_mask_group2"
+            android:layout_width="match_parent"
+            android:layout_height="127.67dp"
+            android:layout_gravity="top"
+            android:scaleType="centerCrop"
+            android:src="@drawable/container_mask_group2" />
+
+        <TextView
+            android:id="@+id/text_star_wars1"
+            android:layout_width="156.58dp"
+            android:layout_height="33.72dp"
+            android:layout_marginTop="142.12dp"
+            android:layout_marginBottom="0dp"
+            android:layout_gravity="left"
+            android:gravity="left|top"
+            android:includeFontPadding="false"
+            android:lineHeight="17.34dp"
+            android:text="Star Wars: The Rise of Skywalker (2019)"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14.45dp" />
+
+        <ImageView
+            android:id="@+id/image_rectangle5"
+            android:layout_width="match_parent"
+            android:layout_height="127.67dp"
+            android:layout_gravity="top"
+            android:background="@drawable/image_rectangle5"
+            android:scaleType="centerCrop" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/container_group7"
+        android:layout_width="171.03dp"
+        android:layout_height="175.85dp"
+        android:layout_marginLeft="219.21dp"
+        android:layout_marginTop="767.22dp"
+        android:layout_gravity="top|left">
+
+        <TextView
+            android:id="@+id/text_star_wars"
+            android:layout_width="156.58dp"
+            android:layout_height="33.72dp"
+            android:layout_marginTop="142.12dp"
+            android:layout_marginBottom="0dp"
+            android:layout_gravity="left"
+            android:gravity="left|top"
+            android:includeFontPadding="false"
+            android:lineHeight="17.34dp"
+            android:text="Star Wars: The Force Awakens (2015)"
+            android:textColor="#FFFFFFFF"
+            android:textSize="14.45dp" />
+
+        <ImageView
+            android:id="@+id/container_mask_group1"
+            android:layout_width="171.03dp"
+            android:layout_height="127.67dp"
+            android:layout_gravity="top|left"
+            android:scaleType="centerInside"
+            android:src="@drawable/container_mask_group1" />
+
+        <ImageView
+            android:id="@+id/image_rectangle21"
+            android:layout_width="171.03dp"
+            android:layout_height="127.67dp"
+            android:layout_gravity="top|left"
+            android:background="@drawable/image_rectangle21"
+            android:scaleType="centerInside" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/container_group9"
+        android:layout_width="171.03dp"
+        android:layout_height="175.85dp"
+        android:layout_marginLeft="409.51dp"
+        android:layout_marginTop="767.22dp"
+        android:layout_gravity="top|left">
+
+        <TextView
+            android:id="@+id/text_rogue_one"
+            android:layout_width="160.19dp"
+            android:layout_height="33.72dp"
+            android:layout_marginTop="142.12dp"
+            android:layout_marginBottom="0dp"
+            android:layout_gravity="left"
+            android:gravity="left|top"
+            android:includeFontPadding="false"
+            android:lineHeight="17.34dp"
+            android:text="Rogue One: A Star Wars Story (2016) "
+            android:textColor="#FFFFFFFF"
+            android:textSize="14.45dp" />
+
+        <ImageView
+            android:id="@+id/container_mask_group3"
+            android:layout_width="match_parent"
+            android:layout_height="127.67dp"
+            android:layout_gravity="top"
+            android:scaleType="centerCrop"
+            android:src="@drawable/container_mask_group3" />
+
+        <ImageView
+            android:id="@+id/image_rectangle41"
+            android:layout_width="match_parent"
+            android:layout_height="127.67dp"
+            android:layout_gravity="top"
+            android:background="@drawable/image_rectangle41"
+            android:scaleType="centerCrop" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_rey"
+        android:layout_width="336dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="28.91dp"
+        android:layout_marginTop="619.08dp"
+        android:fontFamily="@font/utmavo"
+        android:gravity="left|top"
+        android:includeFontPadding="false"
+        android:lineHeight="21.68dp"
+        android:text="Rey (Daisy Ridley) finally manages to find the legendary Jedi knight, Luke Skywalker (Mark Hamill) on an island with a magical aura. The heroes of The Force Awakens including Leia, Finn Read more.."
+        android:textColor="#FFFFFFFF"
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck" />
+
+    <FrameLayout
+        android:id="@+id/container_group6"
+        android:layout_width="226.43dp"
+        android:layout_height="28.91dp"
+        android:layout_marginTop="419.14dp"
+        android:layout_gravity="top">
+
+        <TextView
+            android:id="@+id/text_minutes"
+            android:layout_width="wrap_content"
+            android:layout_height="20.48dp"
+            android:layout_marginLeft="28.91dp"
+            android:layout_marginTop="4.82dp"
+            android:layout_marginBottom="3.61dp"
+            android:layout_gravity="left"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="152 minutes"
+            tools:ignore="TextSizeCheck"
+            android:textColor="#FFBCBCBC"
+            android:textSize="14.45dp" />
+
+        <TextView
+            android:id="@+id/text_imdb"
+            android:layout_width="match_parent"
+            android:layout_height="20.48dp"
+            android:layout_marginLeft="155.37dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="4.82dp"
+            android:layout_marginBottom="3.61dp"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="7.0 (IMDb)"
+            android:textColor="#FFBCBCBC"
+            tools:ignore="TextSizeCheck"
+            android:textSize="14.45dp" />
+
+        <ImageView
+            android:id="@+id/image_group1"
+            android:layout_width="28.91dp"
+            android:layout_height="28.91dp"
+            android:layout_gravity="top|left"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_group1" />
+
+        <ImageView
+            android:id="@+id/image_group2"
+            android:layout_width="28.91dp"
+            android:layout_height="28.91dp"
+            android:layout_marginRight="71.06dp"
+            android:layout_marginBottom="0dp"
+            android:layout_gravity="bottom|right"
+            android:scaleType="centerInside"
+            android:src="@drawable/image_group2" />
+    </FrameLayout>
+
+</FrameLayout>

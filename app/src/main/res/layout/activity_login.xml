@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login"
+
+    android:layout_width="match_parent"
+    android:layout_height="844dp"
+    android:background="@drawable/drawable_shape">
+
+    <ImageView
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="294dp"
+        android:layout_gravity="top|left"
+        android:background="@drawable/drawable_shape_1"
+        android:scaleType="centerInside" />
+    <ImageView
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="447dp"
+        android:layout_gravity="top|left"
+        android:background="@drawable/drawable_shape_2"
+        android:scaleType="centerInside" />
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="54dp"
+        android:layout_marginTop="580dp"
+        android:layout_gravity="top|left"
+        android:background="@drawable/drawable_shape_3"
+        android:scaleType="centerInside" />
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="149dp"
+        android:layout_marginTop="580dp"
+        android:layout_gravity="top|left"
+        android:background="@drawable/drawable_shape_3"
+        android:scaleType="centerInside" />
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="244dp"
+        android:layout_marginTop="580dp"
+        android:layout_gravity="top|left"
+        android:background="@drawable/drawable_shape_3"
+        android:scaleType="centerInside" />
+    <ImageView
+        android:layout_width="328dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="353dp"
+        android:layout_gravity="top|left"
+        android:background="@drawable/drawable_shape_1"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="453dp"
+        android:fontFamily="@font/windsorb"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Đăng nhập"
+        android:textColor="#FF000000"
+        android:textSize="18dp" />
+
+
+    <ImageView
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:layout_marginLeft="79dp"
+        android:layout_marginTop="591dp"
+        android:layout_gravity="top|left"
+        android:scaleType="centerInside"
+        android:src="@drawable/google" />
+    <ImageView
+        android:layout_width="26dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="173dp"
+        android:layout_marginRight="191dp"
+        android:layout_marginTop="593dp"
+        android:layout_marginBottom="227dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/drawable_image_1" />
+
+    <ImageView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/logo"
+        android:layout_width="450dp"
+        android:layout_height="239dp"
+        android:layout_marginLeft="-25dp"
+        android:layout_marginTop="95dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo" />
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="26dp"
+        android:layout_marginLeft="273dp"
+        android:layout_marginRight="95dp"
+        android:layout_marginTop="591dp"
+        android:layout_marginBottom="227dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/drawable_image_2" />
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="23dp"
+        android:layout_marginLeft="332dp"
+        android:layout_marginTop="61dp"
+        android:layout_gravity="top|left"
+        android:scaleType="centerInside"
+        android:src="@drawable/drawable_image_3" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:layout_marginLeft="247dp"
+        android:layout_marginTop="404.5dp"
+        android:layout_marginBottom="-0.5dp"
+        android:fontFamily="@font/uvnbaihoc"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Quên mật khẩu?"
+        android:textColor="#FF000000"
+        android:textSize="13dp"
+        android:textStyle="italic" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="307.5dp"
+        android:layout_marginBottom="-0.5dp"
+        android:layout_gravity="top|left"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Nhập email"
+        android:fontFamily="@font/uvnbaihoc"
+        android:textColor="#FF6D6A6A"
+        android:textSize="15dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:layout_marginLeft="43dp"
+        android:layout_marginTop="366.5dp"
+        android:layout_marginBottom="-0.5dp"
+        android:layout_gravity="top|left"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Nhập mât khẩu"
+        android:fontFamily="@font/uvnbaihoc"
+        android:textColor="#FF6D6A6A"
+        android:textSize="15dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="529.5dp"
+        android:layout_marginBottom="-0.5dp"
+        android:layout_gravity="top|left"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Hoặc đăng ký bằng"
+        android:fontFamily="@font/uvnbaihoc"
+        android:textColor="#000000"
+        android:textSize="12dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:layout_marginLeft="91dp"
+        android:layout_marginTop="680.5dp"
+        android:layout_marginBottom="-0.5dp"
+        android:layout_gravity="top|left"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Bạn chưa đăng ký? Tạo tài khoản ngay"
+        android:fontFamily="@font/uvnbaihoc"
+        android:textColor="#070707"
+        android:textSize="13dp" />
+</FrameLayout>
