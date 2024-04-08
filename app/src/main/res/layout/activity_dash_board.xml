@@ -212,7 +212,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Trang chủ"
-                android:fontFamily="@font/windsorb"
+                android:textStyle="bold"
                 android:textAlignment="center"
                 android:textColor="#050037" />
 
@@ -236,7 +236,7 @@
                 android:id="@+id/textview4"
                 android:layout_width="168dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/windsorb"
+                android:textStyle="bold"
                 android:text="Yêu thích"
                 android:textAlignment="center"
                 android:textColor="#050037" />
@@ -260,8 +260,8 @@
                 android:id="@+id/textview5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:text="Tài khoản"
-                android:fontFamily="@font/windsorb"
                 android:textAlignment="center"
                 android:textColor="#050037" />
 
