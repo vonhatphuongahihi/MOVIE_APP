@@ -130,7 +130,6 @@
         android:layout_marginLeft="247dp"
         android:layout_marginTop="404.5dp"
         android:layout_marginBottom="-0.5dp"
-        android:fontFamily="@font/uvnbaihoc"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
@@ -181,7 +180,6 @@
         android:maxLines="1"
         android:singleLine="true"
         android:text="Hoặc đăng ký bằng"
-        android:fontFamily="@font/uvnbaihoc"
         android:textColor="#000000"
         android:textSize="12dp" />
     <TextView
@@ -196,7 +194,6 @@
         android:maxLines="1"
         android:singleLine="true"
         android:text="Bạn chưa đăng ký? Tạo tài khoản ngay"
-        android:fontFamily="@font/uvnbaihoc"
         android:textColor="#070707"
         android:textSize="13dp" />
 </FrameLayout>

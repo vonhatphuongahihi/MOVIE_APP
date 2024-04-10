@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/signup"
     android:layout_width="match_parent"
-    android:layout_height="736dp"
+    android:layout_height="match_parent"
     android:background="@drawable/drawable_shape">
     <ImageView
         xmlns:android="http://schemas.android.com/apk/res/android"
