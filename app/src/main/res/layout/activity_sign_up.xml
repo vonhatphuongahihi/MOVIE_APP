@@ -23,25 +23,28 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="18dp"
+        android:layout_gravity="top|left"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="251dp"
         android:layout_marginBottom="-1dp"
-        android:layout_gravity="top|left"
+        android:fontFamily="@font/windsorb"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:text="Email"
-        android:fontFamily="@font/windsorb"
         android:textColor="#FFFFFFFF"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="18dp"
+        android:layout_gravity="top|left"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="321dp"
         android:layout_marginBottom="-1dp"
-        android:layout_gravity="top|left"
+        android:fontFamily="@font/windsorb"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
@@ -49,52 +52,58 @@
         android:text="Tên đăng nhập"
         android:textColor="#FFFFFFFF"
         android:textSize="14dp"
-        android:fontFamily="@font/windsorb"/>
+        tools:ignore="TextSizeCheck" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="18dp"
+        android:layout_gravity="top|left"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="391dp"
         android:layout_marginBottom="-1dp"
-        android:layout_gravity="top|left"
+        android:fontFamily="@font/windsorb"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:text="Mật khẩu"
-        android:fontFamily="@font/windsorb"
         android:textColor="#FFFFFFFF"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="18dp"
+        android:layout_gravity="top|left"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="461dp"
         android:layout_marginBottom="-1dp"
-        android:layout_gravity="top|left"
+        android:fontFamily="@font/windsorb"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:text="Nhập lại mật khẩu"
-        android:fontFamily="@font/windsorb"
         android:textColor="#FFFFFFFF"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="20dp"
+        android:layout_gravity="top|left"
         android:layout_marginLeft="80dp"
         android:layout_marginTop="618dp"
         android:layout_marginBottom="-1dp"
-        android:layout_gravity="top|left"
+        android:fontFamily="@font/utmavo"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:text="Bạn đã có tài khoản? Đăng nhâp"
-        android:fontFamily="@font/utmavo"
         android:textColor="#FF000000"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck" />
     <ImageView
         android:layout_width="300dp"
         android:layout_height="35dp"
@@ -111,14 +120,15 @@
         android:layout_marginLeft="70dp"
         android:layout_marginTop="281dp"
         android:layout_marginBottom="-1dp"
+        android:fontFamily="@font/uvnbaihoc"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:text="Nhập email"
-        android:fontFamily="@font/uvnbaihoc"
         android:textColor="#FF595959"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck" />
     <ImageView
         android:layout_width="300dp"
         android:layout_height="35dp"
@@ -127,21 +137,23 @@
         android:layout_gravity="top|left"
         android:background="@drawable/drawable_shape_2"
         android:scaleType="centerInside" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="18dp"
+        android:layout_gravity="top|left"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="352dp"
         android:layout_marginBottom="-1dp"
-        android:layout_gravity="top|left"
+        android:fontFamily="@font/uvnbaihoc"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:text="Nhập tên đăng nhập"
-        android:fontFamily="@font/uvnbaihoc"
         android:textColor="#FF595959"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck" />
     <ImageView
         android:layout_width="300dp"
         android:layout_height="35dp"
@@ -150,20 +162,22 @@
         android:layout_gravity="top|left"
         android:background="@drawable/drawable_shape_2"
         android:scaleType="centerInside" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="18dp"
+        android:layout_gravity="top|left"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="422dp"
         android:layout_marginBottom="-1dp"
-        android:layout_gravity="top|left"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:text="********"
         android:textColor="#FF595959"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck" />
     <ImageView
         android:layout_width="300dp"
         android:layout_height="35dp"
@@ -172,13 +186,14 @@
         android:layout_gravity="top|left"
         android:background="@drawable/drawable_shape_2"
         android:scaleType="centerInside" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="18dp"
+        android:layout_gravity="top|left"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="492dp"
         android:layout_marginBottom="-1dp"
-        android:layout_gravity="top|left"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
@@ -186,7 +201,8 @@
         android:text="********"
 
         android:textColor="#FF595959"
-        android:textSize="14dp" />
+        android:textSize="14dp"
+        tools:ignore="TextSizeCheck" />
 
     <ImageView
         android:layout_width="10dp"
@@ -196,20 +212,22 @@
         android:layout_gravity="top|left"
         android:background="@drawable/drawable_shape_6"
         android:scaleType="centerInside" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="17dp"
+        android:layout_gravity="top|left"
         android:layout_marginLeft="83dp"
         android:layout_marginTop="531dp"
         android:layout_marginBottom="-1dp"
-        android:layout_gravity="top|left"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:text="Tôi đồng ý với chính sách và điều kiện"
         android:textColor="#FF000000"
-        android:textSize="13dp" />
+        android:textSize="13dp"
+        tools:ignore="TextSizeCheck" />
 
     <Button
         android:id="@+id/button"
