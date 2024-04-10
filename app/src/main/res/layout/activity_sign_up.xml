@@ -208,7 +208,6 @@
         android:maxLines="1"
         android:singleLine="true"
         android:text="Tôi đồng ý với chính sách và điều kiện"
-        android:fontFamily="@font/uvnbaihoc"
         android:textColor="#FF000000"
         android:textSize="13dp" />
 
