@@ -7,36 +7,29 @@
     android:id="@+id/splash_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/container_iphone"
+    android:background="@drawable/background_splash_screen"
     >
-
-
     <ImageView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/screen"
-        android:layout_width="450dp"
-        android:layout_height="239dp"
+        android:layout_width="380dp"
+        android:layout_height="200dp"
         android:layout_marginLeft="0dp"
-        android:layout_marginTop="206dp"
+        android:layout_marginTop="250dp"
         android:scaleType="centerCrop"
-
         android:src="@drawable/logo" />
 
-
     <FrameLayout
-        android:id="@+id/container_group"
         android:layout_width="788.76dp"
         android:layout_height="1097.36dp"
         android:layout_gravity="top|left"
         android:layout_marginLeft="-196dp"
         android:layout_marginTop="-86dp"
         android:alpha="0.30000001192092896"
-        android:background="@drawable/container_group">
-
+        android:background="@drawable/splash_screen_shape">
         <ImageView
-            android:id="@+id/image_group1"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_gravity="top"
@@ -45,29 +38,25 @@
             android:layout_marginRight="110dp"
             android:scaleType="centerCrop"
             android:src="@drawable/queen_of_tears" />
-
         <ImageView
-            android:id="@+id/image_group2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="278dp"
-            android:layout_marginRight="263.14dp"
             android:layout_marginTop="485dp"
+            android:layout_marginRight="263.14dp"
             android:layout_marginBottom="350dp"
             android:scaleType="centerCrop"
             android:src="@drawable/twenty_fiv_twenty_one" />
         <ImageView
-            android:id="@+id/image_group3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="390dp"
-            android:layout_marginRight="115dp"
             android:layout_marginTop="445dp"
+            android:layout_marginRight="115dp"
             android:layout_marginBottom="369.98dp"
             android:scaleType="centerCrop"
             android:src="@drawable/du_phuong_hanh" />
         <ImageView
-            android:id="@+id/image_group4"
             android:layout_width="540dp"
             android:layout_height="275.16dp"
             android:layout_gravity="top"
@@ -78,26 +67,25 @@
             android:src="@drawable/hoa_gian_lenh" />
 
         <ImageView
-            android:id="@+id/image_group5"
             android:layout_width="304dp"
-            android:layout_height="268dp"
+            android:layout_height="275dp"
             android:layout_gravity="top|left"
             android:layout_marginLeft="80dp"
             android:layout_marginTop="270dp"
             android:scaleType="centerCrop"
             android:src="@drawable/thien_thien" />
+
         <ImageView
-            android:id="@+id/image_group6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="470dp"
-            android:layout_marginRight="70dp"
             android:layout_marginTop="665dp"
+            android:layout_marginRight="70dp"
             android:layout_marginBottom="30dp"
             android:scaleType="centerCrop"
             android:src="@drawable/khanh_khanh_nhat_thuong" />
+
         <ImageView
-            android:id="@+id/image_group7"
             android:layout_width="match_parent"
             android:layout_height="270dp"
             android:layout_gravity="top"
@@ -108,7 +96,6 @@
             android:src="@drawable/ninh_an_nhu_mong" />
 
         <ImageView
-            android:id="@+id/image_group8"
             android:layout_width="wrap_content"
             android:layout_height="270dp"
             android:layout_gravity="top"
@@ -119,37 +106,35 @@
             android:src="@drawable/lien_hoa_lau" />
 
         <ImageView
-            android:id="@+id/image_group9"
             android:layout_width="match_parent"
             android:layout_height="218.97dp"
-            android:layout_marginLeft="420dp"
-            android:layout_marginRight="60.22dp"
-            android:layout_marginTop="285dp"
             android:layout_gravity="top"
+            android:layout_marginLeft="420dp"
+            android:layout_marginTop="285dp"
+            android:layout_marginRight="60.22dp"
             android:scaleType="centerCrop"
             android:src="@drawable/tran_tinh_lenh" />
+
         <ImageView
-            android:id="@+id/image_group10"
             android:layout_width="470dp"
             android:layout_height="300dp"
+            android:layout_gravity="left"
             android:layout_marginLeft="170dp"
             android:layout_marginTop="685dp"
             android:layout_marginBottom="180dp"
-            android:layout_gravity="left"
             android:scaleType="centerCrop"
             android:src="@drawable/son_ha_lenh" />
-        <ImageView
-            android:id="@+id/image_group11"
-            android:layout_width="400.61dp"
-            android:layout_height="312dp"
-            android:layout_marginLeft="-20dp"
-            android:layout_marginTop="470dp"
-            android:layout_gravity="top|left"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tien_kiem_4"/>
 
         <ImageView
-            android:id="@+id/image_group12"
+            android:layout_width="400.61dp"
+            android:layout_height="312dp"
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="-20dp"
+            android:layout_marginTop="470dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/tien_kiem_4" />
+
+        <ImageView
             android:layout_width="485dp"
             android:layout_height="377dp"
             android:layout_gravity="top|left"
@@ -158,20 +143,4 @@
             android:scaleType="centerCrop"
             android:src="@drawable/tien_kiem_6" />
     </FrameLayout>
-    <TextView
-        android:id="@+id/text_watch_find_movie"
-        android:layout_width="wrap_content"
-        android:layout_height="38dp"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="370dp"
-        android:layout_gravity="top|left"
-        android:alpha="0.800000011920929"
-        android:gravity="center_horizontal|center_vertical"
-        android:includeFontPadding="false"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:text="Thế giới phim ảnh siêu hay "
-        android:fontFamily="@font/windsorb"
-        android:textColor="#2B0404"
-        android:textSize="22dp" />
 </FrameLayout>

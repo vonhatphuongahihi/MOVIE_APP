@@ -4,9 +4,9 @@
   </a>
 </p>
 
-<h1 align="center"><b>SE114.O21 - Nhập môn Ứng dụng di động</b></h>
+<h1 align="center"><b>SE114.O21 - Nhập môn Ứng dụng di động</b></h1>
 
-## Nhóm snh viên:
+## Nhóm sinh viên:
 |**STT**|**MSSV**|   **Họ và tên**  |**Chức vụ**|       **Email**      |
 |-------|--------|------------------|-----------|----------------------|
 |   1   |22521172| Võ Nhất Phương |Nhóm trưởng|22521171@gm.uit.edu.vn|

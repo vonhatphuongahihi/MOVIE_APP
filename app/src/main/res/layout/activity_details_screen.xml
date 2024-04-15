@@ -213,7 +213,7 @@
         android:layout_gravity="bottom"
         android:layout_marginBottom="432.39dp"
         android:layout_marginLeft="300dp"
-        android:background="@drawable/container_group">
+        android:background="@drawable/splash_screen_shape">
         <ImageView
             android:id="@+id/image_rectangle3"
             android:layout_width="75dp"
