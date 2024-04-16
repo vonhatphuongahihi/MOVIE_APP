@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MovieApp"
         tools:targetApi="30">
         <activity
+            android:name=".Activities.Change_Password"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Forget_Password"
             android:exported="false" />
         <activity
