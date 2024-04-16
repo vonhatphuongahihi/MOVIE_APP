@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.activity_login"
+            android:name=".Activities.Login"
             android:exported="true" />
         <activity
             android:name=".Activities.activity_sign_up"
