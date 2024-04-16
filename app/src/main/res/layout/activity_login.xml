@@ -38,8 +38,8 @@
             android:layout_height="50dp"
             android:layout_gravity="top|left"
             android:background="@drawable/edittext_nhap_sdt"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:textSize="16dp"
+            android:inputType="phone"
+            android:ems="10"
             tools:ignore="SpeakableTextPresentCheck"/>
         <TextView
             android:layout_width="wrap_content"

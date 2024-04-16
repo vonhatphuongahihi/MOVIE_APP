@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MovieApp"
         tools:targetApi="30">
         <activity
+            android:name=".Activities.Edit_Profile"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Private"
             android:exported="false" />
         <activity
