@@ -31,13 +31,16 @@
             android:layout_marginBottom="10dp"
             android:layout_gravity="left"
             android:scaleType="centerInside"
-            android:src="@drawable/user_icon" />
-        <TextView
-            android:id="@+id/text_sdt"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:src="@drawable/phone_icon" />
+        <EditText
+            android:id="@+id/nhap_sdt_dang_nhap"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_gravity="top|left"
             android:background="@drawable/edittext_nhap_sdt"
-            android:scaleType="centerCrop" />
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="16dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="21dp"
@@ -70,26 +73,30 @@
             android:layout_gravity="left"
             android:scaleType="centerInside"
             android:src="@drawable/password_icon" />
-        <TextView
-            android:id="@+id/text_mat_khau"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <EditText
+            android:id="@+id/nhap_mat_khau_dang_nhap"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_gravity="top|left"
             android:background="@drawable/edittext_nhap_sdt"
-            android:scaleType="centerCrop" />
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="16dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="21dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
             android:layout_marginLeft="59dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="14dp"
-            android:layout_gravity="left"
+            android:fontFamily="@font/roboto_condensed_regular"
             android:gravity="left|center_vertical"
+            android:hint="Mật khẩu"
             android:includeFontPadding="false"
             android:maxLines="1"
             android:singleLine="true"
-            android:hint="Mật khẩu"
             android:textColor="#FF000000"
-            android:fontFamily="@font/roboto_condensed_regular"
             android:textSize="16dp" />
         <ImageView
             android:id="@+id/hien_an_mat_khau"

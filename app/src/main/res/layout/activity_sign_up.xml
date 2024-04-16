@@ -5,6 +5,232 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/signup"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="@drawable/background"/>
+    android:background="@drawable/background">
+
+    <ImageView
+        android:layout_width="420dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="-50dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/logo" />
+    <FrameLayout
+        android:id="@+id/nhap_ho_ten"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="236dp"
+        android:layout_gravity="top|left">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="left"
+            android:scaleType="centerInside"
+            android:src="@drawable/user_icon" />
+        <EditText
+            android:id="@+id/nhap_ho_ten_dang_ky"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_gravity="top|left"
+            android:background="@drawable/edittext_nhap_sdt"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="16dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginLeft="59dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="14dp"
+            android:layout_gravity="left"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:hint="Họ tên"
+            android:textColor="#FF000000"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="16dp" />
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/nhap_sdt"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="306dp"
+        android:layout_gravity="top|left">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="left"
+            android:scaleType="centerInside"
+            android:src="@drawable/phone_icon" />
+        <EditText
+            android:id="@+id/nhap_sdt_dang_ky"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_gravity="top|left"
+            android:background="@drawable/edittext_nhap_sdt"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="16dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginLeft="59dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="14dp"
+            android:layout_gravity="left"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:hint="Số điện thoại"
+            android:textColor="#FF000000"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="16dp" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/nhap_mat_khau"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="376dp"
+        android:layout_gravity="top|left">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="left"
+            android:scaleType="centerInside"
+            android:src="@drawable/password_icon" />
+        <EditText
+            android:id="@+id/nhap_mat_khau_dang_ky"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_gravity="top|left"
+            android:background="@drawable/edittext_nhap_sdt"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="16dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginLeft="59dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="14dp"
+            android:layout_gravity="left"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:hint="Mật khẩu"
+            android:textColor="#FF000000"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="16dp" />
+
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/nhap_lai_mat_khau"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="446dp"
+        android:layout_gravity="top|left">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="left"
+            android:scaleType="centerInside"
+            android:src="@drawable/password_icon" />
+        <EditText
+            android:id="@+id/nhap_lai_mat_khau_dang_ky"
+            android:layout_width="330dp"
+            android:layout_height="50dp"
+            android:layout_gravity="top|left"
+            android:background="@drawable/edittext_nhap_sdt"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="16dp"
+            tools:ignore="SpeakableTextPresentCheck"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginLeft="59dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="14dp"
+            android:layout_gravity="left"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:hint="Nhập lại mật khẩu"
+            android:textColor="#FF000000"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:textSize="16dp" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/button_dang_ky"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="560dp"
+        android:layout_gravity="top|left"
+        android:background="@drawable/button_dang_nhap">
+        <TextView
+            android:id="@+id/text_dang_ky"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Đăng ký"
+            android:textColor="#FF471AA0"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:textSize="20dp"
+            />
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="21dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="730dp"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Bạn đã có tài khoản?"
+        android:textColor="#FF471AA0"
+        android:fontFamily="@font/roboto_condensed_regular"
+        android:textSize="16dp" />
+    <TextView
+        android:id="@+id/text_dang_nhap"
+        android:layout_width="wrap_content"
+        android:layout_height="21dp"
+        android:layout_marginLeft="215dp"
+        android:layout_marginTop="730dp"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Đăng nhập"
+        android:fontFamily="@font/roboto_condensed_medium"
+        android:textColor="#FF471AA0"
+        android:textSize="16dp" />
+</FrameLayout>
+
+
