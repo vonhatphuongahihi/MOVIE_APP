@@ -10,12 +10,12 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\PC\.android\avd\OPPO_A5S_API_34.avd" />
+                  <value value="C:\Users\PC\.android\avd\A15S_API_34.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-16T09:44:52.607632400Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-04-16T16:09:01.786827500Z" />
         </State>
       </entry>
     </value>

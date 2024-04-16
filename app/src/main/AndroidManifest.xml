@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MovieApp"
         tools:targetApi="30">
         <activity
+            android:name=".Activities.Forget_Password"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Edit_Profile"
             android:exported="false" />
         <activity
@@ -41,9 +44,6 @@
             android:exported="true" />
         <activity
             android:name=".Activities.activity_sign_up"
-            android:exported="true" />
-        <activity
-            android:name=".Activities.dash_board"
             android:exported="true" />
     </application>
 
