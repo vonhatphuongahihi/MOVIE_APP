@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_verification"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:ignore="ExtraText">
+
+    <ImageView
+        android:layout_width="286dp"
+        android:layout_height="288dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="250dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/anh_dt_xacnhan" />
+
+    <Button
+        android:id="@+id/button_xac_nhan"
+        android:text="Gửi"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="700dp"
+        android:layout_marginBottom="110dp"
+        android:backgroundTint="#FFC6FF"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        android:scaleType="centerInside"
+        android:onClick="GuimaOTP"
+        app:strokeColor="@color/black"
+        app:strokeWidth="1dp"/> />
+
+    <TextView
+        android:id="@+id/text_send"
+        android:layout_width="wrap_content"
+        android:layout_height="23dp"
+        android:layout_marginLeft="179dp"
+        android:layout_marginTop="811dp"
+        android:layout_marginBottom="-1dp"
+        android:layout_gravity="top|left"
+        android:gravity="left|center_vertical"
+        android:includeFontPadding="false"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="Gửi"
+        android:textColor="#FF000000"
+        android:textSize="18dp" />
+
+    <FrameLayout
+        android:id="@+id/container_group"
+        android:layout_width="320dp"
+        android:layout_height="87dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="top|left">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_marginTop="-1dp"
+            android:layout_marginBottom="-1dp"
+            android:layout_gravity="top|left"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Xác minh mã"
+            android:textColor="#FF000000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="320dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="51dp"
+            android:alpha="0.800000011920929"
+            android:gravity="left|top"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:lineHeight="20dp"
+            android:text="Mã đã được gửi về số điện thoại của bạn. Hãy nhập mã trong vòng 5 phút."
+            android:textColor="#FF000000"
+            android:textSize="16dp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/container_group1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="550dp"
+        android:layout_gravity="top|left">
+
+        <EditText
+            android:id="@+id/ma_otp4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="232dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/opt1"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:scaleType="centerInside" />
+
+        <EditText
+            android:id="@+id/ma_otp3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="165dp"
+            android:layout_marginRight="67dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/otp2"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:scaleType="centerInside" />
+
+        <EditText
+            android:id="@+id/ma_otp2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="98dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="left"
+            android:background="@drawable/otp3"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:scaleType="centerInside" />
+
+        <EditText
+            android:id="@+id/ma_otp1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="left"
+            android:background="@drawable/opt4"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:scaleType="centerInside" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:layout_height="21dp"
+            android:layout_marginTop="-1dp"
+            android:layout_marginLeft="31dp"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Chưa nhận được mã?"
+            android:textColor="#FF575555"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/button_gui_lai_ma"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginLeft="190dp"
+            android:layout_gravity="top"
+            android:gravity="left|center_vertical"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Gửi lại"
+            android:textColor="#FF000000"
+            android:textSize="16dp" />
+    </FrameLayout>
+</FrameLayout>

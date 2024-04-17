@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MovieApp"
         tools:targetApi="30">
         <activity
+            android:name=".Activities.Verification"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Comment"
             android:exported="false" />
         <activity
