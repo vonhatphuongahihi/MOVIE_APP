@@ -13,10 +13,10 @@
         android:id="@+id/image_rectangle1"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginTop="-2dp"
         android:layout_marginLeft="0dp"
-        android:scaleType="centerInside"
-        android:background="@drawable/us_and_them" />
+        android:layout_marginTop="-2dp"
+        android:background="@drawable/us_and_them"
+        android:scaleType="centerInside" />
 
     <Button
         android:id="@+id/ic_previous_ltr"
