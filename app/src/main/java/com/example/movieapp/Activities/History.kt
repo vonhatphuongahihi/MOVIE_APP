@@ -8,6 +8,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.movieapp.R
 
 class History : AppCompatActivity() {
+    lateinit var custom_adapter_history_film_list : CustomAdapter_history_film_list
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -17,5 +18,14 @@ class History : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        var dataList = mutableListOf<History_film_class>()
+        dataList.add(History_film_class(R.drawable.thien_thien, "Liên Hoa Lâu", R.drawable.twenty_fiv_twenty_one_fav, "Twenty Five Twenty One"))
+        dataList.add(History_film_class(R.drawable.thien_thien, "Liên Hoa Lâu", R.drawable.twenty_fiv_twenty_one_fav, "Twenty Five Twenty One"))
+        dataList.add(History_film_class(R.drawable.thien_thien, "Liên Hoa Lâu", R.drawable.twenty_fiv_twenty_one_fav, "Twenty Five Twenty One"))
+        dataList.add(History_film_class(R.drawable.thien_thien, "Liên Hoa Lâu", R.drawable.twenty_fiv_twenty_one_fav, "Twenty Five Twenty One"))
+        dataList.add(History_film_class(R.drawable.thien_thien, "Liên Hoa Lâu", R.drawable.twenty_fiv_twenty_one_fav, "Twenty Five Twenty One"))
+        custom_adapter_history_film_list = CustomAdapter_history_film_list(this, dataList)
+        val lvHistory = findViewById<android.widget.ListView>(R.id.list_view_history)
+        lvHistory.adapter = custom_adapter_history_film_list
     }
 }

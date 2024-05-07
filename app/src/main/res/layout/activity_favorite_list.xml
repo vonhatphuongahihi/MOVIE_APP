@@ -172,7 +172,7 @@
             android:layout_height="212dp"
             android:layout_gravity="top"
             android:layout_marginLeft="185dp"
-            android:scr="@drawable/khung_fav_phim">
+            android:src="@drawable/khung_fav_phim">
 
             <ImageView
                 android:id="@+id/image_rectangle5"

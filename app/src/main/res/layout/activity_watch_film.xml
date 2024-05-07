@@ -136,7 +136,7 @@
             android:textSize="11sp" />
     </FrameLayout>
     <FrameLayout
-        android:id="@+id/khung_binh_luan"
+        android:id="@+id/khung_binh_luan_container"
         android:layout_width="320dp"
         android:layout_height="104dp"
         android:layout_marginLeft="22dp"

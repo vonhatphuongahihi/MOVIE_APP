@@ -14,7 +14,7 @@
         tools:targetApi="30">
         <activity
             android:name=".Activities.History"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activities.FavoriteList"
             android:exported="false" />
@@ -53,9 +53,6 @@
             android:exported="false" />
         <activity
             android:name=".Activities.User"
-            android:exported="false" />
-        <activity
-            android:name=".Activities.DetailsScreen"
             android:exported="false" />
         <activity
             android:name=".Activities.SplashScreen"

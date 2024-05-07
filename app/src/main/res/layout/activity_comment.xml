@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container_watch_film"
+    android:id="@+id/activity_comment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background">
@@ -364,7 +364,7 @@
                     android:src="@drawable/user" />
             </FrameLayout>
             <ImageView
-                android:id="@+id/khung_binh_luan_2"
+                android:id="@+id/khung_binh_luan_3"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginLeft="45dp"

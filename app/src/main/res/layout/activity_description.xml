@@ -40,30 +40,8 @@
         android:background="@drawable/nut_bat_dau_xem"
         tools:ignore="SpeakableTextPresentCheck"/>
 
-    <ImageView
-        android:layout_width="320dp"
-        android:layout_height="0.24dp"
-        android:layout_marginTop="450dp"
-        android:layout_gravity="center_horizontal"
-        android:scaleType="centerInside"
-        android:background="\@drawable/ngan_cach" />
 
-    <ImageView
-        android:id="@+id/image_vector1"
-        android:layout_width="320dp"
-        android:layout_height="0.5dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="570dp"
-        android:scaleType="centerInside"
-        android:background="@drawable/ngan_cach" />
 
-    <ImageView
-        android:layout_width="320dp"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="360dp"
-        android:layout_gravity="center_horizontal"
-        android:scaleType="centerInside"
-        android:background="@drawable/ngan_cach" />
 
     <FrameLayout
         android:id="@+id/container_group1"
