@@ -10,7 +10,7 @@
     android:background="@drawable/background">
 
     <ImageView
-        android:layout_width="420dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="-100dp"
@@ -20,101 +20,58 @@
         android:id="@+id/nhap_sdt"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="15dp"
         android:layout_marginTop="256dp"
-        android:layout_gravity="top|left">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="left"
-            android:scaleType="centerInside"
-            android:src="@drawable/phone_icon" />
+        android:layout_gravity="center|top">
+
+
         <EditText
             android:id="@+id/nhap_sdt_dang_nhap"
             android:layout_width="330dp"
             android:layout_height="50dp"
-            android:layout_gravity="top|left"
+            android:layout_gravity="center"
             android:background="@drawable/edittext_nhap_sdt"
-            android:inputType="phone"
+            android:drawableStart="@drawable/phone_icon"
+
+            android:drawablePadding="10dp"
             android:ems="10"
-            tools:ignore="SpeakableTextPresentCheck"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="21dp"
-            android:layout_marginLeft="59dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="14dp"
-            android:layout_gravity="left"
-            android:gravity="left|center_vertical"
-            android:includeFontPadding="false"
-            android:maxLines="1"
-            android:singleLine="true"
             android:hint="Số điện thoại"
-            android:textColor="#FF000000"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:textSize="16dp" />
+            android:includeFontPadding="false"
+            android:inputType="phone"
+            android:paddingHorizontal="10dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
     </FrameLayout>
     <FrameLayout
         android:id="@+id/nhap_mat_khau"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="15dp"
         android:layout_marginTop="330dp"
-        android:layout_gravity="top|left">
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="left"
-            android:scaleType="centerInside"
-            android:src="@drawable/password_icon" />
+        android:layout_gravity="center|top">
+
         <EditText
             android:id="@+id/nhap_mat_khau_dang_nhap"
             android:layout_width="330dp"
             android:layout_height="50dp"
-            android:layout_gravity="top|left"
+            android:layout_gravity="center"
             android:background="@drawable/edittext_nhap_sdt"
+            android:drawableStart="@drawable/lock_outline"
+            android:drawablePadding="10dp"
+            android:drawableTint="#6945B5"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:textSize="16dp"
-            tools:ignore="SpeakableTextPresentCheck"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="59dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="14dp"
-            android:fontFamily="@font/roboto_condensed_regular"
-            android:gravity="left|center_vertical"
             android:hint="Mật khẩu"
-            android:includeFontPadding="false"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:textColor="#FF000000"
-            android:textSize="16dp" />
-        <ImageView
-            android:id="@+id/hien_an_mat_khau"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="295dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="15dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/hien_an_mat_khau" />
+            android:inputType="textPassword"
+            android:paddingHorizontal="10dp"
+            android:textSize="16dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+
     </FrameLayout>
     <TextView
         android:id="@+id/text_quen_mat_khau"
         android:layout_width="wrap_content"
         android:layout_height="21dp"
-        android:layout_marginLeft="210dp"
+        android:layout_marginLeft="250dp"
         android:layout_marginTop="394dp"
-        android:layout_marginBottom="-1dp"
         android:layout_gravity="top|left"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
@@ -129,9 +86,8 @@
         android:id="@+id/button_dang_nhap"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="15dp"
         android:layout_marginTop="460dp"
-        android:layout_gravity="top|left"
+        android:layout_gravity="top|center"
         android:background="@drawable/button_dang_nhap">
         <TextView
             android:id="@+id/text_dang_nhap"
@@ -205,31 +161,40 @@
 
     </FrameLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="21dp"
-                android:layout_marginLeft="75dp"
-                android:layout_marginTop="730dp"
-                android:includeFontPadding="false"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="Bạn chưa có tài khoản?"
-                android:textColor="#FF471AA0"
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:textSize="16dp" />
-            <TextView
-                android:id="@+id/text_dang_ky"
-                android:layout_width="wrap_content"
-                android:layout_height="21dp"
-                android:layout_marginLeft="225dp"
-                android:layout_marginTop="730dp"
-                android:includeFontPadding="false"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="Đăng ký"
-                android:fontFamily="@font/roboto_condensed_medium"
-                android:textColor="#FF471AA0"
-                android:textSize="16dp" />
-        </FrameLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginTop="730dp"
+
+            android:fontFamily="@font/roboto_condensed_regular"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Bạn chưa có tài khoản? "
+            android:textColor="#FF471AA0"
+            android:textSize="16dp"
+            />
+
+        <TextView
+            android:id="@+id/text_dang_ky"
+            android:layout_width="wrap_content"
+            android:layout_height="21dp"
+            android:layout_marginTop="730dp"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Đăng ký"
+            android:fontFamily="@font/roboto_condensed_medium"
+            android:textColor="#FF471AA0"
+            android:textSize="16dp"
+            />
+    </LinearLayout>
+
+</FrameLayout>
 
 

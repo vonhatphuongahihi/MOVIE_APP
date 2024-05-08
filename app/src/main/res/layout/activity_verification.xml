@@ -13,9 +13,9 @@
     <ImageView
         android:layout_width="286dp"
         android:layout_height="288dp"
-        android:layout_marginLeft="50dp"
         android:layout_marginTop="250dp"
         android:scaleType="centerInside"
+        android:layout_gravity="center|top"
         android:src="@drawable/anh_dt_xacnhan" />
 
     <Button
@@ -92,9 +92,8 @@
         android:id="@+id/container_group1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
         android:layout_marginTop="550dp"
-        android:layout_gravity="top|left">
+        android:layout_gravity="center|top">
 
         <EditText
             android:id="@+id/ma_otp4"
