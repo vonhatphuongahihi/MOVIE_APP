@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".homeFragment"
+    android:background="@drawable/background">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="330dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="top|center_horizontal">
+                <FrameLayout
+                    android:layout_width="295dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/khung_tim_kiem">
+                    <LinearLayout
+                        android:id="@+id/search_placeholder"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clipToPadding="false"
+                        android:gravity="left|center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:paddingTop="8dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/search_icon" />
+
+                        <EditText
+                            android:id="@+id/tim_kiem"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:fontFamily="@font/roboto_condensed_regular"
+                            android:hint="Tìm kiếm"
+                            android:inputType="text"
+                            android:textColor="#FF000000"
+                            android:textSize="16sp"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </LinearLayout>
+                </FrameLayout>
+                <ImageView
+                    android:id="@+id/home_search"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/loc_tim_kiem" />
+            </FrameLayout>
+            <ImageView
+                android:layout_marginTop="110dp"
+                android:id="@+id/imageView"
+                android:layout_marginLeft="16dp"
+                android:layout_width="330dp"
+                android:layout_height="200dp"
+                android:src="@drawable/khanh_khanh_home"
+                android:scaleType="centerCrop" />
+            <FrameLayout
+                android:id="@+id/danh_sach_phim_hot_nhat"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="330dp"
+                android:layout_gravity="top|center_horizontal">
+                <TextView
+                    android:id="@+id/text_phim_hot_nhat"
+                    android:layout_width="191dp"
+                    android:layout_height="29dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="top|left"
+                    android:gravity="left|center_vertical"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Phim hot nhất"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:textColor="#FF000000"
+                    android:textSize="20dp" />
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="top|left">
+                    <ImageView
+                        android:id="@+id/phim_hot_1"
+                        android:layout_width="160dp"
+                        android:layout_height="188dp"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="top|left"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/khanh_khanh_home_1" />
+
+                    <ImageView
+                        android:layout_width="165dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="201dp"
+                        android:layout_gravity="top"
+                        android:background="@drawable/khung_home"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:id="@+id/text_khanh_khanh_nhat_thuong"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|left"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="215dp"
+                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:gravity="center_horizontal|top"
+                        android:includeFontPadding="false"
+                        android:lineHeight="16dp"
+                        android:text="Khanh Khanh Nhật Thường"
+                        android:textColor="#FF000000"
+                        android:textSize="13dp"
+                        tools:ignore="TextSizeCheck" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="215dp"
+                    android:layout_gravity="top|left">
+
+                    <ImageView
+                        android:id="@+id/phim_hot_3"
+                        android:layout_width="160dp"
+                        android:layout_height="188dp"
+                        android:layout_gravity="top|left"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginTop="34dp"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/so_kieu_truyen_home" />
+
+                    <ImageView
+                        android:layout_width="165dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="201dp"
+                        android:layout_gravity="top"
+                        android:background="@drawable/khung_home"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:id="@+id/text_so_kieu_truyen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|left"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="215dp"
+                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="false"
+                        android:lineHeight="16dp"
+                        android:text="Sở Kiều Truyện"
+                        android:textColor="#FF000000"
+                        android:textSize="13dp"
+                        tools:ignore="TextSizeCheck" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="215dp"
+                    android:layout_gravity="top|right">
+                    <ImageView
+                        android:id="@+id/phim_hot_4"
+                        android:layout_width="160dp"
+                        android:layout_height="188dp"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="top|left"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/truong_phong_do_home" />
+
+                    <ImageView
+                        android:layout_width="165dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="201dp"
+                        android:layout_gravity="top"
+                        android:background="@drawable/khung_home"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:id="@+id/text_truong_phong_do"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|left"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="215dp"
+                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="false"
+                        android:lineHeight="16dp"
+                        android:text="Trường Phong Độ"
+                        android:textColor="#FF000000"
+                        android:textSize="13dp"
+                        tools:ignore="TextSizeCheck" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="top|right">
+                    <ImageView
+                        android:id="@+id/phim_hot_2"
+                        android:layout_width="160dp"
+                        android:layout_height="188dp"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="top|left"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/tien_kiem_4_home" />
+
+                    <ImageView
+                        android:layout_width="165dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="201dp"
+                        android:layout_gravity="top"
+                        android:background="@drawable/khung_home"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:id="@+id/text_tien_kiem_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|left"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="215dp"
+                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="false"
+                        android:lineHeight="16dp"
+                        android:text="Tiên Kiếm 4"
+                        android:textColor="#FF000000"
+                        android:textSize="13dp"
+                        tools:ignore="TextSizeCheck" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/danh_sach_phim_hoat_hinh"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="820dp"
+                android:layout_gravity="top|center_horizontal">
+                <TextView
+                    android:id="@+id/text_phim_hoat_hinh"
+                    android:layout_width="191dp"
+                    android:layout_height="29dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_gravity="top|left"
+                    android:gravity="left|center_vertical"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Phim hoạt hình"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:textColor="#FF000000"
+                    android:textSize="20dp" />
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="top|left">
+                    <ImageView
+                        android:id="@+id/phim_hoat_hinh_1"
+                        android:layout_width="160dp"
+                        android:layout_height="188dp"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="top|left"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/inside_out_2_home" />
+
+                    <ImageView
+                        android:layout_width="165dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="201dp"
+                        android:layout_gravity="top"
+                        android:background="@drawable/khung_home"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:id="@+id/text_inside_out_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="215dp"
+                        android:layout_gravity="top|left"
+                        android:gravity="center_horizontal|top"
+                        android:includeFontPadding="false"
+                        android:lineHeight="16dp"
+                        android:text="Inside Out 2"
+                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:textColor="#FF000000"
+                        android:textSize="13dp" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="215dp"
+                    android:layout_gravity="top|left">
+                    <ImageView
+                        android:id="@+id/phim_hoat_hinh_3"
+                        android:layout_width="160dp"
+                        android:layout_height="188dp"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="top|left"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/death_note_home" />
+
+                    <ImageView
+                        android:layout_width="165dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="201dp"
+                        android:layout_gravity="top"
+                        android:background="@drawable/khung_home"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:id="@+id/text_death_note"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="215dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_gravity="top|left"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="false"
+                        android:lineHeight="16dp"
+                        android:text="Death Note"
+                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:textColor="#FF000000"
+                        android:textSize="13dp" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="215dp"
+                    android:layout_gravity="top|right">
+                    <ImageView
+                        android:id="@+id/phim_hoat_hinh_4"
+                        android:layout_width="160dp"
+                        android:layout_height="188dp"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="top|left"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/tokyo_ghoul_home" />
+
+                    <ImageView
+                        android:layout_width="165dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="201dp"
+                        android:layout_gravity="top"
+                        android:background="@drawable/khung_home"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:id="@+id/text_tokyo_ghoul_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="215dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_gravity="top|left"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="false"
+                        android:lineHeight="16dp"
+                        android:text="Tokyo Ghoul"
+                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:textColor="#FF000000"
+                        android:textSize="13dp" />
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_gravity="top|right">
+                    <ImageView
+                        android:id="@+id/phim_hoat_hinh_2"
+                        android:layout_width="160dp"
+                        android:layout_height="188dp"
+                        android:layout_marginTop="34dp"
+                        android:layout_marginLeft="3dp"
+                        android:layout_gravity="top|left"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/haikyuu_home" />
+
+                    <ImageView
+                        android:layout_width="165dp"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="201dp"
+                        android:layout_gravity="top"
+                        android:background="@drawable/khung_home"
+                        android:scaleType="centerInside" />
+
+                    <TextView
+                        android:id="@+id/text_haikyuu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="215dp"
+                        android:layout_marginLeft="60dp"
+                        android:layout_gravity="top|left"
+                        android:gravity="center_horizontal"
+                        android:includeFontPadding="false"
+                        android:lineHeight="16dp"
+                        android:text="Haikyuu"
+                        android:fontFamily="@font/roboto_condensed_regular"
+                        android:textColor="#FF000000"
+                        android:textSize="13dp" />
+                </FrameLayout>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="1300dp"
+                android:layout_gravity="center|bottom">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:text="Hết trang"
+                    >
+
+                </TextView>
+            </FrameLayout>
+        </FrameLayout>
+
+
+
+    </ScrollView>
+    <!-- TODO: Update blank fragment layout -->
+
+
+
+
+
+
+
+</FrameLayout>
