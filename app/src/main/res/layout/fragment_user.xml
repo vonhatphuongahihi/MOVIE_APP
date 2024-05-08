@@ -34,17 +34,17 @@
                     android:id="@+id/image_ellipse"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:layout_marginLeft="10dp"
                     android:background="@drawable/khung_user"
-                    android:scaleType="centerInside" />
+                    android:scaleType="centerInside"
+                    android:layout_gravity="center|top"/>
                 <ImageView
                     android:id="@+id/anh_dai_dien"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_marginLeft="40dp"
                     android:layout_marginTop="28dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/user" />
+                    android:src="@drawable/user"
+                    android:layout_gravity="center|top"/>
             </FrameLayout>
             <TextView
                 android:id="@+id/text_name"
@@ -65,39 +65,46 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="320dp"
                 android:layout_gravity="center_horizontal">
+
                 <LinearLayout
                     android:id="@+id/chinh_sua_thong_tin"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/khung"
+                    android:clickable="true"
                     android:clipToPadding="false"
                     android:gravity="left|center_vertical"
                     android:orientation="horizontal"
-                    android:paddingBottom="9dp"
                     android:paddingLeft="12dp"
+                    android:paddingTop="9dp"
                     android:paddingRight="12dp"
-                    android:paddingTop="9dp">
+                    android:paddingBottom="9dp">
+
+
                     <TextView
                         android:id="@+id/text_chinh_sua_thong_tin"
                         android:layout_width="wrap_content"
                         android:layout_height="31dp"
+                        android:fontFamily="@font/roboto_condensed_medium"
                         android:gravity="left|center_vertical"
                         android:includeFontPadding="false"
                         android:maxLines="1"
                         android:singleLine="true"
                         android:text="Chỉnh sửa thông tin"
                         android:textColor="#FF31507F"
-                        android:fontFamily="@font/roboto_condensed_medium"
                         android:textSize="16dp" />
+
                     <View
                         android:layout_width="0dp"
                         android:layout_height="31dp"
                         android:layout_weight="1" />
+
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:scaleType="centerInside"
                         android:src="@drawable/user_icon_1" />
+
                     <ImageView
                         android:id="@+id/click_chuyen_huong_1"
                         android:layout_width="16dp"
@@ -105,6 +112,7 @@
                         android:layout_marginLeft="3dp"
                         android:scaleType="centerInside"
                         android:src="@drawable/chuyen_huong_icon" />
+
                 </LinearLayout>
                 <LinearLayout
                     android:id="@+id/che_do_toi"
