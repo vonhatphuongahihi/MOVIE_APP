@@ -4,11 +4,4 @@ plugins {
     alias(libs.plugins.googleGmsGoogleServices) apply false
 }
 
-buildscript {
-    repositories {
-        google()
-    }
-    dependencies {
-        classpath (libs.google.services)
-    }
-}
+
