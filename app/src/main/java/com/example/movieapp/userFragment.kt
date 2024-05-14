@@ -5,6 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import androidx.navigation.Navigation
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.snackbar.Snackbar
+import java.util.zip.Inflater
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +35,9 @@ class userFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+
+
     }
 
     override fun onCreateView(
@@ -34,7 +45,44 @@ class userFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_user, container, false)
+        val view = inflater.inflate(R.layout.fragment_user, container, false)
+
+        //Nút Sửa
+        val btnEditProfile = view.findViewById<LinearLayout>(R.id.chinh_sua_thong_tin)
+        btnEditProfile.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.action_userFragment_to_editProfileFragment) }
+
+
+        //Nút tối
+        val btnDarkMode = view.findViewById<LinearLayout>(R.id.che_do_toi)
+        btnDarkMode.setOnClickListener(View.OnClickListener {
+            var message: String = "Bật chế độ tối"
+            var duration: Int =Snackbar.LENGTH_SHORT
+            Snackbar.make(view,message,duration).show()
+        })
+
+        //Nút quyền riên tư
+        val btnPrivate = view.findViewById<LinearLayout>(R.id.quyen_rieng_tu)
+        btnPrivate.setOnClickListener(View.OnClickListener {
+            var message: String = "Quyền riêng tư"
+            var duration: Int =Snackbar.LENGTH_SHORT
+            Snackbar.make(view,message,duration).show()
+        })
+
+        // Nút lịch sử xem
+        val btnHistory = view.findViewById<LinearLayout>(R.id.lich_su_xem)
+        btnHistory.setOnClickListener(View.OnClickListener {
+            var message: String = "Lịch sử xem"
+            var duration: Int =Snackbar.LENGTH_SHORT
+            Snackbar.make(view,message,duration).show()
+        })
+        // Nút đăng xuất
+        val btnSignOut = view.findViewById<LinearLayout>(R.id.dang_xuat)
+        btnSignOut.setOnClickListener(View.OnClickListener {
+            var message: String = "Đăng xuất"
+            var duration: Int =Snackbar.LENGTH_SHORT
+            Snackbar.make(view,message,duration).show()
+        })
+        return view
     }
 
     companion object {

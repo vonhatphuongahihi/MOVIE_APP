@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".editProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/back"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:text="Chỉnh sửa thông tin"
+            android:textSize="27sp"
+            android:textColor="@color/black"/>
+
+        <FrameLayout
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="90dp">
+
+            <ImageView
+                android:id="@+id/image_ellipse"
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:background="@drawable/khung_user"
+                android:scaleType="centerInside"
+                android:layout_gravity="center|top"/>
+
+            <ImageView
+                android:id="@+id/anh_dai_dien"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="28dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/user"
+                android:layout_gravity="center|top"/>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="245dp"
+            android:fontFamily="@font/roboto_condensed_medium"
+            android:text="Thay đổi ảnh đại diện"
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="245dp"
+            android:src="@drawable/camera_icon" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:paddingLeft="20dp"
+            >
+            <FrameLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:fontFamily="@font/roboto_condensed_medium"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Họ tên"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/text_ho_ten"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Võ Nhất Phương"
+                    android:textSize="16dp"
+                    tools:ignore="TextSizeCheck"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="310dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/duong_thang" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginRight="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:fontFamily="@font/roboto_condensed_medium"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Giới tính"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    tools:ignore="TextSizeCheck"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/text_gioi_tinh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Nữ"
+                    android:textSize="16dp"
+                    tools:ignore="TextSizeCheck"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="310dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/duong_thang" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginRight="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:fontFamily="@font/roboto_condensed_medium"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Ngày sinh"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    tools:ignore="TextSizeCheck"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/text_ngay_sinh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="13/03/2004"
+                    android:textSize="16dp"
+                    tools:ignore="TextSizeCheck"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="310dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/duong_thang" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="180dp"
+                android:layout_marginRight="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:fontFamily="@font/roboto_condensed_medium"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Email"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    tools:ignore="TextSizeCheck"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/text_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="vonhatphuongahihi@gmail.com"
+                    android:textSize="16dp"
+                    tools:ignore="TextSizeCheck"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="310dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/duong_thang"
+                    />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="240dp"
+                android:layout_marginRight="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:fontFamily="@font/roboto_condensed_medium"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="SDT"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    tools:ignore="TextSizeCheck"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/text_sdt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="0365486141"
+                    android:textSize="16dp"
+                    tools:ignore="TextSizeCheck"
+                    android:textColor="@color/black"/>
+
+                <ImageView
+                    android:layout_width="310dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="40dp"
+                    android:src="@drawable/duong_thang" />
+            </FrameLayout>
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/button_luu_thay_doi"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="640dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Lưu thay đổi"
+            android:textColor="#000000"
+            android:textSize="18dp"
+            android:backgroundTint="#FFC6FF"
+            android:fontFamily="@font/roboto_condensed_bold"
+            />
+
+    </FrameLayout>
+
+</FrameLayout>
