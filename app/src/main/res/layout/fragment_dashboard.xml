@@ -4,95 +4,94 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.ui.home.HomeFragment"
-    android:paddingHorizontal="24px"
-    android:paddingVertical="24px">
+    tools:context=".Activities.ui.dashboard.DashboardFragment"
+    android:padding="24px">
 
     <TextView
-        android:id="@+id/text_home"
+        android:id="@+id/text_dashboard"
         android:layout_width="match_parent"
         android:fontFamily="@font/roboto_condensed_bold"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
-        android:text="Thêm phim"
+        android:text="Chỉnh sửa phim"
         android:textColor="#FF000000"
         android:textSize="30dp"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         tools:ignore="MissingConstraints" />
     <EditText
-        android:id="@+id/editText_movie_name"
+        android:id="@+id/editText_edit_movie_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Tên phim"
-        app:layout_constraintTop_toBottomOf="@id/text_home"
+        app:layout_constraintTop_toBottomOf="@id/text_dashboard"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp"
         app:layout_constraintHorizontal_bias="0.5"
         android:background="@drawable/rounded_edittext"
-        android:paddingVertical="10dp"
         android:paddingStart="20px"
-
-        />
+        android:paddingVertical="20px"/>
 
     <!-- Movie Type EditText -->
     <EditText
-        android:id="@+id/editText_movie_type"
+        android:id="@+id/editText_edit_movie_type"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Loại phim"
-        app:layout_constraintTop_toBottomOf="@id/editText_movie_name"
+        app:layout_constraintTop_toBottomOf="@id/editText_edit_movie_name"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintHorizontal_bias="0.5"
         android:background="@drawable/rounded_edittext"
         android:paddingStart="20px"
-
-        android:paddingVertical="20px"/>
+        android:paddingVertical="20px"
+        app:layout_constraintHorizontal_bias="0.5" />
 
     <!-- Movie Banner ImageView -->
     <ImageView
-        android:id="@+id/imageView_movie_banner"
+        android:id="@+id/imageView_edit_movie_banner"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:contentDescription="Movie Banner"
         android:scaleType="centerCrop"
         android:src="@drawable/image_upload"
-        app:layout_constraintTop_toBottomOf="@id/editText_movie_type"
+        app:layout_constraintTop_toBottomOf="@id/editText_edit_movie_type"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        android:background="@color/cardview_dark_background"/>
+        app:layout_constraintHorizontal_bias="0.5" />
 
-    <!-- Add Banner File Button -->
+    <!-- Update Banner Button -->
     <Button
-        android:id="@+id/button_add_banner"
+        android:id="@+id/button_update_banner"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Thêm Banner"
-        app:layout_constraintTop_toBottomOf="@id/imageView_movie_banner"
+        android:text="Cập nhật Banner"
+        android:background="@drawable/rounded_button"
+        android:textColor="@android:color/white"
+        android:padding="16dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/imageView_edit_movie_banner"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        android:background="@drawable/rounded_button"
-        />
+        app:layout_constraintHorizontal_bias="0.5" />
 
-    <!-- Add Movie File Button -->
+    <!-- Update Movie File Button -->
     <Button
-        android:id="@+id/button_add_file"
+        android:id="@+id/button_update_file"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Thêm Tệp Phim"
-        app:layout_constraintTop_toBottomOf="@id/button_add_banner"
+        android:text="Cập nhật Tệp Phim"
+        android:background="@drawable/rounded_button"
+        android:textColor="@android:color/white"
+        android:padding="16dp"
+        android:elevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/button_update_banner"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintHorizontal_bias="0.5"
-        android:background="@drawable/rounded_button"
-       />
+        app:layout_constraintHorizontal_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
