@@ -35,6 +35,7 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="Số điện thoại"
+            android:textSize="16sp"
             android:includeFontPadding="false"
             android:inputType="phone"
             android:paddingHorizontal="10dp"
@@ -61,7 +62,7 @@
             android:hint="Mật khẩu"
             android:inputType="textPassword"
             android:paddingHorizontal="10dp"
-            android:textSize="16dp"
+            android:textSize="17.5sp"
             tools:ignore="SpeakableTextPresentCheck" />
 
 
@@ -70,7 +71,7 @@
         android:id="@+id/text_quen_mat_khau"
         android:layout_width="wrap_content"
         android:layout_height="21dp"
-        android:layout_marginLeft="250dp"
+        android:layout_marginLeft="240dp"
         android:layout_marginTop="394dp"
         android:layout_gravity="top|left"
         android:gravity="left|center_vertical"
@@ -79,31 +80,17 @@
         android:singleLine="true"
         android:text="Quên mật khẩu ?"
         android:fontFamily="@font/roboto_condensed_medium"
-        android:textColor="#FF471AA0"
+        android:textColor="#120082"
         android:textSize="16dp"
         />
-    <FrameLayout
+    <Button
         android:id="@+id/button_dang_nhap"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginTop="460dp"
-        android:layout_gravity="top|center"
-        android:background="@drawable/button_dang_nhap">
-        <TextView
-            android:id="@+id/text_dang_nhap"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:gravity="left|center_vertical"
-            android:includeFontPadding="false"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:text="Đăng nhập"
-            android:textColor="#FF471AA0"
-            android:fontFamily="@font/roboto_condensed_bold"
-            android:textSize="20dp"
-            />
-    </FrameLayout>
+        android:layout_marginTop="470dp"
+        android:layout_gravity="center|top"
+       android:background="@drawable/sign_in_button"
+       />
     <FrameLayout
         android:id="@+id/social_dang_nhap"
         android:layout_width="wrap_content"
@@ -119,7 +106,7 @@
             android:singleLine="true"
             android:text="Hoặc đăng nhập bằng"
             android:fontFamily="@font/roboto_condensed_regular"
-            android:textColor="#FF471AA0"
+            android:textColor="#120082"
             android:textSize="16dp" />
         <ImageView
             android:id="@+id/img_rectangle_social_login1"
@@ -139,25 +126,6 @@
             android:layout_gravity="top|left"
             android:scaleType="centerInside"
             android:src="@drawable/google_logo" />
-        <ImageView
-            android:id="@+id/dang_nhap_facebook"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="117dp"
-            android:layout_marginRight="36dp"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="top"
-            android:background="@drawable/facebook_shape"
-            android:scaleType="centerInside" />
-        <ImageView
-            android:id="@+id/facebook_logo"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_gravity="top"
-            android:layout_marginLeft="125dp"
-            android:layout_marginTop="39dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/facebook_logo" />
 
     </FrameLayout>
 
@@ -176,7 +144,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:text="Bạn chưa có tài khoản? "
-            android:textColor="#FF471AA0"
+            android:textColor="#120082"
             android:textSize="16dp"
             />
 
@@ -190,7 +158,7 @@
             android:singleLine="true"
             android:text="Đăng ký"
             android:fontFamily="@font/roboto_condensed_medium"
-            android:textColor="#FF471AA0"
+            android:textColor="#120082"
             android:textSize="16dp"
             />
     </LinearLayout>
