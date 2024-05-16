@@ -31,53 +31,38 @@
             android:layout_marginTop="25dp"
             android:fontFamily="@font/roboto_condensed_bold"
             android:text="Chỉnh sửa thông tin"
+            android:textColor="#221A92"
             android:textSize="27sp" />
 
-        <FrameLayout
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+        <ImageView
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="90dp">
-
-            <ImageView
-                android:id="@+id/image_ellipse"
-                android:layout_width="140dp"
-                android:layout_height="140dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/khung_user"
-                android:scaleType="centerInside" />
-
-            <ImageView
-                android:id="@+id/anh_dai_dien"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="28dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/user" />
-        </FrameLayout>
+            android:layout_marginTop="110dp"
+            android:background="@drawable/user_image"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="245dp"
+            android:layout_marginTop="265dp"
             android:fontFamily="@font/roboto_condensed_medium"
             android:text="Thay đổi ảnh đại diện"
+            android:textColor="#221A92"
             android:textSize="15sp" />
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginLeft="90dp"
-            android:layout_marginTop="245dp"
+            android:layout_marginTop="265dp"
             android:src="@drawable/camera_icon" />
 
         <FrameLayout
             android:layout_width="300dp"
             android:layout_height="45dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="300dp"
+            android:layout_marginTop="350dp"
             android:layout_marginRight="25dp">
 
             <TextView
@@ -89,8 +74,9 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Họ tên"
-                android:textStyle="bold"
-                android:textSize="16dp" />
+                android:textSize="16sp"
+                android:textColor="#221A92"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/text_ho_ten"
@@ -102,7 +88,8 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Võ Nhất Phương"
-                android:textSize="16dp"
+                android:textSize="16sp"
+                android:textColor="#221A92"
                 tools:ignore="TextSizeCheck" />
 
             <ImageView
@@ -116,7 +103,7 @@
             android:layout_width="300dp"
             android:layout_height="45dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="420dp"
+            android:layout_marginTop="410dp"
             android:layout_marginRight="25dp">
 
             <TextView
@@ -128,8 +115,9 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Ngày sinh"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="bold"
+                android:textColor="#221A92"
                 tools:ignore="TextSizeCheck" />
 
             <TextView
@@ -143,6 +131,7 @@
                 android:singleLine="true"
                 android:text="13/03/2004"
                 android:textSize="16dp"
+                android:textColor="#221A92"
                 tools:ignore="TextSizeCheck" />
 
             <ImageView
@@ -156,87 +145,7 @@
             android:layout_width="300dp"
             android:layout_height="45dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="360dp"
-            android:layout_marginRight="25dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|left"
-                android:fontFamily="@font/roboto_condensed_medium"
-                android:includeFontPadding="false"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="Giới tính"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                tools:ignore="TextSizeCheck" />
-
-            <TextView
-                android:id="@+id/text_gioi_tinh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left|top"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="Nữ"
-                android:textSize="16dp"
-                tools:ignore="TextSizeCheck" />
-
-            <ImageView
-                android:layout_width="310dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="40dp"
-                android:src="@drawable/duong_thang" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="300dp"
-            android:layout_height="45dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="480dp"
-            android:layout_marginRight="25dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|left"
-                android:fontFamily="@font/roboto_condensed_medium"
-                android:includeFontPadding="false"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="Email"
-                android:textSize="16dp"
-                android:textStyle="bold"
-                tools:ignore="TextSizeCheck" />
-
-            <TextView
-                android:id="@+id/text_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left|top"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/roboto_condensed_regular"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="vonhatphuongahihi@gmail.com"
-                android:textSize="16dp"
-                tools:ignore="TextSizeCheck" />
-
-            <ImageView
-                android:layout_width="310dp"
-                android:layout_height="2dp"
-                android:layout_marginTop="40dp"
-                android:src="@drawable/duong_thang" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="300dp"
-            android:layout_height="45dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="540dp"
+            android:layout_marginTop="470dp"
             android:layout_marginRight="25dp">
 
             <TextView
@@ -250,7 +159,9 @@
                 android:text="SDT"
                 android:textSize="16dp"
                 android:textStyle="bold"
-                tools:ignore="TextSizeCheck" />
+                tools:ignore="TextSizeCheck"
+                android:textColor="#221A92"
+                />
 
             <TextView
                 android:id="@+id/text_sdt"
@@ -263,7 +174,9 @@
                 android:singleLine="true"
                 android:text="0365486141"
                 android:textSize="16dp"
-                tools:ignore="TextSizeCheck" />
+                tools:ignore="TextSizeCheck"
+                android:textColor="#221A92"
+                />
 
             <ImageView
                 android:layout_width="310dp"
@@ -273,18 +186,11 @@
         </FrameLayout>
 <Button
     android:id="@+id/button_luu_thay_doi"
-    android:layout_width="300dp"
+    android:layout_width="320dp"
     android:layout_height="50dp"
     android:layout_marginTop="640dp"
     android:layout_gravity="center_horizontal"
-    android:text="Lưu thay đổi"
-    android:textColor="#000000"
-    android:textSize="18dp"
-    android:backgroundTint="#FFC6FF"
-    android:fontFamily="@font/roboto_condensed_bold"
-    android:onClick="luuThayDoi"
-    app:strokeColor="@color/black"
-    app:strokeWidth="1dp"
+    android:background="@drawable/button_save_profile"
     />
 
     </FrameLayout>

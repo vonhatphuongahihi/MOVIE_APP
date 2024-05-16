@@ -182,48 +182,32 @@
             android:fontFamily="@font/roboto_condensed_regular"
             android:textSize="16dp" />
     </FrameLayout>
-    <FrameLayout
-        android:id="@+id/button_dang_ky"
-        android:layout_width="330dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="560dp"
-        android:layout_gravity="top|left"
-        android:background="@drawable/button_dang_nhap">
-        <TextView
-            android:id="@+id/text_dang_ky"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:gravity="left|center_vertical"
-            android:includeFontPadding="false"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:text="Đăng ký"
-            android:textColor="#FF471AA0"
-            android:fontFamily="@font/roboto_condensed_bold"
-            android:textSize="20dp"
-            />
-    </FrameLayout>
+   <Button
+       android:layout_width="330dp"
+       android:layout_height="50dp"
+       android:layout_marginTop="556dp"
+       android:layout_gravity="top|center"
+       android:background="@drawable/sign_up_button"
+       />
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="207dp"
         android:layout_height="21dp"
         android:layout_marginLeft="80dp"
-        android:layout_marginTop="730dp"
+        android:layout_marginTop="720dp"
+        android:fontFamily="@font/roboto_condensed_regular"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:text="Bạn đã có tài khoản?"
         android:textColor="#FF471AA0"
-        android:fontFamily="@font/roboto_condensed_regular"
         android:textSize="16dp" />
     <TextView
         android:id="@+id/text_dang_nhap"
         android:layout_width="wrap_content"
         android:layout_height="21dp"
         android:layout_marginLeft="215dp"
-        android:layout_marginTop="730dp"
+        android:layout_marginTop="720dp"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
