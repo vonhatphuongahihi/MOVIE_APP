@@ -41,8 +41,9 @@
                     android:background="@null"
                     android:fontFamily="@font/roboto_condensed_regular"
                     android:hint="Tìm kiếm"
+                    android:textColorHint="#221A92"
                     android:inputType="text"
-                    android:textColor="#FF000000"
+                    android:textColor="#221A92"
                     android:textSize="16sp"
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
@@ -50,18 +51,18 @@
         </FrameLayout>
         <ImageView
             android:id="@+id/home_search"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="-15dp"
             android:layout_gravity="right|center_vertical"
-            android:scaleType="centerCrop"
             android:src="@drawable/loc_tim_kiem" />
     </FrameLayout>
     <LinearLayout
         android:id="@+id/recent_search_list"
-        android:layout_width="385dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="110dp"
         android:layout_gravity="top|left"
         android:gravity="left|top"
         android:orientation="vertical"
@@ -78,23 +79,17 @@
             android:singleLine="true"
             android:fontFamily="@font/roboto_condensed_medium"
             android:text="Tìm kiếm gần đây"
-            android:textColor="#FF000000"
+            android:textColor="#221A92"
             android:textSize="16dp" />
         <LinearLayout
             android:id="@+id/tim_kiem_gan_day_1"
-            android:layout_width="300dp"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:gravity="left|center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="12dp"
             android:paddingRight="8dp">
-            <ImageView
-                android:id="@+id/search_1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/search_icon" />
 
             <TextView
                 android:id="@+id/text_recent_search_1"
@@ -108,7 +103,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Dữ Phượng Hành"
-                android:textColor="#FF000000"
+                android:textColor="#221A92"
                 android:textSize="15dp"
                 tools:ignore="TextSizeCheck" />
             <ImageView
@@ -122,19 +117,13 @@
 
         <LinearLayout
             android:id="@+id/tim_kiem_gan_day_2"
-            android:layout_width="300dp"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:gravity="left|center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="12dp"
             android:paddingRight="8dp">
-            <ImageView
-                android:id="@+id/search_2"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/search_icon" />
 
             <TextView
                 android:id="@+id/text_recent_search_2"
@@ -148,7 +137,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Khanh Khanh Nhật Thường"
-                android:textColor="#FF000000"
+                android:textColor="#221A92"
                 android:textSize="15dp"
                 tools:ignore="TextSizeCheck" />
             <ImageView
@@ -161,19 +150,13 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/tim_kiem_gan_day_3"
-            android:layout_width="300dp"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:gravity="left|center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="12dp"
             android:paddingRight="8dp">
-            <ImageView
-                android:id="@+id/search_3"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/search_icon" />
 
             <TextView
                 android:id="@+id/text_recent_search_3"
@@ -187,7 +170,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Queen Of Tears"
-                android:textColor="#FF000000"
+                android:textColor="#221A92"
                 android:textSize="15dp"
                 tools:ignore="TextSizeCheck" />
             <ImageView
@@ -197,22 +180,16 @@
                 android:layout_marginLeft="25dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/delete_icon" />
-    </LinearLayout>
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/tim_kiem_gan_day_4"
-            android:layout_width="300dp"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:gravity="left|center_vertical"
             android:orientation="horizontal"
             android:paddingLeft="12dp"
             android:paddingRight="8dp">
-            <ImageView
-                android:id="@+id/search_4"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/search_icon" />
 
             <TextView
                 android:id="@+id/text_recent_search_4"
@@ -226,7 +203,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Trần Tình Lệnh"
-                android:textColor="#FF000000"
+                android:textColor="#221A92"
                 android:textSize="15dp"
                 tools:ignore="TextSizeCheck" />
             <ImageView
@@ -236,68 +213,30 @@
                 android:layout_marginLeft="25dp"
                 android:scaleType="centerInside"
                 android:src="@drawable/delete_icon" />
-    </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_marginLeft="36dp"
         android:layout_marginBottom="4dp"
-        android:layout_marginTop="305dp"
+        android:layout_marginTop="325dp"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:fontFamily="@font/roboto_condensed_medium"
         android:text="Xu hướng gần đây"
-        android:textColor="#FF000000"
+        android:textColor="#221A92"
         android:textSize="16dp" />
-    <FrameLayout
-        android:id="@+id/recent_trend"
-        android:layout_width="wrap_content"
-        android:layout_height="180dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_trend"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="360dp"
         android:layout_gravity="top|left"
-        android:background="@drawable/group_trend">
-
-        <ImageView
-            android:id="@+id/trend_1"
-            android:layout_width="279dp"
-            android:layout_height="179dp"
-            android:layout_gravity="top|left"
-            android:scaleType="centerInside"
-            android:src="@drawable/khanh_khanh_trend" />
-
-        <ImageView
-            android:id="@+id/trend_2"
-            android:layout_width="279dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="293dp"
-            android:layout_marginTop="4dp"
-            android:layout_gravity="left"
-            android:scaleType="centerCrop"
-            android:src="@drawable/tien_kiem_4_trend" />
-
-        <ImageView
-            android:id="@+id/trend_3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="596dp"
-            android:layout_marginRight="303dp"
-            android:layout_marginTop="4dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/so_kieu_trend" />
-
-        <ImageView
-            android:id="@+id/trend_4"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="899dp"
-            android:layout_marginTop="4dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/truong_phong_do_trend" />
-    </FrameLayout>
+        android:background="@drawable/group_trend"/>
 
 </FrameLayout>
 

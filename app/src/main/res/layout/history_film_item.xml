@@ -38,7 +38,7 @@
                 android:lineHeight="24dp"
                 android:maxLines="2"
                 android:text="Liên Hoa Lâu"
-                android:textColor="#FF000000"
+                android:textColor="#221A92"
                 android:textSize="18dp"/>
         </LinearLayout>
 
@@ -64,7 +64,7 @@
                 android:singleLine="false"
                 android:maxLines="2"
                 android:text="Twenty five, Twenty one"
-                android:textColor="#FF000000"
+                android:textColor="#221A92"
                 android:textSize="18dp"  />
         </LinearLayout>
         </LinearLayout>

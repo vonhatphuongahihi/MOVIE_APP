@@ -264,7 +264,7 @@
         android:fontFamily="@font/roboto_condensed_bold"
         android:text="Chúng Ta Của Sau Này"
         android:textColor="#FF000000"
-        android:textSize="24dp" />
+        android:textSize="23sp" />
 
     <FrameLayout
         android:id="@+id/phim_de_xuat"

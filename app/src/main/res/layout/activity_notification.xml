@@ -23,8 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Thông báo"
+        android:textColor="#120082"
         android:fontFamily="@font/roboto_condensed_bold"
-        android:textSize="28sp"
+        android:textSize="27sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="25dp"
         />
@@ -42,6 +43,7 @@
         android:text="Hôm nay"
         android:fontFamily="@font/roboto_condensed_bold"
         android:textSize="20sp"
+        android:textColor="#120082"
         android:layout_gravity="left"
         android:id="@+id/today"
         />
@@ -49,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cảm động hay cảm lạnh"
+            android:textColor="#120082"
             android:fontFamily="@font/roboto_condensed_medium"
             android:textSize="16sp"
             android:layout_gravity="left"
@@ -63,6 +66,7 @@
             android:layout_gravity="left"
             android:layout_marginLeft="250dp"
             android:layout_marginTop="45dp"
+            android:textColor="#120082"
             android:alpha="0.4"
             />
         <TextView
@@ -71,6 +75,7 @@
             android:text="Được bạn trai giàu có cầu hôn “hoành tráng” sau ba năm hẹn hò, Thừa Hoan có quyết định lên xe hoa?"
             android:fontFamily="@font/roboto_condensed_regular"
             android:textSize="15sp"
+            android:textColor="#120082"
             android:layout_gravity="left"
             android:layout_marginTop="75dp"
             android:lineSpacingExtra="5dp"
@@ -81,6 +86,7 @@
             android:text="Dữ Phượng Hành | Tập mới nhất"
             android:fontFamily="@font/roboto_condensed_medium"
             android:textSize="16sp"
+            android:textColor="#120082"
             android:layout_gravity="left"
             android:layout_marginTop="130dp"
             />
@@ -91,6 +97,7 @@
             android:fontFamily="@font/roboto_condensed_regular"
             android:textSize="16sp"
             android:layout_gravity="left"
+            android:textColor="#120082"
             android:layout_marginLeft="250dp"
             android:layout_marginTop="130dp"
             android:alpha="0.4"
@@ -104,6 +111,7 @@
             android:layout_gravity="left"
             android:layout_marginTop="160dp"
             android:lineSpacingExtra="5dp"
+            android:textColor="#120082"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -113,6 +121,7 @@
             android:textSize="16sp"
             android:layout_gravity="left"
             android:layout_marginTop="190dp"
+            android:textColor="#120082"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -124,6 +133,7 @@
             android:layout_marginLeft="250dp"
             android:layout_marginTop="190dp"
             android:alpha="0.4"
+            android:textColor="#120082"
             />
         <TextView
             android:layout_width="330dp"
@@ -134,6 +144,7 @@
             android:layout_gravity="left"
             android:layout_marginTop="220dp"
             android:lineSpacingExtra="5dp"
+            android:textColor="#120082"
             />
     </FrameLayout>
 
@@ -152,6 +163,7 @@
             android:layout_gravity="left"
             android:fontFamily="@font/roboto_condensed_bold"
             android:text="Hôm qua"
+            android:textColor="#120082"
             android:textSize="20sp" />
 
         <TextView
@@ -161,6 +173,7 @@
             android:layout_marginTop="45dp"
             android:fontFamily="@font/roboto_condensed_medium"
             android:text="Trường Phong Độ"
+            android:textColor="#120082"
             android:textSize="16sp" />
 
         <TextView
@@ -172,6 +185,7 @@
             android:alpha="0.4"
             android:fontFamily="@font/roboto_condensed_regular"
             android:text="8 giờ trước"
+            android:textColor="#120082"
             android:textSize="16sp" />
 
         <TextView
@@ -182,6 +196,7 @@
             android:fontFamily="@font/roboto_condensed_regular"
             android:lineSpacingExtra="5dp"
             android:text="Chu Diệp lên ngôi hoàng đế, chính thức kết thúc chặng đường 40 tập của Trường Phong Độ."
+            android:textColor="#120082"
             android:textSize="15sp" />
 
         <TextView
@@ -191,6 +206,7 @@
             android:layout_marginTop="130dp"
             android:fontFamily="@font/roboto_condensed_medium"
             android:text="Khanh Khanh Nhật Thường | Tóm tắt"
+            android:textColor="#120082"
             android:textSize="16sp" />
 
         <TextView
@@ -202,6 +218,7 @@
             android:alpha="0.4"
             android:fontFamily="@font/roboto_condensed_regular"
             android:text="12 giờ trước"
+            android:textColor="#120082"
             android:textSize="16sp" />
 
         <TextView
@@ -213,6 +230,7 @@
             android:lineSpacingExtra="5dp"
             android:text="Lục thiếu chủ Doãn Tranh của Tân Xuyên là người giấu tài. Còn cô gái nhỏ Lý Vi chỉ muốn sống an nhàn ở quê, luôn nỗ lực để được rớt tuyển, nhưng lại ngoài ý muốn kết duyên cùng Doãn Tranh.
 Cả hai cùng nhau mở ra một cuộc hôn nhân thú vị và đầy bất ngờ."
+            android:textColor="#120082"
             android:textSize="15sp" />
     </FrameLayout>
 </FrameLayout>

@@ -46,7 +46,7 @@
             android:exported="false" />
         <activity
             android:name=".Activities.Search"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activities.Home"
             android:exported="false" />
