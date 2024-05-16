@@ -10,39 +10,38 @@
     android:background="@drawable/background"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button_thong_bao"
-        android:layout_width="43dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="35dp"
-        android:background="@drawable/thong_bao_icon"
+    <ImageView
+        android:id="@+id/thong_bao"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="top|right"
         android:scaleType="centerInside"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"/>
+        android:src="@drawable/thong_bao_icon" />
 
     <FrameLayout
         android:id="@+id/container_frame"
-        android:layout_width="266dp"
+        android:layout_width="236dp"
         android:layout_height="52dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
         android:background="@drawable/khung_fav_list">
 
         <TextView
             android:id="@+id/text_danh_sach_yeu_thich"
             android:layout_width="wrap_content"
             android:layout_height="37dp"
-            android:layout_gravity="top|left"
-            android:layout_marginLeft="12dp"
+            android:layout_gravity="top|center"
             android:layout_marginTop="7dp"
             android:fontFamily="@font/roboto_condensed_bold"
-            android:gravity="left|center_vertical"
+            android:gravity="left|center"
             android:includeFontPadding="false"
             android:maxLines="1"
             android:singleLine="true"
             android:text="Danh sách yêu thích"
-            android:textColor="#FF000000"
-            android:textSize="30dp" />
+            android:textColor="#120082"
+            android:textSize="27sp" />
     </FrameLayout>
 
     <FrameLayout
@@ -51,7 +50,7 @@
         android:layout_height="650dp"
         android:layout_gravity="left"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="160dp">
+        android:layout_marginTop="120dp">
 
         <FrameLayout
             android:id="@+id/container_group2"
@@ -82,25 +81,6 @@
                 android:textColor="#FF000000"
                 android:textSize="18dp" />
         </FrameLayout>
-
-        <ImageView
-            android:id="@+id/image_rectangle2"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="185dp"
-            android:layout_marginTop="430dp"
-            android:layout_marginBottom="42dp"
-            android:background="@drawable/khung_add_phim"
-            android:scaleType="centerCrop" />
-
-        <ImageView
-            android:id="@+id/image_plus_bold"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="240dp"
-            android:layout_marginTop="495dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/add_icon" />
 
         <FrameLayout
             android:id="@+id/container_group3"

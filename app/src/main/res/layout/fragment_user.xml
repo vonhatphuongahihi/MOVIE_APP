@@ -25,27 +25,13 @@
                 android:layout_gravity="top|right"
                 android:scaleType="centerInside"
                 android:src="@drawable/thong_bao_icon" />
-            <FrameLayout
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_marginTop="90dp"
-                android:layout_gravity="center_horizontal">
-                <ImageView
-                    android:id="@+id/image_ellipse"
-                    android:layout_width="140dp"
-                    android:layout_height="140dp"
-                    android:background="@drawable/khung_user"
-                    android:scaleType="centerInside"
-                    android:layout_gravity="center|top"/>
-                <ImageView
-                    android:id="@+id/anh_dai_dien"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="28dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/user"
-                    android:layout_gravity="center|top"/>
-            </FrameLayout>
+            <ImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="80dp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/user_image"
+                />
             <TextView
                 android:id="@+id/text_name"
                 android:layout_width="match_parent"
