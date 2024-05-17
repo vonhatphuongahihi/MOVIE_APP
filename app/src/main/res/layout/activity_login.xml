@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login"
     android:layout_width="match_parent"
@@ -16,12 +14,13 @@
         android:layout_marginTop="-100dp"
         android:scaleType="centerInside"
         android:src="@drawable/logo" />
+
     <FrameLayout
         android:id="@+id/nhap_sdt"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginTop="256dp"
-        android:layout_gravity="center|top">
+        android:layout_gravity="center|top"
+        android:layout_marginTop="256dp">
 
 
         <EditText
@@ -35,19 +34,20 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="Số điện thoại"
-            android:textSize="16sp"
             android:includeFontPadding="false"
             android:inputType="phone"
             android:paddingHorizontal="10dp"
+            android:textSize="16sp"
             tools:ignore="SpeakableTextPresentCheck" />
 
     </FrameLayout>
+
     <FrameLayout
         android:id="@+id/nhap_mat_khau"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginTop="330dp"
-        android:layout_gravity="center|top">
+        android:layout_gravity="center|top"
+        android:layout_marginTop="330dp">
 
         <EditText
             android:id="@+id/nhap_mat_khau_dang_nhap"
@@ -67,63 +67,67 @@
 
 
     </FrameLayout>
+
     <TextView
         android:id="@+id/text_quen_mat_khau"
         android:layout_width="wrap_content"
         android:layout_height="21dp"
+        android:layout_gravity="top|left"
         android:layout_marginLeft="240dp"
         android:layout_marginTop="394dp"
-        android:layout_gravity="top|left"
+        android:fontFamily="@font/roboto_condensed_medium"
         android:gravity="left|center_vertical"
         android:includeFontPadding="false"
         android:maxLines="1"
         android:singleLine="true"
         android:text="Quên mật khẩu ?"
-        android:fontFamily="@font/roboto_condensed_medium"
         android:textColor="#120082"
-        android:textSize="16dp"
-        />
+        android:textSize="16dp" />
+
     <Button
         android:id="@+id/button_dang_nhap"
         android:layout_width="330dp"
         android:layout_height="50dp"
-        android:layout_marginTop="470dp"
         android:layout_gravity="center|top"
-       android:background="@drawable/sign_in_button"
-       />
+        android:layout_marginTop="470dp"
+        android:background="@drawable/sign_in_button" />
+
     <FrameLayout
         android:id="@+id/social_dang_nhap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="570dp"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="570dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="21dp"
             android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/roboto_condensed_regular"
             android:includeFontPadding="false"
             android:maxLines="1"
             android:singleLine="true"
             android:text="Hoặc đăng nhập bằng"
-            android:fontFamily="@font/roboto_condensed_regular"
             android:textColor="#120082"
             android:textSize="16dp" />
+
         <ImageView
             android:id="@+id/img_rectangle_social_login1"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_gravity="top|left"
             android:layout_marginLeft="45dp"
             android:layout_marginTop="30dp"
-            android:layout_gravity="top|left"
             android:background="@drawable/facebook_shape"
             android:scaleType="centerInside" />
+
         <ImageView
             android:id="@+id/dang_nhap_google"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_gravity="top|left"
             android:layout_marginLeft="52dp"
             android:layout_marginTop="39dp"
-            android:layout_gravity="top|left"
             android:scaleType="centerInside"
             android:src="@drawable/google_logo" />
 
@@ -132,8 +136,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        >
+        android:layout_gravity="center|top">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="21dp"
@@ -145,22 +149,21 @@
             android:singleLine="true"
             android:text="Bạn chưa có tài khoản? "
             android:textColor="#120082"
-            android:textSize="16dp"
-            />
+            android:textSize="16dp" />
 
         <TextView
             android:id="@+id/text_dang_ky"
             android:layout_width="wrap_content"
             android:layout_height="21dp"
             android:layout_marginTop="730dp"
+            android:fontFamily="@font/roboto_condensed_medium"
             android:includeFontPadding="false"
             android:maxLines="1"
+            android:onClick="onRegister"
             android:singleLine="true"
             android:text="Đăng ký"
-            android:fontFamily="@font/roboto_condensed_medium"
             android:textColor="#120082"
-            android:textSize="16dp"
-            />
+            android:textSize="16dp" />
     </LinearLayout>
 
 </FrameLayout>

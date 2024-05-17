@@ -8,19 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentDashboardBinding
 
-class DashboardFragment : Fragment() , AdapterView.OnItemClickListener{
+class DashboardFragment : Fragment(), AdapterView.OnItemClickListener {
 
     private var _binding: FragmentDashboardBinding? = null
 
-    private var movieList:ArrayList<Movie>?=null
-    private var movieAdapter:MovieAdapter?=null
-    private var gridView:GridView?=null
+    private var movieList: ArrayList<Movie>? = null
+    private var movieAdapter: MovieAdapter? = null
+    private var gridView: GridView? = null
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -35,21 +35,22 @@ class DashboardFragment : Fragment() , AdapterView.OnItemClickListener{
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
-     gridView =root.findViewById(R.id.gridView)
-        movieList=ArrayList()
-        movieList= setDataList()
-        movieAdapter=MovieAdapter(requireContext(), movieList!!)
-        gridView?.adapter=movieAdapter
+        gridView = root.findViewById(R.id.gridView)
+        movieList = ArrayList()
+        movieList = setDataList()
+        movieAdapter = MovieAdapter(requireContext(), movieList!!)
+        gridView?.adapter = movieAdapter
         return root
     }
-    private fun setDataList(): ArrayList<Movie>{
-        var arrayList:ArrayList<Movie> = ArrayList()
 
-        arrayList.add(Movie(R.drawable.death_note_home, "fdsafsadf",3242))
-        arrayList.add(Movie(R.drawable.death_note_home, "fdsafsadf",3242))
-        arrayList.add(Movie(R.drawable.death_note_home, "fdsafsadf",3242))
-        arrayList.add(Movie(R.drawable.death_note_home, "fdsafsadf",3242))
-        arrayList.add(Movie(R.drawable.death_note_home, "fdsafsadf",3242))
+    private fun setDataList(): ArrayList<Movie> {
+        var arrayList: ArrayList<Movie> = ArrayList()
+
+        arrayList.add(Movie("1", R.drawable.death_note_home, "fdsafsadf", 3242))
+        arrayList.add(Movie("2", R.drawable.death_note_home, "fdsafsadf", 3242))
+        arrayList.add(Movie("3", R.drawable.death_note_home, "fdsafsadf", 3242))
+        arrayList.add(Movie("4", R.drawable.death_note_home, "fdsafsadf", 3242))
+        arrayList.add(Movie("5", R.drawable.death_note_home, "fdsafsadf", 3242))
         return arrayList
     }
 

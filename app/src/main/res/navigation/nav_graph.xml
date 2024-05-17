@@ -18,7 +18,7 @@
         android:id="@+id/userFragment"
         android:name="com.example.movieapp.userFragment"
         android:label="fragment_user"
-        tools:layout="@layout/fragment_user" >
+        tools:layout="@layout/fragment_user">
         <action
             android:id="@+id/action_userFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />
@@ -27,7 +27,7 @@
         android:id="@+id/editProfileFragment"
         android:name="com.example.movieapp.editProfileFragment"
         android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile" >
+        tools:layout="@layout/fragment_edit_profile">
         <action
             android:id="@+id/action_editProfileFragment_to_userFragment"
             app:destination="@id/userFragment" />
