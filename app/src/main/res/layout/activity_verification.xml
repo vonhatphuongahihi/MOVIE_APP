@@ -18,31 +18,29 @@
         android:layout_gravity="center|top"
         android:src="@drawable/anh_dt_xacnhan" />
 
-    <Button
-        android:id="@+id/button_xac_nhan"
-    android:layout_width="320dp"
-        android:layout_height="50dp"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="670dp"
-        android:layout_gravity="center|top"
-        android:background="@drawable/button_verify_otp"
-        android:textColor="#FFFFFFFF"
-        android:textSize="18dp" />
+      >
 
-    <TextView
-        android:id="@+id/text_send"
-        android:layout_width="wrap_content"
-        android:layout_height="23dp"
-        android:layout_marginLeft="179dp"
-        android:layout_marginTop="811dp"
-        android:layout_marginBottom="-1dp"
-        android:layout_gravity="top|left"
-        android:gravity="left|center_vertical"
-        android:includeFontPadding="false"
-        android:maxLines="1"
-        android:singleLine="true"
-        android:text="Gửi"
-        android:textColor="#FF000000"
-        android:textSize="18dp" />
+        <Button
+            android:id="@+id/xac_thuc_otp_button"
+            android:layout_width="320dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_verify_otp"
+            android:textColor="#FFFFFFFF"
+            android:textSize="18dp" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/container_group"
@@ -72,72 +70,24 @@
             android:layout_height="36dp"
             android:layout_marginTop="51dp"
             android:alpha="0.800000011920929"
+            android:fontFamily="@font/roboto_condensed_regular"
             android:gravity="left|top"
             android:includeFontPadding="false"
-            android:fontFamily="@font/roboto_condensed_regular"
             android:lineHeight="20dp"
             android:text="Mã đã được gửi về số điện thoại của bạn. Hãy nhập mã trong vòng 5 phút."
             android:textColor="#120082"
             android:textSize="16dp" />
     </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/container_group1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
-        android:layout_gravity="center|top">
 
-        <EditText
-            android:id="@+id/ma_otp4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="232dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/opt1"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:scaleType="centerInside" />
-
-        <EditText
-            android:id="@+id/ma_otp3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="165dp"
-            android:layout_marginRight="67dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/otp2"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:scaleType="centerInside" />
-
-        <EditText
-            android:id="@+id/ma_otp2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="98dp"
-            android:layout_marginTop="50dp"
-            android:layout_gravity="left"
-            android:background="@drawable/otp3"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:scaleType="centerInside" />
-
-
-        <EditText
-            android:id="@+id/ma_otp1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="31dp"
-            android:layout_marginTop="50dp"
-            android:layout_gravity="left"
-            android:background="@drawable/opt4"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:scaleType="centerInside" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:layout_marginTop="500dp"
+            android:layout_gravity="top"
             android:fontFamily="@font/roboto_condensed_regular"
             android:layout_height="21dp"
-            android:layout_marginTop="-1dp"
-            android:layout_marginLeft="31dp"
+            android:layout_marginLeft="51dp"
             android:includeFontPadding="false"
             android:maxLines="1"
             android:singleLine="true"
@@ -145,19 +95,120 @@
             android:textColor="#120082"
             android:textSize="18dp" />
 
-        <TextView
+        <Button
             android:id="@+id/button_gui_lai_ma"
-            android:fontFamily="@font/roboto_condensed_bold"
+            android:layout_marginTop="498.5dp"
             android:layout_width="wrap_content"
-            android:layout_height="21dp"
-            android:layout_marginLeft="190dp"
-            android:layout_gravity="top"
-            android:gravity="left|center_vertical"
-            android:includeFontPadding="false"
-            android:maxLines="1"
-            android:singleLine="true"
-            android:text="Gửi lại"
+            android:layout_height="20dp"
+            android:layout_marginLeft="205dp"
+            android:background="?attr/selectableItemBackground"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:gravity="center_vertical"
+            android:text="Gửi lại mã"
             android:textColor="#120082"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="540dp"
+        android:layout_height="60dp">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/otp_input_1"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="1"
+                android:gravity="center"
+                android:textColor="#2F6BFE"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="LabelFor" />
+            <EditText
+                android:id="@+id/otp_input_2"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:gravity="center"
+                android:maxLength="1"
+                android:textColor="#2F6BFE"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="LabelFor" />
+            <EditText
+                android:id="@+id/otp_input_3"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="#2F6BFE"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="LabelFor" />
+            <EditText
+                android:id="@+id/otp_input_4"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="1"
+                android:gravity="center"
+                android:textColor="#2F6BFE"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="LabelFor" />
+            <EditText
+                android:id="@+id/otp_input_5"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="#2F6BFE"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                tools:ignore="LabelFor" />
+            <EditText
+                android:id="@+id/otp_input_6"
+                android:layout_width="38dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="4dp"
+                android:layout_gravity="center"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="#2F6BFE"
+                android:textSize="24sp"
+                android:gravity="center"
+                android:textStyle="bold"
+                tools:ignore="LabelFor" />
+
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
-</FrameLayout>
