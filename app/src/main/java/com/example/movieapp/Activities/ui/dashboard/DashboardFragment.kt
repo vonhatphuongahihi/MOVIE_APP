@@ -8,10 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.GridView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentDashboardBinding
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class DashboardFragment : Fragment(), AdapterView.OnItemClickListener {
 
@@ -37,21 +42,37 @@ class DashboardFragment : Fragment(), AdapterView.OnItemClickListener {
         val root: View = binding.root
         gridView = root.findViewById(R.id.gridView)
         movieList = ArrayList()
-        movieList = setDataList()
-        movieAdapter = MovieAdapter(requireContext(), movieList!!)
-        gridView?.adapter = movieAdapter
+        fetchMoviesFromFirebase()
+//        movieAdapter = MovieAdapter(requireContext(), movieList!!)
+//        gridView?.adapter = movieAdapter
         return root
     }
 
-    private fun setDataList(): ArrayList<Movie> {
-        var arrayList: ArrayList<Movie> = ArrayList()
+    private fun fetchMoviesFromFirebase() {
+        val database = FirebaseDatabase.getInstance().reference
+        database.child("movies").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                movieList?.clear()
+                for (movieSnapshot in snapshot.children) {
+                    val movie = movieSnapshot.getValue(Movie::class.java)
+                    movie?.let { movieList?.add(it) }
+                }
+                updateUIWithMovies()
+            }
 
-        arrayList.add(Movie("1", R.drawable.death_note_home, "fdsafsadf", 3242))
-        arrayList.add(Movie("2", R.drawable.death_note_home, "fdsafsadf", 3242))
-        arrayList.add(Movie("3", R.drawable.death_note_home, "fdsafsadf", 3242))
-        arrayList.add(Movie("4", R.drawable.death_note_home, "fdsafsadf", 3242))
-        arrayList.add(Movie("5", R.drawable.death_note_home, "fdsafsadf", 3242))
-        return arrayList
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(
+                    context,
+                    "Failed to fetch movies: ${error.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
+    }
+
+    private fun updateUIWithMovies() {
+        movieAdapter = movieList?.let { MovieAdapter(requireContext(), it) }
+        gridView?.adapter = movieAdapter
     }
 
     override fun onDestroyView() {

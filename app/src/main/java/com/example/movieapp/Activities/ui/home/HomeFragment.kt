@@ -11,16 +11,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentHomeBinding
+import com.google.firebase.FirebaseApp
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.squareup.picasso.Picasso
 import java.util.UUID
 
 class HomeFragment : Fragment() {
@@ -31,6 +34,7 @@ class HomeFragment : Fragment() {
     private lateinit var storageReference: StorageReference
     private var selectedImageUri: Uri? = null
     private var selectedVideoUri: Uri? = null
+    private lateinit var progressBar: ProgressBar
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -41,6 +45,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        FirebaseApp.initializeApp(requireContext())
         val homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -48,10 +53,11 @@ class HomeFragment : Fragment() {
         database = FirebaseDatabase.getInstance().reference
         storage = FirebaseStorage.getInstance()
         storageReference = storage.reference
-
+        progressBar = root.findViewById(R.id.progressBar)
         val buttonSelectImage = root.findViewById<Button>(R.id.button_add_banner)
         val buttonSelectVideo = root.findViewById<Button>(R.id.button_add_file)
         val buttonUpload = root.findViewById<Button>(R.id.button_add_movie)
+
         buttonSelectImage.setOnClickListener {
             selectImage()
         }
@@ -97,6 +103,8 @@ class HomeFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK && result.data != null) {
                 selectedImageUri = result.data?.data
+                val image = binding.imageViewMovieBanner
+                Picasso.get().load(selectedImageUri).into(image)
                 Toast.makeText(
                     requireContext(),
                     "Image Selected: $selectedImageUri",
@@ -118,6 +126,9 @@ class HomeFragment : Fragment() {
         }
 
     private fun uploadFiles(movieName: String, movieYear: String, context: Context) {
+        progressBar.visibility = View.VISIBLE
+        progressBar.progress = 0
+
         val bannerPath = "banners/${UUID.randomUUID()}.jpg"
         val videoPath = "videos/${UUID.randomUUID()}.mp4"
 
@@ -134,14 +145,21 @@ class HomeFragment : Fragment() {
                                     videoRef.downloadUrl.addOnSuccessListener { videoUri ->
                                         val movie = Movie(
                                             UUID.randomUUID().toString(),
-                                            0,
-                                            movieName, movieYear.toInt(),
+                                            movieName,
+                                            movieYear.toInt(),
+                                            bannerUri.toString(),
                                             videoUri.toString()
                                         )
                                         addMovieToFirebase(movie, context)
+                                        progressBar.visibility = View.GONE
                                     }
+                                }.addOnProgressListener { taskSnapshot ->
+                                    val progress =
+                                        (100.0 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount)
+                                    progressBar.progress = progress.toInt()
                                 }
                                 .addOnFailureListener { e ->
+                                    progressBar.visibility = View.GONE
                                     Toast.makeText(
                                         context,
                                         "Failed to upload video: ${e.message}",
@@ -152,6 +170,7 @@ class HomeFragment : Fragment() {
                     }
                 }
                 .addOnFailureListener { e ->
+                    progressBar.visibility = View.GONE
                     Toast.makeText(
                         context,
                         "Failed to upload image: ${e.message}",

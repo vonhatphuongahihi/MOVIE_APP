@@ -6,6 +6,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.movieapp.R
+import com.squareup.picasso.Picasso
 
 
 class MovieAdapter(private val context: Context, private val movieList: List<Movie>) :
@@ -32,7 +33,7 @@ class MovieAdapter(private val context: Context, private val movieList: List<Mov
         var textViewMovieName = view.findViewById<TextView>(R.id.textViewMovieName)
         var textViewReleaseYear = view.findViewById<TextView>(R.id.textViewReleaseYear)
         var movieItem: Movie = movieList.get(position)
-        imageViewBanner.setImageResource(movieItem.banner)
+        Picasso.get().load(movieItem.bannerURL).into(imageViewBanner)
         textViewMovieName.text = movieItem.name
         textViewReleaseYear.text = movieItem.releaseYear.toString()
 
@@ -50,7 +51,6 @@ class MovieAdapter(private val context: Context, private val movieList: List<Mov
 
 data class Movie(
     val id: String = "",
-    val banner: Int = 0,         // Ảnh đại diện của bộ phim (Resource ID của ảnh)
     val name: String? = null,        // Tên của bộ phim
     val releaseYear: Int = 0,
     val bannerURL: String? = null,
