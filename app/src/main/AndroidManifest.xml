@@ -25,6 +25,11 @@
         tools:targetApi="30">
 
         <activity
+            android:name=".Activities.TraCuuScreen"
+            android:exported="false"
+            android:theme="@style/Theme.MovieApp" />
+
+        <activity
             android:name=".Activities.AdminActivities"
             android:exported="true"
             android:label="@string/title_activity_admin_activities"/>
@@ -39,7 +44,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true"
