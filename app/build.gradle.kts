@@ -62,4 +62,6 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.1.0")
     implementation ("com.google.android.material:material:1.0.0")
     implementation ("androidx.cardview:cardview:1.0.0")
+    implementation ("androidx.browser:browser:1.2.0")
+    implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
 }
