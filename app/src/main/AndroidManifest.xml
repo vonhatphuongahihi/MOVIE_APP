@@ -10,9 +10,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <!-- Required for accessing internet -->
+    <uses-permission android:name="android.permission.READ_SMS" /> <!-- Required for accessing internet -->
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -23,10 +23,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieApp"
         tools:targetApi="30">
+
         <activity
             android:name=".Activities.AdminActivities"
             android:exported="true"
-            android:label="@string/title_activity_admin_activities">
+            android:label="@string/title_activity_admin_activities"/>
+
+        <activity
+            android:name=".Activities.TraCuuScreen"
+            android:exported="true"
+            android:theme="@style/Theme.MovieApp" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,7 +44,6 @@
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MovieApp" />
-
         <activity
             android:name=".Activities.History"
             android:exported="true" />
@@ -83,11 +88,10 @@
             android:exported="false" />
         <activity
             android:name=".Activities.SplashScreen"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activities.Login"
             android:exported="true" />
-
         <activity
             android:name=".Activities.activity_sign_up"
             android:exported="true" />
