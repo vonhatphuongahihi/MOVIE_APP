@@ -67,7 +67,8 @@ class Verification : AppCompatActivity() {
                             progressBarverify.visibility = View.GONE
                             xac_thuc_otp_button.visibility = View.VISIBLE
                             if (task.isSuccessful) {
-                                val intent = Intent(this@Verification, Change_Password::class.java)
+                                Toast.makeText(this@Verification, "Mã xác thực chính xác. Đăng nhập thành công", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(this@Verification, Home::class.java)
                                 startActivity(intent)
                             } else {
                                 Toast.makeText(this@Verification, "Mã xác thực không chính xác", Toast.LENGTH_SHORT).show()
