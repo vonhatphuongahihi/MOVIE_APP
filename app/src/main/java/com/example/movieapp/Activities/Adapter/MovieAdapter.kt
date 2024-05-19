@@ -29,15 +29,15 @@ class MovieAdapter(private val context: Context, private val movieList: List<Mov
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         var itemView = convertView
 
-        itemView = LayoutInflater.from(context).inflate(R.layout.movie_item, parent, false)
-        var view: View = View.inflate(context, R.layout.movie_item, null)
-        var imageViewBanner = view.findViewById<ImageView>(R.id.imageViewBanner)
-        var textViewMovieName = view.findViewById<TextView>(R.id.textViewMovieName)
-        var textViewReleaseYear = view.findViewById<TextView>(R.id.textViewReleaseYear)
+        itemView = LayoutInflater.from(context).inflate(R.layout.movie_card, parent, false)
+        var view: View = View.inflate(context, R.layout.movie_card, null)
+        var imageViewBanner = view.findViewById<ImageView>(R.id.movies_banner)
+        var textViewMovieName = view.findViewById<TextView>(R.id.movies_title)
+        //var textViewReleaseYear = view.findViewById<TextView>(R.id.textViewReleaseYear)
         var movieItem: Movie = movieList.get(position)
         Picasso.get().load(movieItem.bannerURL).into(imageViewBanner)
-        textViewMovieName.text = movieItem.name
-        textViewReleaseYear.text = movieItem.releaseYear.toString()
+        textViewMovieName.text = movieItem.name + " ("+movieItem.releaseYear.toString()+")"
+        //textViewReleaseYear.text = movieItem.releaseYear.toString()
 
         return view
 

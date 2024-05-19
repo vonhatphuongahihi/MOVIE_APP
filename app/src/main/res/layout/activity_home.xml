@@ -315,45 +315,6 @@
         </FrameLayout>
     </FrameLayout>
     <FrameLayout
-        android:id="@+id/bar"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:layout_gravity="bottom">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/khung_bar"
-            android:scaleType="centerCrop" />
-        <ImageView
-            android:id="@+id/favorite_bar"
-            android:layout_width="34dp"
-            android:layout_height="34dp"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="19dp"
-            android:layout_gravity="left"
-            android:scaleType="centerInside"
-            android:src="@drawable/favorite_icon_bar" />
-        <ImageView
-            android:id="@+id/user_bar"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:layout_marginRight="60dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="19dp"
-            android:layout_gravity="right"
-            android:scaleType="centerInside"
-            android:src="@drawable/user_icon_bar" />
-        </FrameLayout>
-    <ImageView
-        android:id="@+id/home_bar"
-        android:layout_width="100dp"
-        android:layout_height="105dp"
-        android:layout_marginLeft="15dp"
-        android:layout_gravity="bottom|left"
-        android:scaleType="centerInside"
-        android:src="@drawable/home_icon_bar_chinh" />
-    <FrameLayout
         android:id="@+id/danh_sach_phim_hoat_hinh"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
@@ -594,4 +555,45 @@
                 android:textSize="13dp" />
         </FrameLayout>
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_gravity="bottom">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/khung_bar"
+            android:scaleType="centerCrop" />
+        <ImageView
+            android:id="@+id/favorite_bar"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginLeft="160dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="19dp"
+            android:layout_gravity="left"
+            android:scaleType="centerInside"
+            android:src="@drawable/favorite_icon_bar" />
+        <ImageView
+            android:id="@+id/user_bar"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="19dp"
+            android:layout_gravity="right"
+            android:scaleType="centerInside"
+            android:src="@drawable/user_icon_bar" />
+        </FrameLayout>
+    <ImageView
+        android:id="@+id/home_bar"
+        android:layout_width="100dp"
+        android:layout_height="105dp"
+        android:layout_marginLeft="15dp"
+        android:layout_gravity="bottom|left"
+        android:scaleType="centerInside"
+        android:src="@drawable/home_icon_bar_chinh" />
+
 </FrameLayout>
