@@ -82,13 +82,15 @@
             android:singleLine="true"
             android:text="Phim hot nhất"
             android:fontFamily="@font/roboto_condensed_bold"
-            android:textColor="#FF000000"
+            android:textColor="#FF221FC2"
             android:textSize="20dp" />
         <FrameLayout
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_gravity="top|left">
+
+
         <ImageView
             android:id="@+id/phim_hot_1"
             android:layout_width="160dp"
@@ -99,12 +101,30 @@
             android:scaleType="centerInside"
             android:src="@drawable/khanh_khanh_home_1" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7.5"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="108dp"
+                android:textColor="#FF000000"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:textSize="16dp"/>
+
+            <ImageButton
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="130dp"
+                android:background="@drawable/new_star"/>
+
+
         <ImageView
             android:layout_width="165dp"
             android:layout_height="45dp"
             android:layout_marginTop="201dp"
             android:layout_gravity="top"
-            android:background="@drawable/khung_home"
+            android:background="@drawable/khung_ten_phim_home"
             android:scaleType="centerInside" />
 
             <TextView
@@ -113,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|left"
                 android:layout_marginLeft="14dp"
-                android:layout_marginTop="215dp"
+                android:layout_marginTop="210dp"
                 android:fontFamily="@font/roboto_condensed_regular"
                 android:gravity="center_horizontal|top"
                 android:includeFontPadding="false"
@@ -138,13 +158,29 @@
                     android:layout_marginTop="34dp"
                     android:scaleType="centerInside"
                     android:src="@drawable/so_kieu_truyen_home" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7.5"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="108dp"
+                    android:textColor="#FF000000"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:textSize="16dp"/>
+
+                <ImageButton
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="130dp"
+                    android:background="@drawable/new_star"/>
 
                 <ImageView
                     android:layout_width="165dp"
                     android:layout_height="45dp"
                     android:layout_marginTop="201dp"
                     android:layout_gravity="top"
-                    android:background="@drawable/khung_home"
+                    android:background="@drawable/khung_ten_phim_home"
                     android:scaleType="centerInside" />
 
                 <TextView
@@ -153,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top|left"
                     android:layout_marginLeft="50dp"
-                    android:layout_marginTop="215dp"
+                    android:layout_marginTop="210dp"
                     android:fontFamily="@font/roboto_condensed_regular"
                     android:gravity="center_horizontal"
                     android:includeFontPadding="false"
@@ -178,12 +214,29 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/truong_phong_do_home" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7.5"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="108dp"
+                android:textColor="#FF000000"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:textSize="16dp"/>
+
+            <ImageButton
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="130dp"
+                android:background="@drawable/new_star"/>
+
             <ImageView
                 android:layout_width="165dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="201dp"
                 android:layout_gravity="top"
-                android:background="@drawable/khung_home"
+                android:background="@drawable/khung_ten_phim_home"
                 android:scaleType="centerInside" />
 
             <TextView
@@ -192,7 +245,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|left"
                 android:layout_marginLeft="40dp"
-                android:layout_marginTop="215dp"
+                android:layout_marginTop="210dp"
                 android:fontFamily="@font/roboto_condensed_regular"
                 android:gravity="center_horizontal"
                 android:includeFontPadding="false"
@@ -207,6 +260,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_gravity="top|right">
+
             <ImageView
                 android:id="@+id/phim_hot_2"
                 android:layout_width="160dp"
@@ -217,12 +271,30 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/tien_kiem_4_home" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8.5"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="108dp"
+                android:textColor="#FF000000"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:textSize="16dp"/>
+
+            <ImageButton
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginLeft="130dp"
+                android:background="@drawable/new_star"/>
+
+
             <ImageView
                 android:layout_width="165dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="201dp"
                 android:layout_gravity="top"
-                android:background="@drawable/khung_home"
+                android:background="@drawable/khung_ten_phim_home"
                 android:scaleType="centerInside" />
 
             <TextView
@@ -231,7 +303,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="top|left"
                 android:layout_marginLeft="50dp"
-                android:layout_marginTop="215dp"
+                android:layout_marginTop="210dp"
                 android:fontFamily="@font/roboto_condensed_regular"
                 android:gravity="center_horizontal"
                 android:includeFontPadding="false"
@@ -299,7 +371,7 @@
             android:singleLine="true"
             android:text="Phim hoạt hình"
             android:fontFamily="@font/roboto_condensed_bold"
-            android:textColor="#FF000000"
+            android:textColor="#FF221FC2"
             android:textSize="20dp" />
         <FrameLayout
             android:layout_width="160dp"
@@ -316,12 +388,29 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/inside_out_2_home" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7.5"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="108dp"
+                    android:textColor="#FF000000"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:textSize="16dp"/>
+
+                <ImageButton
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="130dp"
+                    android:background="@drawable/new_star"/>
+
             <ImageView
                 android:layout_width="165dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="201dp"
                 android:layout_gravity="top"
-                android:background="@drawable/khung_home"
+                android:background="@drawable/khung_ten_phim_home"
                 android:scaleType="centerInside" />
 
             <TextView
@@ -354,12 +443,29 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/death_note_home" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7.5"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="108dp"
+                    android:textColor="#FF000000"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:textSize="16dp"/>
+
+                <ImageButton
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="130dp"
+                    android:background="@drawable/new_star"/>
+
             <ImageView
                 android:layout_width="165dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="201dp"
                 android:layout_gravity="top"
-                android:background="@drawable/khung_home"
+                android:background="@drawable/khung_ten_phim_home"
                 android:scaleType="centerInside" />
 
             <TextView
@@ -392,12 +498,29 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/tokyo_ghoul_home" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7.5"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="108dp"
+                    android:textColor="#FF000000"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:textSize="16dp"/>
+
+                <ImageButton
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="130dp"
+                    android:background="@drawable/new_star"/>
+
             <ImageView
                 android:layout_width="165dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="201dp"
                 android:layout_gravity="top"
-                android:background="@drawable/khung_home"
+                android:background="@drawable/khung_ten_phim_home"
                 android:scaleType="centerInside" />
 
             <TextView
@@ -430,12 +553,29 @@
                 android:scaleType="centerInside"
                 android:src="@drawable/haikyuu_home" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7.5"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="108dp"
+                    android:textColor="#FF000000"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:textSize="16dp"/>
+
+                <ImageButton
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="45dp"
+                    android:layout_marginLeft="130dp"
+                    android:background="@drawable/new_star"/>
+
             <ImageView
                 android:layout_width="165dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="201dp"
                 android:layout_gravity="top"
-                android:background="@drawable/khung_home"
+                android:background="@drawable/khung_ten_phim_home"
                 android:scaleType="centerInside" />
 
             <TextView

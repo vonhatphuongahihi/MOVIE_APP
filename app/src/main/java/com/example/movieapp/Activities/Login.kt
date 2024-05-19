@@ -1,10 +1,13 @@
 package com.example.movieapp.Activities
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import androidx.activity.enableEdgeToEdge
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -14,26 +17,24 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
-import com.google.firebase.database.DatabaseReference
 import java.util.concurrent.TimeUnit
 
-class Login : AppCompatActivity() {
-    private lateinit var auth: FirebaseAuth
-    private lateinit var verificationId: String
-    private lateinit var firebaseRef: DatabaseReference
+class Login: AppCompatActivity() {
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var sdtXacThuc: EditText
+    private lateinit var guiMaXacThuc: Button
+    private lateinit var progressBar: ProgressBar
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        auth = FirebaseAuth.getInstance()
         setContentView(R.layout.activity_login)
-        var phoneEditText = findViewById<EditText>(R.id.nhap_sdt_dang_nhap)
-        var otpEditText = findViewById<EditText>(R.id.nhap_mat_khau_dang_nhap)
-        val sendOtpButton = findViewById<Button>(R.id.button_dang_nhap)
-        auth.setLanguageCode("vi")
-        sendOtpButton.setOnClickListener {
-            val phoneNumber = phoneEditText.text.toString().trim()
-            sendVerificationCode(phoneNumber)
-        }
+
+        sdtXacThuc = findViewById(R.id.editNhapSDT)
+        guiMaXacThuc = findViewById(R.id.button_gui_ma)
+        progressBar = findViewById(R.id.progress_bar)
+
+        mAuth = FirebaseAuth.getInstance()
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.login)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -41,50 +42,50 @@ class Login : AppCompatActivity() {
         }
 
 
-    }
 
-    private fun sendVerificationCode(phoneNumber: String) {
-        val options = PhoneAuthOptions.newBuilder(auth)
-            .setPhoneNumber(phoneNumber)       // Phone number to verify
-            .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-            .setActivity(this)                 // Activity (for callback binding)
-            .setCallbacks(object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+        guiMaXacThuc.setOnClickListener {
+            if (sdtXacThuc.text.toString().isNotEmpty()) {
+                if (sdtXacThuc.text.toString().trim().length == 9) {
+                    progressBar.visibility = View.VISIBLE
+                    guiMaXacThuc.visibility = View.INVISIBLE
 
-                    signInWithPhoneAuthCredential(credential)
-                }
+                    val options = PhoneAuthOptions.newBuilder(mAuth)
+                        .setPhoneNumber("+84${sdtXacThuc.text}")
+                        .setTimeout(60L, TimeUnit.SECONDS)
+                        .setActivity(this)
+                        .setCallbacks(object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                            override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
+                                val code = phoneAuthCredential.smsCode
+                                progressBar.visibility = View.GONE
+                                guiMaXacThuc.visibility = View.VISIBLE
+                            }
 
-                override fun onVerificationFailed(e: FirebaseException) {
-                    // This callback is invoked in an invalid request for verification is made,
-                    // for instance if the the phone number format is not valid.
-                    // Show a message and update your UI.
-                }
+                            override fun onVerificationFailed(e: FirebaseException) {
+                                progressBar.visibility = View.GONE
+                                guiMaXacThuc.visibility = View.VISIBLE
+                                Toast.makeText(this@Login, e.message, Toast.LENGTH_SHORT).show()
+                            }
 
-                override fun onCodeSent(
-                    verificationId: String,
-                    token: PhoneAuthProvider.ForceResendingToken
-                ) {
-                    // The SMS verification code has been sent to the provided phone number,
-                    // we now need to ask the user to enter the code and then construct a credential
-                    // by combining the code with a verification ID.
-                    this@Login.verificationId = verificationId
-                    // Save verification ID and resending token so we can use them later
-                }
-            }) // OnVerificationStateChangedCallbacks
-            .build()
-        PhoneAuthProvider.verifyPhoneNumber(options)
-    }
-
-    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
-        auth.signInWithCredential(credential)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    val user = task.result?.user
-                    Log.d("LoginActivity", "signInWithCredential:success")
+                            override fun onCodeSent(verificationId: String, forceResendingToken: PhoneAuthProvider.ForceResendingToken) {
+                                progressBar.visibility = View.GONE
+                                guiMaXacThuc.visibility = View.VISIBLE
+                                val intent = Intent(applicationContext, Verification::class.java)
+                                intent.putExtra("phone_number", sdtXacThuc.text.toString())
+                                intent.putExtra("verificationId", verificationId)
+                                startActivity(intent)
+                            }
+                        })
+                        .build()
+                    PhoneAuthProvider.verifyPhoneNumber(options)
+                    val intent = Intent(applicationContext, Verification::class.java)
+                    intent.putExtra("phone_number", sdtXacThuc.text.toString())
+                    startActivity(intent)
                 } else {
-                    Log.d("LoginActivity", "signInWithCredential: false")
+                    Toast.makeText(this, "Nhập số điện thoại hợp lệ", Toast.LENGTH_SHORT).show()
                 }
+            } else {
+                Toast.makeText(this, "Nhập số điện thoại", Toast.LENGTH_SHORT).show()
             }
+        }
     }
 }
