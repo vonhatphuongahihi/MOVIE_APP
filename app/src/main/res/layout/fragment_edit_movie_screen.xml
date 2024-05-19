@@ -1,0 +1,146 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="60dp">
+
+            <EditText
+                android:id="@+id/editTextMovieName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Tên phim"
+                android:paddingVertical="10dp"
+                android:paddingStart="20px"
+
+                />
+
+            <EditText
+                android:id="@+id/editTextMovieYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextMovieName"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Movie Year"
+                android:paddingVertical="10dp"
+                android:paddingStart="20px" />
+
+            <EditText
+                android:id="@+id/editTextDirector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextMovieName"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Đạo diễn"
+                android:paddingVertical="10dp"
+                android:paddingStart="20px" />
+
+            <EditText
+                android:id="@+id/editTextActor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextMovieName"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Diễn viên"
+                android:paddingVertical="10dp"
+                android:paddingStart="20px" />
+
+            <EditText
+                android:id="@+id/editTextAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextMovieName"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Tuổi"
+                android:paddingVertical="10dp"
+                android:paddingStart="20px" />
+
+            <EditText
+                android:id="@+id/editTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextMovieName"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Mô tả"
+                android:paddingVertical="10dp"
+                android:paddingStart="20px" />
+
+            <Button
+                android:id="@+id/buttonSelectBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextMovieYear"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_button"
+                android:padding="20px"
+                android:paddingVertical="10dp"
+                android:text="Select Banner" />
+
+            <ImageView
+                android:id="@+id/imageViewBannerPreview"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/buttonSelectBanner"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop" />
+
+            <Button
+                android:id="@+id/buttonSelectVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageViewBannerPreview"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_button"
+                android:padding="20px"
+
+                android:text="Select Video" />
+
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="fill_parent"
+
+                android:layout_height="200dp"
+                android:layout_below="@id/buttonSelectVideo"
+                android:layout_marginTop="16dp" />
+
+
+            <Button
+                android:id="@+id/buttonUpdateMovie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/videoView"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_button"
+                android:padding="16px"
+                android:paddingBottom="16dp"
+                android:text="Update Movie" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:paddingBottom="16dp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

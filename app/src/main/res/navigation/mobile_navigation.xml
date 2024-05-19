@@ -15,11 +15,20 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.example.movieapp.Activities.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_navigation_dashboard_to_editMovieScreen"
+            app:destination="@id/editMovieScreen" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.movieapp.Activities.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/editMovieScreen"
+        android:name="com.example.movieapp.EditMovieScreen"
+        android:label="fragment_edit_movie_screen"
+        tools:layout="@layout/fragment_edit_movie_screen" />
 </navigation>

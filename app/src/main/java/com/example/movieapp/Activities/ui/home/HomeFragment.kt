@@ -11,8 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.MediaController
 import android.widget.ProgressBar
 import android.widget.Toast
+import android.widget.VideoView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -35,6 +37,7 @@ class HomeFragment : Fragment() {
     private var selectedImageUri: Uri? = null
     private var selectedVideoUri: Uri? = null
     private lateinit var progressBar: ProgressBar
+    private lateinit var videoView: VideoView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -53,6 +56,8 @@ class HomeFragment : Fragment() {
         database = FirebaseDatabase.getInstance().reference
         storage = FirebaseStorage.getInstance()
         storageReference = storage.reference
+        videoView = root.findViewById(R.id.videoViewAddMovie)
+
         progressBar = root.findViewById(R.id.progressBar)
         val buttonSelectImage = root.findViewById<Button>(R.id.button_add_banner)
         val buttonSelectVideo = root.findViewById<Button>(R.id.button_add_file)
@@ -69,8 +74,12 @@ class HomeFragment : Fragment() {
         buttonUpload.setOnClickListener {
             val movieName = binding.editTextMovieName.text.toString()
             val movieYear = binding.editTextMovieType.text.toString()
+            val director = binding.ediTextDaodien.text.toString()
+            val actor = binding.ediTextDienvien.text.toString()
+            val age = binding.ediTextAge.text.toString()
+            val description = binding.ediTextDescription.text.toString()
 
-            if (movieName.isEmpty() || movieYear.isEmpty() || selectedImageUri == null || selectedVideoUri == null) {
+            if (movieName.isEmpty() || movieYear.isEmpty() || director.isEmpty() || actor.isEmpty() || age.isEmpty() || description.isEmpty() || selectedImageUri == null || selectedVideoUri == null) {
                 Toast.makeText(
                     requireContext(),
                     "Vui lòng nhập đầy đủ thông tin và chọn tệp!",
@@ -79,7 +88,7 @@ class HomeFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            uploadFiles(movieName, movieYear, requireContext())
+            uploadFiles(movieName, movieYear, director, actor, age, description, requireContext())
         }
 
 
@@ -117,6 +126,11 @@ class HomeFragment : Fragment() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK && result.data != null) {
                 selectedVideoUri = result.data?.data
+                videoView.setVideoURI(selectedVideoUri)
+                val mediaController = MediaController(requireContext())
+                mediaController.setAnchorView(videoView)
+                videoView.requestFocus()
+                videoView.start()
                 Toast.makeText(
                     requireContext(),
                     "Video Selected: $selectedVideoUri",
@@ -125,7 +139,15 @@ class HomeFragment : Fragment() {
             }
         }
 
-    private fun uploadFiles(movieName: String, movieYear: String, context: Context) {
+    private fun uploadFiles(
+        movieName: String,
+        movieYear: String,
+        director: String,
+        actor: String,
+        age: String,
+        description: String,
+        context: Context
+    ) {
         progressBar.visibility = View.VISIBLE
         progressBar.progress = 0
 
@@ -148,7 +170,11 @@ class HomeFragment : Fragment() {
                                             movieName,
                                             movieYear.toInt(),
                                             bannerUri.toString(),
-                                            videoUri.toString()
+                                            videoUri.toString(),
+                                            director,
+                                            actor,
+                                            age.toInt(),
+                                            description,
                                         )
                                         addMovieToFirebase(movie, context)
                                         progressBar.visibility = View.GONE

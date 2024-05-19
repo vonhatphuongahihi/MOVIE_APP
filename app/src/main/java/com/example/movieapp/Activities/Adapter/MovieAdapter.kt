@@ -1,4 +1,6 @@
 import android.content.Context
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -51,10 +53,51 @@ class MovieAdapter(private val context: Context, private val movieList: List<Mov
 
 data class Movie(
     val id: String = "",
-    val name: String? = null,        // Tên của bộ phim
-    val releaseYear: Int = 0,
-    val bannerURL: String? = null,
-    val videoUrl: String? = null,
+    var name: String? = null,        // Tên của bộ phim
+    var releaseYear: Int = 0,
+    var bannerURL: String? = null,
+    var videoUrl: String? = null,
+    var director: String? = null,
+    var actor: String? = null,
+    var age: Int = 0,
+    var description: String? = null,
 
-
+    ) : Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readString().toString(),
+        parcel.readString(),
+        parcel.readInt(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readInt(),
+        parcel.readString(),
     )
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(id)
+        parcel.writeString(name)
+        parcel.writeInt(releaseYear)
+        parcel.writeString(bannerURL)
+        parcel.writeString(videoUrl)
+        parcel.writeString(director)
+        parcel.writeString(actor)
+        parcel.writeInt(age)
+        parcel.writeString(description)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Movie> {
+        override fun createFromParcel(parcel: Parcel): Movie {
+            return Movie(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Movie?> {
+            return arrayOfNulls(size)
+        }
+    }
+}

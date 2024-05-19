@@ -11,6 +11,7 @@ import android.widget.GridView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.movieapp.R
 import com.example.movieapp.databinding.FragmentDashboardBinding
 import com.google.firebase.database.DataSnapshot
@@ -43,8 +44,8 @@ class DashboardFragment : Fragment(), AdapterView.OnItemClickListener {
         gridView = root.findViewById(R.id.gridView)
         movieList = ArrayList()
         fetchMoviesFromFirebase()
-//        movieAdapter = MovieAdapter(requireContext(), movieList!!)
-//        gridView?.adapter = movieAdapter
+
+        gridView?.onItemClickListener = this
         return root
     }
 
@@ -80,7 +81,13 @@ class DashboardFragment : Fragment(), AdapterView.OnItemClickListener {
         _binding = null
     }
 
-    override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        TODO("Not yet implemented")
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        val selectedMovie = movieList?.get(position)
+        val bundle = Bundle().apply {
+            putParcelable("movie", selectedMovie)
+        }
+        findNavController().navigate(R.id.action_navigation_dashboard_to_editMovieScreen, bundle)
+
     }
+
 }
