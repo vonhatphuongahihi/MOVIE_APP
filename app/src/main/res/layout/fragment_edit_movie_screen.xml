@@ -37,6 +37,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/rounded_edittext"
                 android:hint="Movie Year"
+                android:inputType="number"
                 android:paddingVertical="10dp"
                 android:paddingStart="20px" />
 
@@ -70,6 +71,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/rounded_edittext"
                 android:hint="Tuổi"
+                android:inputType="number"
                 android:paddingVertical="10dp"
                 android:paddingStart="20px" />
 

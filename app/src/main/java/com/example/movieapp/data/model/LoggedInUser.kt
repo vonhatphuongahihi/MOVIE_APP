@@ -8,3 +8,8 @@ data class LoggedInUser(
     val displayName: String,
     var password: String,
 )
+
+data class User(
+    var phoneNumber: String? = null,
+    var role: String? = null,
+)

@@ -6,12 +6,12 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.movieapp.R
+import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
@@ -19,7 +19,7 @@ import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import java.util.concurrent.TimeUnit
 
-class Login: AppCompatActivity() {
+class Login : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var sdtXacThuc: EditText
     private lateinit var guiMaXacThuc: Button
@@ -27,6 +27,7 @@ class Login: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
         setContentView(R.layout.activity_login)
 
         sdtXacThuc = findViewById(R.id.editNhapSDT)
@@ -53,7 +54,8 @@ class Login: AppCompatActivity() {
                         .setPhoneNumber("+84${sdtXacThuc.text}")
                         .setTimeout(60L, TimeUnit.SECONDS)
                         .setActivity(this)
-                        .setCallbacks(object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                        .setCallbacks(object :
+                            PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                             override fun onVerificationCompleted(phoneAuthCredential: PhoneAuthCredential) {
                                 val code = phoneAuthCredential.smsCode
                                 progressBar.visibility = View.GONE
@@ -66,7 +68,10 @@ class Login: AppCompatActivity() {
                                 Toast.makeText(this@Login, e.message, Toast.LENGTH_SHORT).show()
                             }
 
-                            override fun onCodeSent(verificationId: String, forceResendingToken: PhoneAuthProvider.ForceResendingToken) {
+                            override fun onCodeSent(
+                                verificationId: String,
+                                forceResendingToken: PhoneAuthProvider.ForceResendingToken
+                            ) {
                                 progressBar.visibility = View.GONE
                                 guiMaXacThuc.visibility = View.VISIBLE
                                 val intent = Intent(applicationContext, Verification::class.java)

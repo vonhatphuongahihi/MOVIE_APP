@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -14,12 +15,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.movieapp.R
+import com.example.movieapp.data.model.User
+import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import java.util.concurrent.TimeUnit
+
 
 class Verification : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
@@ -31,10 +40,12 @@ class Verification : AppCompatActivity() {
     private lateinit var inputcode6: EditText
     private lateinit var xac_thuc_otp_button: Button
     private lateinit var getotpbackend: String
-
+    private lateinit var database: DatabaseReference
+    private var isAdmin: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContentView(R.layout.activity_verification)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.container_verification)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -42,6 +53,8 @@ class Verification : AppCompatActivity() {
             insets
         }
 
+        database = FirebaseDatabase.getInstance().reference
+        checkUserRole()
         mAuth = FirebaseAuth.getInstance()
         getotpbackend = intent.getStringExtra("verificationId").toString()
 
@@ -52,33 +65,51 @@ class Verification : AppCompatActivity() {
         inputcode4 = findViewById(R.id.otp_input_4)
         inputcode5 = findViewById(R.id.otp_input_5)
         inputcode6 = findViewById(R.id.otp_input_6)
-
+        FirebaseApp.initializeApp(this)
         val progressBarverify: ProgressBar = findViewById(R.id.progress_bar)
 
         xac_thuc_otp_button.setOnClickListener {
-            val entercodeotp = "${inputcode1.text}${inputcode2.text}${inputcode3.text}${inputcode4.text}${inputcode5.text}${inputcode6.text}"
+            val entercodeotp =
+                "${inputcode1.text}${inputcode2.text}${inputcode3.text}${inputcode4.text}${inputcode5.text}${inputcode6.text}"
             if (entercodeotp.length == 6) {
                 if (getotpbackend.isNotEmpty()) {
                     progressBarverify.visibility = View.VISIBLE
                     xac_thuc_otp_button.visibility = View.INVISIBLE
-                    val phoneAuthCredential = PhoneAuthProvider.getCredential(getotpbackend, entercodeotp)
+                    val phoneAuthCredential =
+                        PhoneAuthProvider.getCredential(getotpbackend, entercodeotp)
                     FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
                         .addOnCompleteListener { task ->
                             progressBarverify.visibility = View.GONE
                             xac_thuc_otp_button.visibility = View.VISIBLE
                             if (task.isSuccessful) {
-                                Toast.makeText(this@Verification, "Mã xác thực chính xác. Đăng nhập thành công", Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this@Verification, Home::class.java)
-                                startActivity(intent)
+                                Toast.makeText(
+                                    this@Verification,
+                                    "Mã xác thực chính xác. Đăng nhập thành công",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                                if (isAdmin) navigateToAdminActivity()
+                                else navigateToUserActivity()
                             } else {
-                                Toast.makeText(this@Verification, "Mã xác thực không chính xác", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this@Verification,
+                                    "Mã xác thực không chính xác",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                         }
                 } else {
-                    Toast.makeText(this@Verification, "Vui lòng kiểm tra kết nối Internet", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this@Verification,
+                        "Vui lòng kiểm tra kết nối Internet",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             } else {
-                Toast.makeText(this@Verification, "Vui lòng nhập toàn bộ mã xác thực", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@Verification,
+                    "Vui lòng nhập toàn bộ mã xác thực",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -99,14 +130,71 @@ class Verification : AppCompatActivity() {
                         Toast.makeText(this@Verification, e.message, Toast.LENGTH_SHORT).show()
                     }
 
-                    override fun onCodeSent(newverificationId: String, forceResendingToken: PhoneAuthProvider.ForceResendingToken) {
+                    override fun onCodeSent(
+                        newverificationId: String,
+                        forceResendingToken: PhoneAuthProvider.ForceResendingToken
+                    ) {
                         getotpbackend = newverificationId
-                        Toast.makeText(this@Verification, "Mã xác thực đã được gửi lại", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@Verification,
+                            "Mã xác thực đã được gửi lại",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 })
                 .build()
             PhoneAuthProvider.verifyPhoneNumber(options)
         }
+
+    }
+
+    private fun checkUserRole() {
+        val number = intent.getStringExtra("phone_number")
+        if (number != null)
+            database.child("users").child(number).child("role")
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val role = snapshot.getValue(String::class.java)
+                        if (role != null) {
+                            if (role == "admin") {
+                                // Người dùng là admin
+                                Log.d("Firebase", "User is admin")
+                                isAdmin = true
+                            } else {
+                                // Người dùng không phải là admin
+                                Log.d("Firebase", "User is not admin")
+                                isAdmin = false
+                            }
+
+                        } else {
+                            setUser(number)
+                            isAdmin = false
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                        // Xử lý khi có lỗi xảy ra
+                        Log.w("Firebase", "checkUserRole:onCancelled", error.toException())
+                    }
+                })
+    }
+
+    private fun setUser(phoneNumber: String) {
+        Log.w("number not null2", phoneNumber)
+        val user = User(phoneNumber, "member")
+        database.child("users").child(phoneNumber).setValue(user)
+    }
+
+    private fun navigateToAdminActivity() {
+        val intent = Intent(this, AdminActivities::class.java)
+        startActivity(intent)
+        finish() // Để kết thúc MainActivity
+    }
+
+    private fun navigateToUserActivity() {
+        val intent = Intent(this, Home::class.java)
+        startActivity(intent)
+        finish() // Để kết thúc MainActivity
     }
 
     private fun setupOTPInputs() {
