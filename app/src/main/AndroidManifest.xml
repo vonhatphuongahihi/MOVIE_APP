@@ -25,7 +25,7 @@
         tools:targetApi="30">
         <activity
             android:name=".Activities.AdminActivities"
-            android:exported="true"
+            android:exported="true">
 
         </activity>
 
@@ -33,11 +33,7 @@
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MovieApp" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
