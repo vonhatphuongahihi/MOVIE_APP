@@ -3,12 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/fragment_home_screen">
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.movieapp.homeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/fragment_home_screen"
+        android:name="com.example.movieapp.fragment_home_screen"
+        android:label="fragment_home_screen"
+        tools:layout="@layout/fragment_home_screen" >
+        <action
+            android:id="@+id/action_fragment_home_screen_to_fragment_description"
+            app:destination="@id/fragment_description" />
+    </fragment>
+
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.example.movieapp.favoriteFragment"
@@ -32,4 +37,26 @@
             android:id="@+id/action_editProfileFragment_to_userFragment"
             app:destination="@id/userFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_description"
+        android:name="com.example.movieapp.fragment_description"
+        android:label="fragment_description"
+        tools:layout="@layout/fragment_description" >
+        <action
+            android:id="@+id/action_fragment_description_to_fragment_watch_film"
+            app:destination="@id/fragment_watch_film" />
+        <action
+            android:id="@+id/action_fragment_description_to_fragment_home_screen"
+            app:destination="@id/fragment_home_screen" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_watch_film"
+        android:name="com.example.movieapp.fragment_watch_film"
+        android:label="fragment_watch_film"
+        tools:layout="@layout/fragment_watch_film" >
+        <action
+            android:id="@+id/action_fragment_watch_film_to_fragment_description"
+            app:destination="@id/fragment_description" />
+    </fragment>
+
 </navigation>
