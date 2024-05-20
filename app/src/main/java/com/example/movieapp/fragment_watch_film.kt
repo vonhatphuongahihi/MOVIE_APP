@@ -1,31 +1,33 @@
 package com.example.movieapp
 
+import Movie
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.MediaController
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.VideoView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [fragment_watch_film.newInstance] factory method to
- * create an instance of this fragment.
- */
 class fragment_watch_film : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var textTitle : TextView
+    private lateinit var textSubtitle : TextView
+    private lateinit var videoView: VideoView
+    private lateinit var progressBar: ProgressBar
+
+    private var movie: Movie? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
         }
     }
 
@@ -33,26 +35,46 @@ class fragment_watch_film : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_watch_film, container, false)
+        var root=inflater.inflate(R.layout.fragment_watch_film, container, false)
+
+        textTitle=root.findViewById(R.id.text_ten_phim)
+        textSubtitle=root.findViewById(R.id.text_thong_tin_phim)
+        videoView = root.findViewById(R.id.phim)
+        progressBar=root.findViewById(R.id.progress_bar)
+
+        val mediaController = MediaController(requireContext())
+        mediaController.setAnchorView(videoView)
+        videoView.setMediaController(mediaController)
+
+        movie = arguments?.getParcelable("movie")
+
+        movie?.let {
+            textTitle.setText(it.name)
+            textSubtitle.setText(it.releaseYear.toString()+"|"+it.director)
+            setupVideoPreview(it.videoUrl)
+        }
+
+        return root
+
     }
 
+
+    private fun setupVideoPreview(videoUrl: String?) {
+        videoUrl?.let { url ->
+            val uri = Uri.parse(url)
+            videoView.setVideoURI(uri)
+
+            videoView.requestFocus()
+            videoView.start()
+        }
+    }
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment fragment_watch_film.
-         */
-        // TODO: Rename and change types and number of parameters
+
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             fragment_watch_film().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
                 }
             }
     }

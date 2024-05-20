@@ -12,21 +12,35 @@
         android:layout_height="match_parent">
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/phim"
-                android:layout_width="wrap_content"
-                android:layout_height="240dp"
-                android:layout_marginTop="-10dp"
-                android:layout_gravity="top|left"
-                android:scaleType="centerInside"
-                android:src="@drawable/khanh_khanh_watch" />
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <VideoView
+                    android:id="@+id/phim"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:layout_centerInParent="true"
+                    />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingBottom="16dp"
+                    android:visibility="gone"/>
+
+            </FrameLayout>
+
             <TextView
                 android:id="@+id/text_ten_phim"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
                 android:layout_marginLeft="17dp"
-                android:layout_marginTop="230dp"
+                android:layout_marginTop="240dp"
                 android:layout_gravity="top|left"
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:alpha="0.75"
@@ -44,7 +58,7 @@
                 android:layout_height="19dp"
                 android:layout_gravity="top|left"
                 android:layout_marginLeft="18dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginTop="270dp"
                 android:alpha="0.75"
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:gravity="center_horizontal|center_vertical"
@@ -220,103 +234,6 @@
                         android:textSize="13sp" />
                 </FrameLayout>
             </FrameLayout>
-            <ImageView
-                android:id="@+id/play_stop"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp"
-                android:layout_marginBottom="839dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/stop_icon" />
-            <ImageView
-                android:id="@+id/next_film"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginLeft="229dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginBottom="839dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/next_icon" />
-
-            <ImageView
-                android:id="@+id/previous_film"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginLeft="104dp"
-                android:layout_marginRight="267dp"
-                android:layout_marginTop="100dp"
-                android:layout_marginBottom="838dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/previous_icon" />
-            <ImageView
-                android:id="@+id/tua_toi_ten_seconds"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginLeft="277dp"
-                android:layout_marginRight="88dp"
-                android:layout_marginTop="102dp"
-                android:layout_marginBottom="839dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/tua_toi_ten_seconds_icon" />
-
-            <ImageView
-                android:id="@+id/image_rewind_seconds_back_bold"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginLeft="57dp"
-                android:layout_marginTop="102dp"
-                android:layout_marginBottom="838dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/tua_lai_ten_seconds_icon" />
-            <FrameLayout
-                android:id="@+id/khung_dieu_chinh"
-                android:layout_width="wrap_content"
-                android:layout_height="27dp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="195dp"
-                android:layout_gravity="top|right">
-                <ImageView
-                    android:id="@+id/setting"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_gravity="left"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/setting_icon" />
-
-                <ImageView
-                    android:id="@+id/unlock"
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="36dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="2dp"
-                    android:layout_gravity="left"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/unclock_icon" />
-
-                <ImageView
-                    android:id="@+id/fullscreen"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="69dp"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/fullscreen_icon" />
-            </FrameLayout>
-
-            <ImageView
-                android:id="@+id/image_share"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginTop="17dp"
-                android:layout_marginRight="8dp"
-                android:layout_gravity="top|right"
-                android:scaleType="centerInside"
-                android:src="@drawable/share_icon_1" />
 
             <TextView
                 android:id="@+id/text_phim_de_xuat"
