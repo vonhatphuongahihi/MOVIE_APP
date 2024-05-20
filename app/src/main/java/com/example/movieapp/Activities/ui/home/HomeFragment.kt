@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.MediaController
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -74,12 +75,14 @@ class HomeFragment : Fragment() {
         buttonUpload.setOnClickListener {
             val movieName = binding.editTextMovieName.text.toString()
             val movieYear = binding.editTextMovieType.text.toString()
-            val director = binding.ediTextDaodien.text.toString()
-            val actor = binding.ediTextDienvien.text.toString()
-            val age = binding.ediTextAge.text.toString()
-            val description = binding.ediTextDescription.text.toString()
+            val director = root.findViewById<EditText>(R.id.ediText_daodien).text.toString()
+            val actor = root.findViewById<EditText>(R.id.ediText_dienvien).text.toString()
+            val country = root.findViewById<EditText>(R.id.ediText_quocgia).text.toString()
+            val category = root.findViewById<EditText>(R.id.ediText_category).text.toString()
+            val age = root.findViewById<EditText>(R.id.ediText_age).text.toString()
+            val description = root.findViewById<EditText>(R.id.ediText_description).text.toString()
 
-            if (movieName.isEmpty() || movieYear.isEmpty() || director.isEmpty() || actor.isEmpty() || age.isEmpty() || description.isEmpty() || selectedImageUri == null || selectedVideoUri == null) {
+            if (movieName.isEmpty() || movieYear.isEmpty() || director.isEmpty() || actor.isEmpty() || age.isEmpty() || description.isEmpty() || selectedImageUri == null || selectedVideoUri == null || country.isEmpty() || category.isEmpty()) {
                 Toast.makeText(
                     requireContext(),
                     "Vui lòng nhập đầy đủ thông tin và chọn tệp!",
@@ -88,7 +91,17 @@ class HomeFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            uploadFiles(movieName, movieYear, director, actor, age, description, requireContext())
+            uploadFiles(
+                movieName,
+                movieYear,
+                director,
+                actor,
+                country,
+                category,
+                age,
+                description,
+                requireContext()
+            )
         }
 
 
@@ -144,6 +157,8 @@ class HomeFragment : Fragment() {
         movieYear: String,
         director: String,
         actor: String,
+        country: String,
+        category: String,
         age: String,
         description: String,
         context: Context
@@ -173,6 +188,8 @@ class HomeFragment : Fragment() {
                                             videoUri.toString(),
                                             director,
                                             actor,
+                                            country,
+                                            category,
                                             age.toInt(),
                                             description,
                                         )

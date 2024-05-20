@@ -64,6 +64,28 @@
                 android:paddingStart="20px" />
 
             <EditText
+                android:id="@+id/editTextCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextActor"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Quốc gia"
+                android:paddingVertical="10dp"
+                android:paddingStart="20px" />
+
+            <EditText
+                android:id="@+id/editTextCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/editTextCountry"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="Thể loại"
+                android:paddingVertical="10dp"
+                android:paddingStart="20px" />
+
+            <EditText
                 android:id="@+id/editTextAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

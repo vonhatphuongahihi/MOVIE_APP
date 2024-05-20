@@ -59,6 +59,8 @@ data class Movie(
     var videoUrl: String? = null,
     var director: String? = null,
     var actor: String? = null,
+    var country: String? = null,
+    var category: String? = null,
     var age: Int = 0,
     var description: String? = null,
 
@@ -67,6 +69,8 @@ data class Movie(
         parcel.readString().toString(),
         parcel.readString(),
         parcel.readInt(),
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
