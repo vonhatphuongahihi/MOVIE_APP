@@ -17,7 +17,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_foreground"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -26,7 +26,6 @@
         <activity
             android:name=".Activities.AdminActivities"
             android:exported="true"
-            android:label="@string/title_activity_admin_activities">
 
         </activity>
 
@@ -85,14 +84,23 @@
             android:exported="false" />
         <activity
             android:name=".Activities.SplashScreen"
-            android:exported="true"></activity>
+            android:exported="true">
+        </activity>
         <activity
             android:name=".Activities.Login"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Activities.activity_sign_up"
-            android:exported="true" />
+            android:exported="true" >
+
+
+        </activity>
     </application>
 
 </manifest>

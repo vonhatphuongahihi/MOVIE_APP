@@ -42,6 +42,8 @@ class EditMovieScreen : Fragment() {
     private lateinit var editTextMovieYear: EditText
     private lateinit var editTextDirector: EditText
     private lateinit var editTextActor: EditText
+    private lateinit var editTextCountry: EditText
+    private lateinit var editTextCategory: EditText
     private lateinit var editTextAge: EditText
     private lateinit var editTextDescription: EditText
     private lateinit var buttonSelectBanner: Button
@@ -68,6 +70,8 @@ class EditMovieScreen : Fragment() {
         editTextMovieYear = root.findViewById(R.id.editTextMovieYear)
         editTextDirector = root.findViewById(R.id.editTextDirector)
         editTextActor = root.findViewById(R.id.editTextActor)
+        editTextCountry = root.findViewById(R.id.editTextCountry)
+        editTextCategory = root.findViewById(R.id.editTextCategory)
         editTextAge = root.findViewById(R.id.editTextAge)
         editTextDescription = root.findViewById(R.id.editTextDescription)
         buttonSelectBanner = root.findViewById(R.id.buttonSelectBanner)
@@ -91,6 +95,8 @@ class EditMovieScreen : Fragment() {
             editTextMovieYear.setText(it.releaseYear.toString())
             editTextDirector.setText(it.director)
             editTextActor.setText(it.actor)
+            editTextCountry.setText(it.country)
+            editTextCategory.setText(it.category)
             editTextAge.setText(it.age.toString())
             editTextDescription.setText(it.description)
             Picasso.get().load(it.bannerURL).into(imageViewBannerPreview)
@@ -155,9 +161,11 @@ class EditMovieScreen : Fragment() {
         val movieYear = editTextMovieYear.text.toString().toIntOrNull()
         val director = editTextDirector.text.toString()
         val actor = editTextActor.text.toString()
+        val country = editTextCountry.text.toString()
+        val category = editTextCategory.text.toString()
         val age = editTextAge.text.toString().toIntOrNull()
         val description = editTextDescription.text.toString()
-        if (movieName.isEmpty() || movieYear == null || director.isEmpty() || actor.isEmpty() || age == null || description.isEmpty()) {
+        if (movieName.isEmpty() || movieYear == null || director.isEmpty() || actor.isEmpty() || age == null || description.isEmpty() || country.isEmpty() || category.isEmpty()) {
             Toast.makeText(requireContext(), "Please enter valid details", Toast.LENGTH_SHORT)
                 .show()
             return
@@ -170,6 +178,8 @@ class EditMovieScreen : Fragment() {
             it.releaseYear = movieYear
             it.director = director
             it.actor = actor
+            it.country = country
+            it.category = category
             it.age = age
             it.description = description
             val bannerPath = "banners/${UUID.randomUUID()}.jpg"
