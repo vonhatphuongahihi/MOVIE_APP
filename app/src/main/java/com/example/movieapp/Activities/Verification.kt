@@ -53,10 +53,10 @@ class Verification : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        database = FirebaseDatabase.getInstance().reference
-        checkUserRole()
         mAuth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().reference
+
+
         getotpbackend = intent.getStringExtra("verificationId").toString()
 
         xac_thuc_otp_button = findViewById(R.id.xac_thuc_otp_button)
@@ -88,6 +88,8 @@ class Verification : AppCompatActivity() {
                                     "Mã xác thực chính xác. Đăng nhập thành công",
                                     Toast.LENGTH_SHORT
                                 ).show()
+                                val user = task.result.user
+                                checkUserRole(user?.uid!!)
                                 if (isAdmin) navigateToAdminActivity()
                                 else navigateToUserActivity()
                             } else {
@@ -149,10 +151,10 @@ class Verification : AppCompatActivity() {
 
     }
 
-    private fun checkUserRole() {
+    private fun checkUserRole(userId: String) {
         val number = intent.getStringExtra("phone_number")
         if (number != null)
-            database.child("users").child(number).child("role")
+            database.child("users").child(userId).child("role")
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val role = snapshot.getValue(String::class.java)
@@ -168,7 +170,7 @@ class Verification : AppCompatActivity() {
                             }
 
                         } else {
-                            setUser(number)
+                            setUser(number, userId)
                             isAdmin = false
                         }
                     }
@@ -180,10 +182,10 @@ class Verification : AppCompatActivity() {
                 })
     }
 
-    private fun setUser(phoneNumber: String) {
+    private fun setUser(phoneNumber: String, userId: String) {
         Log.w("number not null2", phoneNumber)
-        val user = User(phoneNumber, "member")
-        database.child("users").child(phoneNumber).setValue(user)
+        val user = User(userId, "", "", phoneNumber, "", "", "", "member")
+        database.child("users").child(userId).setValue(user)
     }
 
     private fun navigateToAdminActivity() {
