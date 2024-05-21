@@ -100,7 +100,6 @@ class fragment_description : Fragment() {
 
         btnBack.setOnClickListener {onBackClick()}
         btnWatch.setOnClickListener{onWatchClick()}
-        var temp=editTextComment.text.toString()
         btnUpComment.setOnClickListener{onCommentClick(editTextComment.text.toString(),movie?.id,"Anonymous",mAuth.uid)}
         return root
     }
@@ -139,7 +138,7 @@ class fragment_description : Fragment() {
     }
 
     private fun updateUIWithComments() {
-        commentAdapter = commentList?.let { CommentAdapter(requireContext(), it) }
+        commentAdapter = commentList?.let { CommentAdapter(this.requireActivity(), it) }
         gridView?.adapter = commentAdapter
     }
 
@@ -168,6 +167,8 @@ class fragment_description : Fragment() {
         database.child("comment").child(id).setValue(comment)
         editTextComment.setText("");
     }
+
+
     companion object {
 
         @JvmStatic

@@ -1,5 +1,6 @@
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
@@ -21,6 +22,9 @@ class CommentAdapter(private val context: Context, private val CommentList: List
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
+        var itemView = convertView
+
+        itemView = LayoutInflater.from(context).inflate(R.layout.comment_card, parent, false)
         var view: View = View.inflate(context, R.layout.comment_card, null)
         var Name = view.findViewById<TextView>(R.id.text_movie)
         var Content = view.findViewById<TextView>(R.id.text_binh_luan)
