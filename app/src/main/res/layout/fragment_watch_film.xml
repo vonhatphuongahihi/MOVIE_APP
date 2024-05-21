@@ -155,237 +155,247 @@
                     android:textSize="11sp" />
             </FrameLayout>
             <FrameLayout
-                android:id="@+id/khung_binh_luan_container"
-                android:layout_width="320dp"
-                android:layout_height="104dp"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="402dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="600dp"
                 android:layout_gravity="top|left">
 
-                <ImageView
-                    android:id="@+id/xem_chi_tiet_binh_luan"
-                    android:layout_width="16dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="290dp"
-                    android:layout_marginRight="13.6dp"
-                    android:layout_gravity="top"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/xem_chi_tiet_icon" />
+
 
                 <TextView
-                    android:id="@+id/binh_luan"
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-1dp"
+                    android:layout_marginBottom="-1dp"
                     android:layout_gravity="top|left"
-                    android:alpha="0.75"
                     android:gravity="left|center_vertical"
                     android:includeFontPadding="false"
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="Bình luận"
                     android:fontFamily="@font/roboto_condensed_bold"
-                    android:textColor="#FF000000"
-                    android:textSize="15sp" />
-                <ImageView
-                    android:id="@+id/khung_binh_luan"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="37dp"
-                    android:background="@drawable/khung_binh_luan"
-                    android:scaleType="centerCrop"
-                    tools:ignore="DuplicateIds" />
+                    android:textColor="#FF221FC2"
+                    android:textSize="20dp" />
+
                 <FrameLayout
-                    android:id="@+id/chi_tiet_binh_luan"
+                    android:id="@+id/chi_tiet_binh_luan_1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="7dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="37dp"
                     android:layout_marginBottom="3dp">
+                    <!--
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal"
+                        android:weightSum="10"
+                        >
+                        <EditText
+                            android:id="@+id/edittext_new_comment"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:paddingStart="20dp"
+                            android:background="@drawable/bg_the_loai1"
+                            android:hint="Bình luận của bạn"
+                            android:padding="5dp"
+                            android:layout_weight="8"
+                            android:textColor="#FF31507F"
 
-                    <TextView
-                        android:id="@+id/text_movie"
-                        android:layout_width="wrap_content"
-                        android:layout_height="20dp"
-                        android:layout_gravity="top|left"
-                        android:layout_marginTop="5dp"
-                        android:alpha="0.75"
-                        android:fontFamily="@font/roboto_condensed_medium"
-                        android:gravity="left|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="4Movie"
-                        android:textColor="#8C0476"
-                        android:textSize="15sp"
-                        tools:ignore="TextSizeCheck" />
+                            />
+                        <Button
+                            android:id="@+id/button_comment"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_the_loai1"
+                            android:layout_marginTop="60dp"
+                            android:text="Đăng"
+                            android:layout_gravity="right"
+                            android:layout_weight="2"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="#FF31507F"
 
-                    <TextView
-                        android:id="@+id/text_binh_luan"
-                        android:layout_width="wrap_content"
-                        android:layout_height="34dp"
-                        android:layout_marginTop="27dp"
-                        android:alpha="0.75"
-                        android:gravity="left|top"
-                        android:includeFontPadding="false"
-                        android:lineHeight="17.29dp"
-                        android:fontFamily="@font/roboto_condensed_regular"
-                        android:text="Lịch phát sóng tuần này từ ngày 15/4, mỗi tuần một tập nhé cả nhà"
-                        android:textColor="#FF000000"
-                        android:textSize="13sp" />
+                            />
+                    </LinearLayout>
+                    -->
+
+
+                    <GridView
+                        android:layout_width="match_parent"
+                        android:layout_height="310dp"
+                        android:layout_marginTop="0dp"
+                        android:id="@+id/comment_gridview"
+                        android:verticalSpacing="10dp">
+
+                    </GridView>
+
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="350dp"
+                    >
+
                 </FrameLayout>
             </FrameLayout>
 
-            <TextView
-                android:id="@+id/text_phim_de_xuat"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_gravity="top|left"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="540dp"
-                android:alpha="0.75"
-                android:fontFamily="@font/roboto_condensed_bold"
-                android:gravity="left|center_vertical"
-                android:includeFontPadding="false"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:text="Phim đề xuất"
-                android:textColor="#FF000000"
-                android:textSize="15sp"
-                tools:ignore="TextSizeCheck" />
             <FrameLayout
-                android:id="@+id/phim_de_xuat"
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_marginLeft="22dp"
-                android:layout_marginTop="570dp"
-                android:layout_gravity="top|left"
-                android:background="@drawable/group_de_xuat">
-                <FrameLayout
+                android:layout_height="wrap_content"
+                android:layout_marginTop="400dp">
+                <TextView
+                    android:id="@+id/text_phim_de_xuat"
                     android:layout_width="wrap_content"
-                    android:layout_height="170dp"
-                    android:layout_marginLeft="0dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_gravity="top|left">
-                    <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/rectangle_dexuat"
-                        android:scaleType="centerCrop" />
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="9dp"
-                        app:cardElevation="2dp">
-                        <ImageView
-                            android:id="@+id/de_xuat_1"
-                            android:layout_width="200dp"
-                            android:layout_height="130dp"
-                            android:layout_gravity="top"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/ninh_an_de_xuat" />
-                    </androidx.cardview.widget.CardView>
-
-                    <TextView
-                        android:id="@+id/text_thong_tin_phim_de_xuat_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="17dp"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="9dp"
-                        android:layout_marginTop="150dp"
-                        android:layout_marginBottom="9dp"
-                        android:alpha="0.75"
-                        android:fontFamily="@font/roboto_condensed_regular"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="2024 | 24/24 tập | Trung Quốc"
-                        android:textColor="#FF000000"
-                        android:textSize="11sp"
-                        tools:ignore="TextSizeCheck" />
-                    <TextView
-                        android:id="@+id/text_ten_phim_de_xuat_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="17dp"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="134dp"
-                        android:fontFamily="@font/roboto_condensed_bold"
-                        android:layout_marginBottom="33dp"
-                        android:layout_gravity="left"
-                        android:alpha="0.65"
-                        android:gravity="left|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="Ninh An Như Mộng - Tập 1"
-                        android:textColor="#FF000000"
-                        android:textSize="12sp" />
-                </FrameLayout>
+                    android:layout_height="20dp"
+                    android:layout_gravity="top|left"
+                    android:layout_marginLeft="22dp"
+                    android:alpha="0.75"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:gravity="left|center_vertical"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Phim đề xuất"
+                    android:textColor="#FF000000"
+                    android:textSize="15sp"
+                    tools:ignore="TextSizeCheck" />
                 <FrameLayout
-                    android:layout_width="wrap_content"
+                    android:id="@+id/phim_de_xuat"
+                    android:layout_width="match_parent"
                     android:layout_height="170dp"
-                    android:layout_marginLeft="210dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_gravity="top|left">
-                    <ImageView
-                        android:layout_width="200dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/rectangle_dexuat"
-                        android:scaleType="centerCrop" />
-                    <androidx.cardview.widget.CardView
+                    android:layout_marginLeft="22dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="top|left"
+                    android:background="@drawable/group_de_xuat">
+                    <FrameLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="9dp"
-                        app:cardElevation="2dp">
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_gravity="top|left">
                         <ImageView
-                            android:id="@+id/de_xuat_2"
                             android:layout_width="200dp"
-                            android:layout_height="130dp"
-                            android:layout_gravity="top"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/queen_de_xuat" />
-                    </androidx.cardview.widget.CardView>
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rectangle_dexuat"
+                            android:scaleType="centerCrop" />
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="9dp"
+                            app:cardElevation="2dp">
+                            <ImageView
+                                android:id="@+id/de_xuat_1"
+                                android:layout_width="200dp"
+                                android:layout_height="130dp"
+                                android:layout_gravity="top"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/ninh_an_de_xuat" />
+                        </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:id="@+id/text_thong_tin_phim_de_xuat_2"
+                        <TextView
+                            android:id="@+id/text_thong_tin_phim_de_xuat_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="17dp"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="9dp"
+                            android:layout_marginTop="150dp"
+                            android:layout_marginBottom="9dp"
+                            android:alpha="0.75"
+                            android:fontFamily="@font/roboto_condensed_regular"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="2024 | 24/24 tập | Trung Quốc"
+                            android:textColor="#FF000000"
+                            android:textSize="11sp"
+                            tools:ignore="TextSizeCheck" />
+                        <TextView
+                            android:id="@+id/text_ten_phim_de_xuat_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="17dp"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="134dp"
+                            android:fontFamily="@font/roboto_condensed_bold"
+                            android:layout_marginBottom="33dp"
+                            android:layout_gravity="left"
+                            android:alpha="0.65"
+                            android:gravity="left|center_vertical"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Ninh An Như Mộng - Tập 1"
+                            android:textColor="#FF000000"
+                            android:textSize="12sp" />
+                    </FrameLayout>
+                    <FrameLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="17dp"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="9dp"
-                        android:layout_marginTop="150dp"
-                        android:layout_marginBottom="9dp"
-                        android:alpha="0.75"
-                        android:fontFamily="@font/roboto_condensed_regular"
-                        android:gravity="center_horizontal|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="2024 | 8/16 tập | Hàn Quốc"
-                        android:textColor="#FF000000"
-                        android:textSize="11sp"
-                        tools:ignore="TextSizeCheck" />
+                        android:layout_height="170dp"
+                        android:layout_marginLeft="210dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_gravity="top|left">
+                        <ImageView
+                            android:layout_width="200dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/rectangle_dexuat"
+                            android:scaleType="centerCrop" />
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:cardCornerRadius="9dp"
+                            app:cardElevation="2dp">
+                            <ImageView
+                                android:id="@+id/de_xuat_2"
+                                android:layout_width="200dp"
+                                android:layout_height="130dp"
+                                android:layout_gravity="top"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/queen_de_xuat" />
+                        </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:id="@+id/text_ten_phim_de_xuat_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="17dp"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="8dp"
-                        android:layout_marginTop="134dp"
-                        android:layout_marginBottom="33dp"
-                        android:alpha="0.65"
-                        android:fontFamily="@font/roboto_condensed_bold"
-                        android:gravity="left|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="Queen Of Tears - Tập 1"
-                        android:textColor="#FF000000"
-                        android:textSize="12sp"
-                        tools:ignore="TextSizeCheck" />
+                        <TextView
+                            android:id="@+id/text_thong_tin_phim_de_xuat_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="17dp"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="9dp"
+                            android:layout_marginTop="150dp"
+                            android:layout_marginBottom="9dp"
+                            android:alpha="0.75"
+                            android:fontFamily="@font/roboto_condensed_regular"
+                            android:gravity="center_horizontal|center_vertical"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="2024 | 8/16 tập | Hàn Quốc"
+                            android:textColor="#FF000000"
+                            android:textSize="11sp"
+                            tools:ignore="TextSizeCheck" />
+
+                        <TextView
+                            android:id="@+id/text_ten_phim_de_xuat_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="17dp"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginTop="134dp"
+                            android:layout_marginBottom="33dp"
+                            android:alpha="0.65"
+                            android:fontFamily="@font/roboto_condensed_bold"
+                            android:gravity="left|center_vertical"
+                            android:includeFontPadding="false"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:text="Queen Of Tears - Tập 1"
+                            android:textColor="#FF000000"
+                            android:textSize="12sp"
+                            tools:ignore="TextSizeCheck" />
+                    </FrameLayout>
+
                 </FrameLayout>
-
             </FrameLayout>
+
         </FrameLayout>
     </ScrollView>
 
