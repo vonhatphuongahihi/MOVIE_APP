@@ -3,6 +3,7 @@ package com.example.movieapp
 import Movie
 import Comment
 import CommentAdapter
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import android.widget.TextView
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.movieapp.data.model.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -50,6 +52,12 @@ class fragment_description : Fragment() {
     private var commentList: ArrayList<Comment>? = null
     private var commentAdapter: CommentAdapter? = null
     private var gridView: GridView? = null
+    //private lateinit var avatarImageView: ImageView
+    //private var imageUri: Uri? = null
+    private var userList: ArrayList<User>? = null
+    private lateinit var textUserName: TextView
+    private lateinit var textAvatar: TextView
+
 
 
 
@@ -83,6 +91,10 @@ class fragment_description : Fragment() {
         gridView = root.findViewById(R.id.comment_gridview)
         editTextComment=root.findViewById(R.id.edittext_new_comment)
 
+        textUserName=root.findViewById(R.id.textViewName)
+        textAvatar=root.findViewById(R.id.avatarURL)
+
+        userList= ArrayList()
         commentList= ArrayList()
         movie = arguments?.getParcelable("movie")
 
@@ -100,16 +112,13 @@ class fragment_description : Fragment() {
 
         btnBack.setOnClickListener {onBackClick()}
         btnWatch.setOnClickListener{onWatchClick()}
-        btnUpComment.setOnClickListener{onCommentClick(editTextComment.text.toString(),movie?.id,"Anonymous",mAuth.uid)}
+        btnUpComment.setOnClickListener{onCommentClick(editTextComment.text.toString(),movie?.id,mAuth.uid)}
         return root
     }
 
 
 
     private fun fetchCommentFromFirebase(id: String?) {
-        val database = FirebaseDatabase.getInstance().reference
-
-
         database.child("comment").orderByChild("movieId").equalTo(id)
             .addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -155,18 +164,30 @@ class fragment_description : Fragment() {
         findNavController().navigate(R.id.action_fragment_description_to_fragment_watch_film, bundle)
     }
 
-    private fun onCommentClick (content: String?, idMovie: String?, name: String?, uid: String?) {
+    private fun onCommentClick (content: String?, idMovie: String?, uid: String?) {
         val id=UUID.randomUUID().toString()
-        val comment = Comment(
-            id,
-            name,
-            content,
-            uid,
-            idMovie,
-        )
-        database.child("comment").child(id).setValue(comment)
+        var avatarURL : String? = ""
+        var name : String? = ""
+        val userId =mAuth.currentUser?.uid
+        val array:ArrayList<String>
+        userId?.let {u->
+            database.child("users").child(u).get().addOnCompleteListener{
+                val user  = it.result.getValue(User::class.java)
+                val comment = Comment(
+                    id,
+                    user?.name,
+                    user?.avatarUrl,
+                    content,
+                    uid,
+                    idMovie,
+                )
+                database.child("comment").child(id).setValue(comment)
+            }
+        }
+
         editTextComment.setText("");
     }
+
 
 
     companion object {
