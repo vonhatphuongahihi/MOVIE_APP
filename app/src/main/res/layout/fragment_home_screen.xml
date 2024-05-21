@@ -109,7 +109,7 @@
             <GridView
                 android:id="@+id/phimHot"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="400dp"
                 android:layout_below="@+id/text_phim_hot_nhat"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
@@ -117,15 +117,15 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
                 android:layout_marginBottom="0dp"
+                android:columnWidth="100dp"
+                android:horizontalSpacing="15dp"
                 android:isScrollContainer="false"
                 android:numColumns="2"
-                android:stretchMode="columnWidth"
-                android:columnWidth="100dp"
-                android:verticalSpacing="15dp"
-                android:horizontalSpacing="15dp"
-
+                android:paddingVertical="16dp"
                 android:scrollbars="none"
-                >
+                android:stretchMode="columnWidth"
+
+                android:verticalSpacing="15dp">
 
             </GridView>
 

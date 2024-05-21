@@ -1,70 +1,212 @@
 package com.example.movieapp
 
+import android.app.Activity
+import android.app.DatePickerDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
-import android.widget.LinearLayout
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
+import com.example.movieapp.data.model.User
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
+import java.util.Calendar
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [editProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class editProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var avatarImageView: ImageView
+    private lateinit var nameEditText: EditText
+    private lateinit var maleRadioButton: RadioButton
+    private lateinit var femaleRadioButton: RadioButton
+    private lateinit var birthdateEditText: EditText
+    private lateinit var emailEditText: EditText
+    private lateinit var saveButton: Button
 
+    private lateinit var auth: FirebaseAuth
+    private lateinit var database: DatabaseReference
+    private lateinit var storage: FirebaseStorage
+    private lateinit var genderRadioGroup: RadioGroup
+    private val PICK_IMAGE_REQUEST = 1
+    private var imageUri: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+        auth = FirebaseAuth.getInstance()
+        database = FirebaseDatabase.getInstance().reference
+        storage = FirebaseStorage.getInstance()
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_edit_profile, container, false)
 
-        val btnBack = view.findViewById<ImageView>(R.id.back)
-        btnBack.setOnClickListener{ Navigation.findNavController(view).navigate(R.id.action_editProfileFragment_to_userFragment) }
+    ): View? {
+
+        val view = inflater.inflate(R.layout.fragment_edit_profile, container, false)
+
+        avatarImageView = view.findViewById(R.id.avatarImageView)
+        val changeAvatarButton = view.findViewById<Button>(R.id.changeAvatarButton)
+        nameEditText = view.findViewById(R.id.nameEditText)
+        maleRadioButton = view.findViewById(R.id.maleRadioButton)
+        femaleRadioButton = view.findViewById(R.id.femaleRadioButton)
+        birthdateEditText = view.findViewById(R.id.birthdateEditText)
+        genderRadioGroup = view.findViewById(R.id.genderRadioGroup)
+        emailEditText = view.findViewById(R.id.emailEditText)
+        saveButton = view.findViewById(R.id.saveChangesButton)
+        val backButton = view.findViewById<ImageView>(R.id.back)
+        backButton.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
+        changeAvatarButton.setOnClickListener { openImagePicker() }
+        saveButton.setOnClickListener { saveChanges() }
+        birthdateEditText.setOnClickListener { showDatePickerDialog() }
+        loadUserProfile()
 
         return view
     }
 
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment editProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            editProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            { _, selectedYear, selectedMonth, selectedDay ->
+                val selectedDate = "$selectedDay/${selectedMonth + 1}/$selectedYear"
+                birthdateEditText.setText(selectedDate)
+            }, year, month, day
+        )
+        datePickerDialog.show()
+    }
+
+    private fun openImagePicker() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
+            imageUri = data.data
+            avatarImageView.setImageURI(imageUri)
+        }
+    }
+
+    private fun loadUserProfile() {
+        val userId = auth.currentUser?.uid
+        userId?.let {
+            database.child("users").child(it).addListenerForSingleValueEvent(object :
+                ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val user = snapshot.getValue(User::class.java)
+                    user?.let { u ->
+                        nameEditText.setText(u.name)
+                        emailEditText.setText(u.email)
+                        birthdateEditText.setText(u.birthdate)
+                        if (u.gender == "male") {
+                            maleRadioButton.isChecked = true
+                        } else if (u.gender == "female") {
+                            femaleRadioButton.isChecked = true
+                        }
+                        if (!u.avatarUrl.isNullOrEmpty()) {
+                            Glide.with(requireContext()).load(u.avatarUrl)
+                                .into(avatarImageView)
+                        }
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(
+                        context,
+                        "Failed to load user profile: ${error.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
+        }
+    }
+
+    private fun saveChanges() {
+        val name = nameEditText.text.toString()
+        val email = emailEditText.text.toString()
+        val birthdate = birthdateEditText.text.toString()
+        val gender = when {
+            maleRadioButton.isChecked -> "male"
+            femaleRadioButton.isChecked -> "female"
+            else -> ""
+        }
+
+        val userId = auth.currentUser?.uid
+        userId?.let {
+            val userUpdates = mapOf(
+                "name" to name,
+                "email" to email,
+                "birthdate" to birthdate,
+                "gender" to gender
+            )
+
+            database.child("users").child(it).updateChildren(userUpdates)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        if (imageUri != null) {
+                            uploadAvatar(userId)
+                        } else {
+                            Toast.makeText(
+                                context,
+                                "Profile updated successfully",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    } else {
+                        Toast.makeText(context, "Failed to update profile", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+        }
+    }
+
+    private fun uploadAvatar(userId: String) {
+        val avatarRef = storage.reference.child("avatars/$userId.jpg")
+        imageUri?.let { uri ->
+            avatarRef.putFile(uri).addOnSuccessListener {
+                avatarRef.downloadUrl.addOnSuccessListener { url ->
+                    database.child("users").child(userId).child("avatarUrl")
+                        .setValue(url.toString())
+                        .addOnCompleteListener { task ->
+                            if (task.isSuccessful) {
+                                Toast.makeText(
+                                    context,
+                                    "Profile updated successfully",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
+                                Toast.makeText(
+                                    context,
+                                    "Failed to update profile",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
+                        }
                 }
             }
+        }
     }
+
 }

@@ -11,7 +11,7 @@ import com.example.movieapp.R
 import com.squareup.picasso.Picasso
 
 
-class MovieAdapter(private val context: Context, private val movieList: List<Movie>) :
+class MovieAdapter(private val context: Context, private var movieList: List<Movie>) :
     BaseAdapter() {
 
     override fun getCount(): Int {
@@ -36,12 +36,17 @@ class MovieAdapter(private val context: Context, private val movieList: List<Mov
         //var textViewReleaseYear = view.findViewById<TextView>(R.id.textViewReleaseYear)
         var movieItem: Movie = movieList.get(position)
         Picasso.get().load(movieItem.bannerURL).into(imageViewBanner)
-        textViewMovieName.text = movieItem.name + " ("+movieItem.releaseYear.toString()+")"
+        textViewMovieName.text = movieItem.name + " (" + movieItem.releaseYear.toString() + ")"
         //textViewReleaseYear.text = movieItem.releaseYear.toString()
 
         return view
 
 
+    }
+
+    fun searchDataList(searchList: List<Movie>) {
+        movieList = searchList
+        notifyDataSetChanged()
     }
 
     private class ViewHolder {
