@@ -182,7 +182,8 @@ class Verification : AppCompatActivity() {
 
     private fun setUser(phoneNumber: String) {
         Log.w("number not null2", phoneNumber)
-        val user = User(phoneNumber, "member")
+        mAuth = FirebaseAuth.getInstance()
+        val user = User(phoneNumber, "member","Anonymous","none",mAuth.uid)
         database.child("users").child(phoneNumber).setValue(user)
     }
 

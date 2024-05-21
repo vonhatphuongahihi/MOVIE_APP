@@ -12,4 +12,7 @@ data class LoggedInUser(
 data class User(
     var phoneNumber: String? = null,
     var role: String? = null,
-)
+    var name: String? = null,
+    var avatarURL: String? = null,
+    var uid: String? = null,
+    )
