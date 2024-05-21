@@ -187,8 +187,6 @@ class Verification : AppCompatActivity() {
         val user = User(userId, "", "", phoneNumber, "", "", "", "member")
         database.child("users").child(userId).setValue(user)
 
-       
-e
     }
 
     private fun navigateToAdminActivity() {
