@@ -24,15 +24,17 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.Locale
 
-
 class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
-
 
     private var _binding: FragmentHomeScreenBinding? = null
     private var movieList: ArrayList<Movie>? = null
+    private var animatedMovieList: ArrayList<Movie>? = null
     private var filteredMovieList: ArrayList<Movie>? = null
     private var movieAdapter: MovieAdapter? = null
+    private var animatedMovieAdapter: MovieAdapter? = null
+
     private var gridView: GridView? = null
+    private var gridView1: GridView? = null
     private val binding get() = _binding!!
     private var searchEditText: EditText? = null
 
@@ -44,11 +46,15 @@ class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
         _binding = FragmentHomeScreenBinding.inflate(inflater, container, false)
         val root: View = binding.root
         gridView = root.findViewById(R.id.phimHot)
+        gridView1 = root.findViewById(R.id.phimHoathinh)
         searchEditText = binding.timKiem
         movieList = ArrayList()
+        animatedMovieList = ArrayList()
 
         fetchMoviesFromFirebase()
+        fetchHoathinhMoviesFromFirebase()
         gridView?.onItemClickListener = this
+        gridView1?.onItemClickListener = this
         searchEditText?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -61,6 +67,35 @@ class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
         })
 
         return root
+    }
+
+    private fun fetchHoathinhMoviesFromFirebase() {
+        val database = FirebaseDatabase.getInstance().reference
+        database.child("movies").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                animatedMovieList?.clear()
+                for (movieSnapshot in snapshot.children) {
+                    val movie = movieSnapshot.getValue(Movie::class.java)
+                    if (movie?.category == "Lãng mạn, Tuổi thành niên") {
+                        movie?.let { animatedMovieList?.add(it) }
+                    }
+                }
+                updateUIWithHoathinhMovies()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(
+                    context,
+                    "Failed to fetch animated movies: ${error.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
+    }
+
+    private fun updateUIWithHoathinhMovies() {
+        animatedMovieAdapter = animatedMovieList?.let { MovieAdapter(requireContext(), it) }
+        gridView1?.adapter = animatedMovieAdapter
     }
 
     private fun searchList(text: String) {
@@ -136,7 +171,11 @@ class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val selectedMovie = movieList?.get(position)
+        val selectedMovie = when (parent?.id) {
+            R.id.phimHot -> movieList?.get(position)
+            R.id.phimHoathinh -> animatedMovieList?.get(position)
+            else -> null
+        }
         val bundle = Bundle().apply {
             putParcelable("movie", selectedMovie)
         }
@@ -148,8 +187,6 @@ class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
     }
 
     companion object {
-
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             fragment_home_screen().apply {

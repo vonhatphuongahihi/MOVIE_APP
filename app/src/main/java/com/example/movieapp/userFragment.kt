@@ -1,6 +1,7 @@
 package com.example.movieapp
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.Telephony.Sms.Intents
@@ -15,6 +16,8 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.navigation.Navigation
+import com.example.movieapp.Activities.Login
+import com.example.movieapp.Activities.Private
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import java.util.zip.Inflater
@@ -84,21 +87,24 @@ class userFragment : Fragment() {
             editor.apply()
         }
 
-        //Nút quyền riên tư
+        //Nút quyền riêng tư
         val btnPrivate = view.findViewById<LinearLayout>(R.id.quyen_rieng_tu)
         btnPrivate.setOnClickListener(View.OnClickListener {
-            var message: String = "Quyền riêng tư"
-            var duration: Int =Snackbar.LENGTH_SHORT
-            Snackbar.make(view,message,duration).show()
+                val intent = Intent(requireContext(), Private::class.java)
+                startActivity(intent)
+
         })
 
 
         // Nút đăng xuất
         val btnSignOut = view.findViewById<LinearLayout>(R.id.dang_xuat)
         btnSignOut.setOnClickListener(View.OnClickListener {
-            var message: String = "Đăng xuất"
-            var duration: Int =Snackbar.LENGTH_SHORT
-            Snackbar.make(view,message,duration).show()
+            Toast.makeText(requireContext(), "Đăng xuất khỏi tài khoản thành công", Toast.LENGTH_SHORT).show()
+            val intent = Intent(requireContext(), Login::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                requireActivity().finish()
+
         })
         return view
     }

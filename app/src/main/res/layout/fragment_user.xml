@@ -173,9 +173,9 @@
                         android:layout_weight="1" />
 
                     <ImageView
-                        android:layout_width="23dp"
-                        android:layout_height="23dp"
-                        android:scaleType="centerInside"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:scaleType="fitXY"
                         android:src="@drawable/quyen_rieng_tu_icon" />
 
                     <ImageView
@@ -183,7 +183,7 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_marginLeft="3dp"
-                        android:scaleType="centerInside"
+                        android:scaleType="fitXY"
                         android:src="@drawable/chuyen_huong_icon" />
                 </LinearLayout>
 
@@ -220,9 +220,9 @@
                         android:layout_weight="1" />
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:scaleType="centerInside"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:scaleType="fitXY"
                         android:src="@drawable/dang_xuat_icon" />
                 </LinearLayout>
             </FrameLayout>
