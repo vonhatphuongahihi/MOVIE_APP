@@ -17,15 +17,14 @@
             <ImageView
                 android:id="@+id/image_rectangle1"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginLeft="0dp"
+                android:layout_height="250dp"
                 android:scaleType="centerInside" />
             <Button
                 android:id="@+id/button_bat_dau_xem"
                 android:layout_width="71.34dp"
                 android:layout_height="77.24dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="133.17dp"
+                android:layout_marginTop="100dp"
                 android:layout_marginBottom="740.59dp"
                 android:scaleType="centerInside"
                 android:background="@drawable/nut_bat_dau_xem"
@@ -35,7 +34,7 @@
                 android:layout_width="125.26dp"
                 android:layout_height="55.4dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="370dp"
+                android:layout_marginTop="330dp"
                 android:layout_gravity="left">
 
                 <TextView
@@ -76,10 +75,10 @@
             <FrameLayout
                 android:id="@+id/container_group9"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="140dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="460dp"
+                android:layout_marginTop="420dp"
                 android:layout_gravity="top|left">
 
                 <TextView
@@ -107,7 +106,7 @@
                     android:includeFontPadding="false"
                     android:lineHeight="21.68dp"
                     android:fontFamily="@font/roboto_condensed_regular"
-                    android:text="Mười năm trước, trên chuyến tàu về nhà trong dịp du xuân bận rộn, định mệnh đã đưa Xiaoxiao và Jianqing đến với nhau.  Read more..."
+                    android:text="Mười năm trưkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkớc, trên chuyến tàu về nhà trong dịp du xuân bận rộn, định mệnh đã đưa Xiaoxiao và Jianqing đến với nhau.  Read more..."
                     android:textColor="@color/secondary_text"
                     android:textSize="16dp" />
             </FrameLayout>
@@ -119,7 +118,7 @@
                 android:layout_marginLeft="140dp"
                 android:layout_gravity="right"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="370dp">
+                android:layout_marginTop="330dp">
 
                 <FrameLayout
                     android:id="@+id/container_group7"
@@ -343,7 +342,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_marginLeft="23dp"
-                android:layout_marginTop="300dp"
+                android:layout_marginTop="270dp"
                 android:layout_gravity="top|left"
                 android:alpha="0.75"
                 android:gravity="left|center_vertical"
@@ -354,6 +353,17 @@
                 android:text="Chúng Ta Của Sau Này"
                 android:textColor="@color/primary_text"
                 android:textSize="23sp" />
+            <ImageButton
+                android:id="@+id/back"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:onClick="back"
+                android:backgroundTint="#00000000"
+                android:src="@drawable/back"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </FrameLayout>
     </ScrollView>
 
