@@ -1,16 +1,20 @@
 package com.example.movieapp.Activities
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.movieapp.R
 import com.example.movieapp.databinding.ActivityAdminActivitiesBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class AdminActivities : AppCompatActivity() {
+    override fun onBackPressed() {
+        // Do nothing or show a message, effectively disabling the back button
+        // Toast.makeText(this, "Back button is disabled", Toast.LENGTH_SHORT).show()
+        moveTaskToBack(true)
+    }
 
     private lateinit var binding: ActivityAdminActivitiesBinding
 

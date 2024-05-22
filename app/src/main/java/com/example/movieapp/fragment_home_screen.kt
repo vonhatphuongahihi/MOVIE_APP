@@ -22,78 +22,75 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.util.Locale
-
 
 class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
 
-
     private var _binding: FragmentHomeScreenBinding? = null
-    private var movieList: ArrayList<Movie>? = null
-    private var filteredMovieList: ArrayList<Movie>? = null
-    private var movieAdapter: MovieAdapter? = null
-    private var gridView: GridView? = null
     private val binding get() = _binding!!
-    private var searchEditText: EditText? = null
+    private val movieList: ArrayList<Movie> = ArrayList()
+    private val filteredMovieList: ArrayList<Movie> = ArrayList()
+    private lateinit var movieAdapter: MovieAdapter
+    private lateinit var gridView: GridView
+    private lateinit var searchEditText: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentHomeScreenBinding.inflate(inflater, container, false)
         val root: View = binding.root
         gridView = root.findViewById(R.id.phimHot)
         searchEditText = binding.timKiem
-        movieList = ArrayList()
+
+        movieAdapter = MovieAdapter(requireContext(), filteredMovieList)
+        gridView.adapter = movieAdapter
+        gridView.onItemClickListener = this
 
         fetchMoviesFromFirebase()
-        gridView?.onItemClickListener = this
-        searchEditText?.addTextChangedListener(object : TextWatcher {
+
+        searchEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                searchList(s.toString())
+                filterMovies(s.toString())
             }
 
             override fun afterTextChanged(s: Editable?) {
-                searchList(s.toString())
+                filterMovies(s.toString())
             }
         })
 
         return root
     }
 
-    private fun searchList(text: String) {
-        var bannerView = binding.imageView
-        var textview = binding.textPhimHotNhat
-        if (text.isNotEmpty()) {
-            bannerView.visibility = View.GONE
-            textview.visibility = View.GONE
-            val layoutParams: ViewGroup.LayoutParams? = gridView?.layoutParams
-            layoutParams?.height = convertDpToPixels(1000, requireContext()) //this is in pixels
-            gridView?.layoutParams = layoutParams
+    private fun filterMovies(query: String) {
+        if (query.isNotEmpty()) {
+            binding.imageView.visibility = View.GONE
+            binding.textPhimHotNhat.visibility = View.GONE
+            setGridViewHeight(1000) // Expanded height in pixels
         } else {
-            bannerView.visibility = View.VISIBLE
-            textview.visibility = View.VISIBLE
-            val layoutParams: ViewGroup.LayoutParams? = gridView?.layoutParams
-            layoutParams?.height = convertDpToPixels(400, requireContext()) //this is in pixels
-            gridView?.layoutParams = layoutParams
+            binding.imageView.visibility = View.VISIBLE
+            binding.textPhimHotNhat.visibility = View.VISIBLE
+            setGridViewHeight(400) // Default height in pixels
         }
-        val searchList = ArrayList<Movie>()
-        for (movie in movieList!!) {
-            if (movie.name?.lowercase()?.contains(text.lowercase()) == true) {
-                searchList.add(movie)
-            }
+
+        val filteredList = movieList.filter {
+            it.name?.contains(query, ignoreCase = true) == true
         }
-        movieAdapter?.searchDataList(searchList)
+        filteredMovieList.clear()
+        filteredMovieList.addAll(filteredList)
+        movieAdapter.notifyDataSetChanged()
     }
 
-    fun convertDpToPixels(dp: Int, context: Context): Int {
+    private fun setGridViewHeight(heightInDp: Int) {
+        val layoutParams: ViewGroup.LayoutParams? = gridView.layoutParams
+        layoutParams?.height = convertDpToPixels(heightInDp, requireContext())
+        gridView.layoutParams = layoutParams
+    }
+
+    private fun convertDpToPixels(dp: Int, context: Context): Int {
         val resources: Resources = context.resources
         return TypedValue.applyDimension(
-            TypedValue.COMPLEX_UNIT_DIP,
-            dp.toFloat(),
-            resources.displayMetrics
+            TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), resources.displayMetrics
         ).toInt()
     }
 
@@ -101,59 +98,37 @@ class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
         val database = FirebaseDatabase.getInstance().reference
         database.child("movies").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                movieList?.clear()
+                movieList.clear()
                 for (movieSnapshot in snapshot.children) {
                     val movie = movieSnapshot.getValue(Movie::class.java)
-                    movie?.let { movieList?.add(it) }
-                    updateUIWithMovies()
+                    movie?.let { movieList.add(it) }
                 }
+                filteredMovieList.clear()
+                filteredMovieList.addAll(movieList)
+                movieAdapter.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(
-                    context,
-                    "Failed to fetch movies: ${error.message}",
-                    Toast.LENGTH_SHORT
+                    context, "Failed to fetch movies: ${error.message}", Toast.LENGTH_SHORT
                 ).show()
             }
         })
     }
 
-    private fun filterMovies(query: String) {
-        filteredMovieList?.clear()
-        val lowerCaseQuery = query.lowercase(Locale.getDefault())
-        for (movie in movieList.orEmpty()) {
-            if (movie.name?.contains(query) == true) {
-                filteredMovieList?.add(movie)
-            }
-        }
-        updateUIWithMovies()
-    }
-
-    private fun updateUIWithMovies() {
-        movieAdapter = movieList?.let { MovieAdapter(requireContext(), it) }
-        gridView?.adapter = movieAdapter
-    }
-
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val selectedMovie = movieList?.get(position)
+        val selectedMovie = filteredMovieList[position]
         val bundle = Bundle().apply {
             putParcelable("movie", selectedMovie)
         }
+        binding.timKiem.setText("")
         findNavController().navigate(
-            R.id.action_fragment_home_screen_to_fragment_description,
-            bundle
+            R.id.action_fragment_home_screen_to_fragment_description, bundle
         )
-
     }
 
-    companion object {
-
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            fragment_home_screen().apply {
-
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

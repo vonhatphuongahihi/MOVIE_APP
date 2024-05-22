@@ -1,16 +1,22 @@
 package com.example.movieapp.Activities.ui.notifications
 
 import UserMangementAdapter
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movieapp.Activities.Login
+import com.example.movieapp.R
 import com.example.movieapp.data.model.User
 import com.example.movieapp.databinding.FragmentNotificationsBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -23,6 +29,7 @@ class NotificationsFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var userAdapter: UserMangementAdapter
     private lateinit var userList: MutableList<User>
+    private lateinit var auth: FirebaseAuth
     private var _binding: FragmentNotificationsBinding? = null
     private val binding get() = _binding!!
 
@@ -31,6 +38,7 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        auth = FirebaseAuth.getInstance()
         val notificationsViewModel =
             ViewModelProvider(this).get(NotificationsViewModel::class.java)
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
@@ -46,10 +54,19 @@ class NotificationsFragment : Fragment() {
         userList = mutableListOf()
         userAdapter = UserMangementAdapter(userList)
         recyclerView.adapter = userAdapter
-
+        val logoutButton = root.findViewById<Button>(R.id.logout)
+        logoutButton.setOnClickListener { logout() }
         // Tải dữ liệu người dùng
         fetchUsers()
         return root
+    }
+
+    private fun logout() {
+        auth.signOut()
+        val intent = Intent(requireContext(), Login::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show()
     }
 
     private fun fetchUsers() {
