@@ -70,13 +70,7 @@ class userFragment : Fragment() {
             Snackbar.make(view,message,duration).show()
         })
 
-        // Nút lịch sử xem
-        val btnHistory = view.findViewById<LinearLayout>(R.id.lich_su_xem)
-        btnHistory.setOnClickListener(View.OnClickListener {
-            var message: String = "Lịch sử xem"
-            var duration: Int =Snackbar.LENGTH_SHORT
-            Snackbar.make(view,message,duration).show()
-        })
+
         // Nút đăng xuất
         val btnSignOut = view.findViewById<LinearLayout>(R.id.dang_xuat)
         btnSignOut.setOnClickListener(View.OnClickListener {
