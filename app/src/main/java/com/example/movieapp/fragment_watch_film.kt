@@ -3,6 +3,7 @@ package com.example.movieapp
 import Movie
 import Comment
 import CommentAdapter
+import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,11 +13,15 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.GridView
+import android.widget.ImageView
 import android.widget.MediaController
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
+import androidx.annotation.DrawableRes
+import com.example.movieapp.data.model.User
+import com.google.api.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -35,6 +40,8 @@ class fragment_watch_film : Fragment() {
     private lateinit var textSubtitle : TextView
     private lateinit var videoView: VideoView
     private lateinit var progressBar: ProgressBar
+    private lateinit var ImageViewfavorite: ImageView
+    private var isFavorite: Boolean = false
 
     private var movie: Movie? = null
 
@@ -66,6 +73,10 @@ class fragment_watch_film : Fragment() {
         videoView = root.findViewById(R.id.phim)
         progressBar=root.findViewById(R.id.progress_bar)
 
+        ImageViewfavorite=root.findViewById(R.id.favorite)
+
+
+
         val mediaController = MediaController(requireContext())
         mediaController.setAnchorView(videoView)
         videoView.setMediaController(mediaController)
@@ -81,8 +92,14 @@ class fragment_watch_film : Fragment() {
             textTitle.setText(it.name)
             textSubtitle.setText(it.releaseYear.toString()+"|"+it.director)
             setupVideoPreview(it.videoUrl)
+            checkFav(it.id,this.resources)
         }
         fetchCommentFromFirebase(movie?.id)
+        ImageViewfavorite.setOnClickListener{onClickFav(mAuth.currentUser?.uid, movie?.id,this.resources)}
+        //checkFav(movie?.id)
+        /*if(isFavorite) {
+            ImageViewfavorite.setImageDrawable(this.resources.getDrawable(R.drawable.favorite_icon))
+        }*/
 
         //var temp=editTextComment.text.toString()
         //btnUpComment.setOnClickListener{onCommentClick(editTextComment.text.toString(),movie?.id,"Anonymous",mAuth?.uid)}
@@ -92,10 +109,69 @@ class fragment_watch_film : Fragment() {
     }
 
 
+
+    private fun onClickFav(userId: String?,movieId: String?,resource: Resources){
+        userId?.let {
+            database.child("users").child(it)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val user = snapshot.getValue(User::class.java)
+                        user?.let {
+                            var fav = it.fav
+                            movieId?.let{u->
+                                if (fav.contains(u)==false){
+                                    ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_icon))
+                                    fav=fav+u+","
+                                }else{
+                                    fav=fav.replace(u+",","")
+                                    ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_watch_icon))
+
+                                }
+                            }
+
+                            val FavUpdate = mapOf("fav" to fav)
+
+                            database.child("users").child(it.userId).updateChildren(FavUpdate)
+                            /*Toast.makeText(
+                                context,
+                                "${fav}",
+                                Toast.LENGTH_SHORT
+                            ).show()*/
+
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {}
+                })
+        }
+    }
+    private fun checkFav(movieId: String, resource: Resources){
+
+        var userId=mAuth.currentUser?.uid
+
+        userId?.let {
+            database.child("users").child(it)
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        val user = snapshot.getValue(User::class.java)
+                        user?.let {
+                            var fav = it.fav
+                            if (fav.contains(movieId)==true){
+                                ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_icon))
+                            }
+
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {}
+                })
+        }
+
+    }
+
+
     private fun fetchCommentFromFirebase(id: String?) {
         val database = FirebaseDatabase.getInstance().reference
-
-
         database.child("comment").orderByChild("movieId").equalTo(id)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {

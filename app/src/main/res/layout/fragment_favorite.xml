@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,228 +8,47 @@
     android:background="@drawable/background"
     >
 
-    <!-- TODO: Update blank fragment layout -->
-    <ScrollView
+    <FrameLayout
+        android:layout_marginTop="20dp"
+        android:id="@+id/container_frame"
+        android:layout_width="236dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/khung_fav_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/text_danh_sach_yeu_thich"
+            android:layout_width="wrap_content"
+            android:layout_height="37dp"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="7dp"
+            android:fontFamily="@font/roboto_condensed_bold"
+            android:gravity="left|center"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="Danh sách yêu thích"
+            android:textColor="#120082"
+            android:textSize="27sp" />
+    </FrameLayout>
+
+
+    <GridView
+        android:id="@+id/gridViewYeuThich"
+        android:paddingTop="80dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/thong_bao"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_gravity="top|right"
-                android:scaleType="centerInside"
-                android:src="@drawable/thong_bao_icon" />
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        app:layout_constraintTop_toBottomOf="@+id/container_frame"
+        android:columnWidth="150dp"
+        android:horizontalSpacing="15dp"
+        android:isScrollContainer="false"
+        android:paddingHorizontal="20dp"
+        >
 
-            <FrameLayout
-                android:id="@+id/container_frame"
-                android:layout_width="236dp"
-                android:layout_height="52dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/khung_fav_list">
+    </GridView>
 
-                <TextView
-                    android:id="@+id/text_danh_sach_yeu_thich"
-                    android:layout_width="wrap_content"
-                    android:layout_height="37dp"
-                    android:layout_gravity="top|center"
-                    android:layout_marginTop="7dp"
-                    android:fontFamily="@font/roboto_condensed_bold"
-                    android:gravity="left|center"
-                    android:includeFontPadding="false"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="Danh sách yêu thích"
-                    android:textColor="#120082"
-                    android:textSize="27sp" />
-            </FrameLayout>
-
-            <FrameLayout
-                android:id="@+id/container_group1"
-                android:layout_width="340dp"
-                android:layout_height="650dp"
-                android:layout_gravity="left"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="120dp">
-
-                <FrameLayout
-                    android:id="@+id/container_group2"
-                    android:layout_width="160dp"
-                    android:layout_height="212dp"
-                    android:layout_gravity="top|left">
-
-                    <ImageView
-                        android:id="@+id/image_rectangle1"
-                        android:layout_width="match_parent"
-                        android:layout_height="158dp"
-                        android:layout_gravity="top|left"
-                        android:layout_marginLeft="1dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/thien_thien" />
-
-                    <TextView
-                        android:id="@+id/text_tran_thien_thien"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="167.5dp"
-                        android:fontFamily="@font/roboto_condensed_bold"
-                        android:gravity="center"
-                        android:includeFontPadding="false"
-                        android:lineHeight="24dp"
-                        android:maxLines="2"
-                        android:text="Trần Thiên Thiên Trong Lời Đồn"
-                        android:textColor="#FF000000"
-                        android:textSize="18dp" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/container_group3"
-                    android:layout_width="160dp"
-                    android:layout_height="212dp"
-                    android:layout_gravity="top|left"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginTop="215dp">
-
-                    <ImageView
-                        android:id="@+id/image_rectangle3"
-                        android:layout_width="match_parent"
-                        android:layout_height="158dp"
-                        android:layout_gravity="top"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/tran_tinh_lenh_fav" />
-
-                    <TextView
-                        android:id="@+id/text_tran_tinh_lenh"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="28dp"
-                        android:layout_marginTop="167dp"
-                        android:fontFamily="@font/roboto_condensed_bold"
-                        android:gravity="left|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="2"
-                        android:singleLine="true"
-                        android:text="Trần Tình Lệnh"
-                        android:textColor="#FF000000"
-                        android:textSize="18dp" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/container_group4"
-                    android:layout_width="160dp"
-                    android:layout_height="212dp"
-                    android:layout_gravity="top"
-                    android:layout_marginLeft="185dp"
-                    android:layout_marginTop="215dp">
-
-                    <ImageView
-                        android:id="@+id/image_rectangle4"
-                        android:layout_width="match_parent"
-                        android:layout_height="158dp"
-                        android:layout_gravity="top"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/wide4_lienhoalau" />
-
-                    <TextView
-                        android:id="@+id/text_lien_hoa_lau"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="36dp"
-                        android:layout_marginTop="167dp"
-                        android:fontFamily="@font/roboto_condensed_bold"
-                        android:gravity="left|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="2"
-                        android:singleLine="true"
-                        android:text="Liên Hoa Lâu"
-                        android:textColor="#FF000000"
-                        android:textSize="18dp" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/container_group5"
-                    android:layout_width="160dp"
-                    android:layout_height="212dp"
-                    android:layout_gravity="top"
-                    android:layout_marginLeft="185dp"
-                    android:src="@drawable/khung_fav_phim">
-
-                    <ImageView
-                        android:id="@+id/image_rectangle5"
-                        android:layout_width="match_parent"
-                        android:layout_height="158dp"
-                        android:layout_gravity="top"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/tien_kiem_4_home" />
-
-                    <TextView
-                        android:id="@+id/text_tien_kiem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="38dp"
-                        android:layout_marginTop="173dp"
-                        android:fontFamily="@font/roboto_condensed_bold"
-                        android:gravity="left|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="Tiên Kiếm 4"
-                        android:textColor="#FF000000"
-                        android:textSize="18dp" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/container_group6"
-                    android:layout_width="160dp"
-                    android:layout_height="212dp"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="1dp"
-                    android:layout_marginTop="430dp">
-
-                    <ImageView
-                        android:id="@+id/image_rectangle6"
-                        android:layout_width="match_parent"
-                        android:layout_height="158dp"
-                        android:layout_gravity="top|left"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/twenty_fiv_twenty_one_fav" />
-
-                    <TextView
-                        android:id="@+id/text_twenty_five_twenty_one"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="176dp"
-                        android:fontFamily="@font/roboto_condensed_bold"
-                        android:gravity="left|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="Twenty five, Twenty one"
-                        android:textColor="#FF000000"
-                        android:textSize="18dp" />
-                </FrameLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="800dp"
-                android:layout_gravity="center|bottom">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center|bottom"
-                    android:text="Hết trang"
-                    >
-
-                </TextView>
-            </FrameLayout>
-        </FrameLayout>
-    </ScrollView>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
