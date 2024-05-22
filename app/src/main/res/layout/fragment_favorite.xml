@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".favoriteFragment"
-    android:background="@color/background"
+    android:background="@drawable/background"
     >
 
     <FrameLayout
         android:layout_marginTop="20dp"
         android:id="@+id/container_frame"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
+        android:layout_width="236dp"
+        android:layout_height="52dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/khung_fav_list"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,17 +22,17 @@
         <TextView
             android:id="@+id/text_danh_sach_yeu_thich"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="37dp"
             android:layout_gravity="top|center"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="7dp"
             android:fontFamily="@font/roboto_condensed_bold"
-            android:gravity="center_vertical|center_horizontal"
+            android:gravity="left|center"
             android:includeFontPadding="false"
             android:maxLines="1"
             android:singleLine="true"
             android:text="Danh sách yêu thích"
-            android:textColor="@color/primary_text"
-            android:textSize="23sp" />
+            android:textColor="#120082"
+            android:textSize="27sp" />
     </FrameLayout>
 
 
