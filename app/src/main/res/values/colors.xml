@@ -3,4 +3,6 @@
     <color name="background">#E3F3FF</color>
     <color name="primary_text">#221A92</color>
     <color name="secondary_text">#000000</color>
+    <color name="third_text">#FFFFFF</color>
+    <color name="fourth_text">#B6E0FF</color>
 </resources>

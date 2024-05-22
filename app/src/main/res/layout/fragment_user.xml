@@ -114,6 +114,7 @@
                     android:paddingRight="12dp"
                     android:paddingBottom="9dp">
 
+
                     <TextView
                         android:id="@+id/text_che_do_toi"
                         android:layout_width="wrap_content"
@@ -126,6 +127,16 @@
                         android:text="Chế độ tối"
                         android:textColor="#FF31507F"
                         android:textSize="16dp" />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="31dp"
+                        android:layout_weight="1" />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumb="@drawable/thumb"
+                        app:track="@drawable/track"/>
 
                 </LinearLayout>
 

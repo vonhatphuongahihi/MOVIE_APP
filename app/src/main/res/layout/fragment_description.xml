@@ -17,14 +17,14 @@
             <ImageView
                 android:id="@+id/image_rectangle1"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="230dp"
                 android:scaleType="centerInside" />
             <Button
                 android:id="@+id/button_bat_dau_xem"
                 android:layout_width="71.34dp"
                 android:layout_height="77.24dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="85dp"
                 android:layout_marginBottom="740.59dp"
                 android:scaleType="centerInside"
                 android:background="@drawable/nut_bat_dau_xem"
@@ -34,7 +34,7 @@
                 android:layout_width="125.26dp"
                 android:layout_height="55.4dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="330dp"
+                android:layout_marginTop="300dp"
                 android:layout_gravity="left">
 
                 <TextView
@@ -78,7 +78,7 @@
                 android:layout_height="140dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="420dp"
+                android:layout_marginTop="390dp"
                 android:layout_gravity="top|left">
 
                 <TextView
@@ -118,7 +118,7 @@
                 android:layout_marginLeft="140dp"
                 android:layout_gravity="right"
                 android:layout_marginRight="10dp"
-                android:layout_marginTop="330dp">
+                android:layout_marginTop="300dp">
 
                 <FrameLayout
                     android:id="@+id/container_group7"
@@ -200,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="570dp"
+                android:layout_marginTop="540dp"
                 android:layout_gravity="top|left">
 
                 <TextView
@@ -237,7 +237,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="640dp"
+                android:layout_marginTop="610dp"
                 android:layout_gravity="top|left">
 
 
@@ -342,7 +342,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_marginLeft="23dp"
-                android:layout_marginTop="270dp"
+                android:layout_marginTop="240dp"
                 android:layout_gravity="top|left"
                 android:alpha="0.75"
                 android:gravity="left|center_vertical"

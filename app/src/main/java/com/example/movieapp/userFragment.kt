@@ -1,5 +1,7 @@
 package com.example.movieapp
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.provider.Telephony.Sms.Intents
 import androidx.fragment.app.Fragment
@@ -9,6 +11,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import androidx.navigation.Navigation
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -31,6 +35,10 @@ class userFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var switchMode: SwitchCompat
+    private var nightMode: Boolean = false
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -55,12 +63,26 @@ class userFragment : Fragment() {
 
 
         //Nút tối
-        val btnDarkMode = view.findViewById<LinearLayout>(R.id.che_do_toi)
-        btnDarkMode.setOnClickListener(View.OnClickListener {
-            var message: String = "Bật chế độ tối"
-            var duration: Int =Snackbar.LENGTH_SHORT
-            Snackbar.make(view,message,duration).show()
-        })
+        switchMode = view.findViewById(R.id.switch_mode)
+        sharedPreferences = requireActivity().getSharedPreferences("MODE", Context.MODE_PRIVATE)
+        nightMode = sharedPreferences.getBoolean("night_mode", false)
+
+        if (nightMode) {
+            switchMode.isChecked = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        switchMode.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                editor = sharedPreferences.edit()
+                editor.putBoolean("night_mode", true)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                editor = sharedPreferences.edit()
+                editor.putBoolean("night_mode", false)
+            }
+            editor.apply()
+        }
 
         //Nút quyền riên tư
         val btnPrivate = view.findViewById<LinearLayout>(R.id.quyen_rieng_tu)

@@ -11,11 +11,11 @@
     tools:ignore="ExtraText">
     <ImageButton
         android:id="@+id/back"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_gravity="left"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="35dp"
         android:onClick="back"
         android:backgroundTint="#00000000"
         android:src="@drawable/back"
