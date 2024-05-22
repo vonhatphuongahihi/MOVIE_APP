@@ -78,6 +78,7 @@ class fragment_description : Fragment() {
         database = FirebaseDatabase.getInstance().reference
         imageViewBannerPreview=root.findViewById(R.id.image_rectangle1)
         textViewTitle=root.findViewById(R.id.tua_de_phim)
+        textViewDuration=root.findViewById(R.id.text_duration)
         textViewYear=root.findViewById(R.id.text_date)
         textViewGenre1=root.findViewById(R.id.text_the_loai_1)
         textViewGenre2=root.findViewById(R.id.text_the_loai_2)
@@ -120,29 +121,29 @@ class fragment_description : Fragment() {
     private fun fetchCommentFromFirebase(id: String?) {
         database.child("comment").orderByChild("movieId").equalTo(id)
             .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    commentList?.clear()
-                    for (commentSnapshot in snapshot.children) {
-                        val comment  = commentSnapshot.getValue(Comment::class.java)
+            override fun onDataChange(snapshot: DataSnapshot) {
+                commentList?.clear()
+                for (commentSnapshot in snapshot.children) {
+                    val comment  = commentSnapshot.getValue(Comment::class.java)
 
                         comment?.let {
-                            //if(it.movieId.equals(id))
-                            commentList?.add(it)
+                                //if(it.movieId.equals(id))
+                                commentList?.add(it)
 
                         }
 
-                    }
-                    updateUIWithComments()
                 }
+                updateUIWithComments()
+            }
 
-                override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(
-                        context,
-                        "Failed to fetch movies: ${error.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            })
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(
+                    context,
+                    "Failed to fetch movies: ${error.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
     }
 
     private fun updateUIWithComments() {
