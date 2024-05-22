@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.GridView
-import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.ImageView
 import android.widget.Toast
@@ -44,7 +43,7 @@ class fragment_description : Fragment() {
     private lateinit var textViewContent: TextView
     private lateinit var textViewDirector: TextView
 
-    private lateinit var btnBack: ImageButton
+    private lateinit var btnBack: Button
     private lateinit var btnWatch: Button
 
     private lateinit var editTextComment: EditText
@@ -76,7 +75,6 @@ class fragment_description : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_description, container, false)
         mAuth = FirebaseAuth.getInstance()
-        btnBack=root.findViewById(R.id.back)
         database = FirebaseDatabase.getInstance().reference
         imageViewBannerPreview=root.findViewById(R.id.image_rectangle1)
         textViewTitle=root.findViewById(R.id.tua_de_phim)
@@ -111,7 +109,7 @@ class fragment_description : Fragment() {
         }
         fetchCommentFromFirebase(movie?.id)
 
-        btnBack.setOnClickListener {onBackClick()}
+        //btnBack.setOnClickListener {onBackClick()}
         btnWatch.setOnClickListener{onWatchClick()}
         btnUpComment.setOnClickListener{onCommentClick(editTextComment.text.toString(),movie?.id,mAuth.uid)}
         return root
@@ -201,5 +199,4 @@ class fragment_description : Fragment() {
                 }
             }
     }
-
 }
