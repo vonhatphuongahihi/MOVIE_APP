@@ -19,7 +19,7 @@
         android:layout_marginLeft="0dp"
         android:layout_marginTop="250dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/logo_splash_screen" />
+        android:src="@drawable/logo" />
 
     <FrameLayout
         android:layout_width="788.76dp"
