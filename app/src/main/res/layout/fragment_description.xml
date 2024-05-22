@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment_description"
-    android:background="@drawable/background"
+    android:background="@color/background"
     >
 
     <ScrollView
@@ -19,16 +19,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginLeft="0dp"
-                android:layout_marginTop="-2dp"
                 android:scaleType="centerInside" />
 
             <Button
                 android:id="@+id/ic_previous_ltr"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="top|left"
-                android:layout_marginLeft="29dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/back"
                 tools:ignore="SpeakableTextPresentCheck"
                 android:scaleType="centerInside" />
@@ -68,7 +67,7 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="28/4/2022"
-                    android:textColor="#FF31507F"
+                    android:textColor="@color/secondary_text"
                     android:textSize="14.45dp"
                     tools:ignore="TextSizeCheck" />
 
@@ -86,7 +85,7 @@
                     android:fontFamily="@font/roboto_condensed_bold"
                     android:singleLine="true"
                     android:text="Phát hành"
-                    android:textColor="#FF221FC2"
+                    android:textColor="@color/primary_text"
                     android:textSize="19.27dp" />
             </FrameLayout>
 
@@ -112,7 +111,7 @@
                     android:singleLine="true"
                     android:text="Tóm tắt"
                     android:fontFamily="@font/roboto_condensed_bold"
-                    android:textColor="#FF221FC2"
+                    android:textColor="@color/primary_text"
                     android:textSize="20dp" />
 
                 <TextView
@@ -125,7 +124,7 @@
                     android:lineHeight="21.68dp"
                     android:fontFamily="@font/roboto_condensed_regular"
                     android:text="Mười năm trước, trên chuyến tàu về nhà trong dịp du xuân bận rộn, định mệnh đã đưa Xiaoxiao và Jianqing đến với nhau.  Read more..."
-                    android:textColor="#FF31507F"
+                    android:textColor="@color/secondary_text"
                     android:textSize="16dp" />
             </FrameLayout>
 
@@ -160,7 +159,7 @@
                         android:fontFamily="@font/roboto_condensed_regular"
                         android:singleLine="true"
                         android:text="Chính kịch"
-                        android:textColor="#FF31507F"
+                        android:textColor="@color/secondary_text"
                         android:textSize="14.45dp"
                         tools:ignore="TextSizeCheck" />
                 </FrameLayout>
@@ -190,7 +189,7 @@
                         android:maxLines="1"
                         android:singleLine="true"
                         android:text="Lãng mạn"
-                        android:textColor="#FF31507F"
+                        android:textColor="@color/secondary_text"
                         android:textSize="14.45dp"
                         tools:ignore="TextSizeCheck" />
                 </FrameLayout>
@@ -209,7 +208,7 @@
                     android:singleLine="true"
                     android:text="Thể loại"
                     android:fontFamily="@font/roboto_condensed_bold"
-                    android:textColor="#FF221FC2"
+                    android:textColor="@color/primary_text"
                     android:textSize="19.27dp" />
             </FrameLayout>
 
@@ -233,7 +232,7 @@
                     android:singleLine="true"
                     android:text="Đạo diễn"
                     android:fontFamily="@font/roboto_condensed_bold"
-                    android:textColor="#FF221FC2"
+                    android:textColor="@color/primary_text"
                     android:textSize="20dp" />
 
                 <TextView
@@ -246,7 +245,7 @@
                     android:lineHeight="21.68dp"
                     android:fontFamily="@font/roboto_condensed_regular"
                     android:text="Lưu Nhược Anh"
-                    android:textColor="#FF31507F"
+                    android:textColor="@color/secondary_text"
                     android:textSize="16dp" />
             </FrameLayout>
 
@@ -272,7 +271,7 @@
                     android:singleLine="true"
                     android:text="Bình luận"
                     android:fontFamily="@font/roboto_condensed_bold"
-                    android:textColor="#FF221FC2"
+                    android:textColor="@color/primary_text"
                     android:textSize="20dp" />
 
                 <FrameLayout
@@ -294,22 +293,23 @@
                             android:paddingStart="20dp"
                             android:background="@drawable/bg_the_loai1"
                             android:hint="Bình luận của bạn"
+                            android:textColorHint="@color/secondary_text"
                             android:padding="5dp"
                             android:layout_weight="8"
-                            android:textColor="#FF31507F"
+                            android:textColor="@color/secondary_text"
 
                             />
                         <Button
-                        android:id="@+id/button_comment"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:background="@drawable/bg_the_loai1"
-                        android:layout_marginTop="60dp"
-                        android:text="Đăng"
-                        android:layout_gravity="right"
+                            android:id="@+id/button_comment"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/bg_the_loai1"
+                            android:layout_marginTop="60dp"
+                            android:text="Đăng"
+                            android:layout_gravity="right"
                             android:layout_weight="2"
                             android:layout_marginLeft="5dp"
-                            android:textColor="#FF31507F"
+                            android:textColor="@color/secondary_text"
 
                             />
                     </LinearLayout>
@@ -354,29 +354,6 @@
                 </FrameLayout>
             </FrameLayout>
 
-            <FrameLayout
-                android:id="@+id/container_group2"
-                android:layout_width="105.9dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="330dp"
-                android:layout_marginLeft="25dp"
-                android:layout_gravity="top">
-
-                <TextView
-                    android:id="@+id/text_duration"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/roboto_condensed_regular"
-                    android:includeFontPadding="false"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="120 phút"
-                    android:textColor="#FF000000"
-                    android:textSize="14dp"
-                    tools:ignore="TextSizeCheck" />
-
-            </FrameLayout>
-
             <TextView
                 android:id="@+id/tua_de_phim"
                 android:layout_width="wrap_content"
@@ -391,7 +368,7 @@
                 android:singleLine="true"
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:text="Chúng Ta Của Sau Này"
-                android:textColor="#FF221FC2"
+                android:textColor="@color/primary_text"
                 android:textSize="23sp" />
         </FrameLayout>
     </ScrollView>
