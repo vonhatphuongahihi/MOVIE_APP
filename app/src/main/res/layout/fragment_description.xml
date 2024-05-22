@@ -20,18 +20,6 @@
                 android:layout_height="300dp"
                 android:layout_marginLeft="0dp"
                 android:scaleType="centerInside" />
-
-            <Button
-                android:id="@+id/ic_previous_ltr"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="top|left"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/back"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:scaleType="centerInside" />
-
             <Button
                 android:id="@+id/button_bat_dau_xem"
                 android:layout_width="71.34dp"
@@ -42,10 +30,6 @@
                 android:scaleType="centerInside"
                 android:background="@drawable/nut_bat_dau_xem"
                 tools:ignore="SpeakableTextPresentCheck"/>
-
-
-
-
             <FrameLayout
                 android:id="@+id/container_group1"
                 android:layout_width="125.26dp"
