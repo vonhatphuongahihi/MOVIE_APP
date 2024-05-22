@@ -184,9 +184,8 @@ class Verification : AppCompatActivity() {
 
     private fun setUser(phoneNumber: String, userId: String) {
         Log.w("number not null2", phoneNumber)
-        val user = User(userId, "", "", phoneNumber, "", "", "", "member")
+        val user = User(userId, "", "", phoneNumber, "", "", "", "member","")
         database.child("users").child(userId).setValue(user)
-
     }
 
     private fun navigateToAdminActivity() {

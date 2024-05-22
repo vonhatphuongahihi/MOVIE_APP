@@ -84,7 +84,7 @@ class fragment_description : Fragment() {
         textViewGenre2=root.findViewById(R.id.text_the_loai_2)
         textViewContent=root.findViewById(R.id.text_content)
         textViewDirector=root.findViewById(R.id.text_dao_dien)
-        btnBack=root.findViewById(R.id.ic_previous_ltr)
+        //btnBack=root.findViewById(R.id.ic_previous_ltr)
         btnWatch=root.findViewById((R.id.button_bat_dau_xem))
 
         btnUpComment=root.findViewById(R.id.button_comment)
@@ -110,7 +110,7 @@ class fragment_description : Fragment() {
         }
         fetchCommentFromFirebase(movie?.id)
 
-        btnBack.setOnClickListener {onBackClick()}
+        //btnBack.setOnClickListener {onBackClick()}
         btnWatch.setOnClickListener{onWatchClick()}
         btnUpComment.setOnClickListener{onCommentClick(editTextComment.text.toString(),movie?.id,mAuth.uid)}
         return root
