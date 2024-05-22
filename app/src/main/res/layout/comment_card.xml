@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <FrameLayout
+            android:layout_width="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/khung_user"
+                android:scaleType="centerInside"
+                app:shapeAppearanceOverlay="@style/CircleImageView"
+                android:contentDescription="Avatar"
+                />
+
+        </FrameLayout>
+        <ImageView
+            android:id="@+id/khung_binh_luan"
+            tools:ignore="DuplicateIds"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="45dp"
+            android:background="@drawable/khung_binh_luan"
+            android:scaleType="centerCrop" />
+
+        <FrameLayout
+            android:id="@+id/chi_tiet_binh_luan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="52dp"
+            android:layout_marginBottom="3dp">
+
+            <TextView
+                android:id="@+id/text_movie"
+                tools:ignore="TextSizeCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_gravity="top|left"
+                android:layout_marginTop="5dp"
+                android:alpha="0.75"
+                android:fontFamily="@font/roboto_condensed_medium"
+                android:gravity="left|center_vertical"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="4Movie"
+                android:textColor="#8C0476"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/text_binh_luan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="27dp"
+                android:alpha="0.75"
+                android:fontFamily="@font/roboto_condensed_regular"
+                android:gravity="left|top"
+                android:includeFontPadding="false"
+                android:lineHeight="17.29dp"
+                android:text="Lịch phát sóng tuần này từ ngày 15/4, mỗi tuần một tập nhé cả nhà"
+                android:textColor="#FF000000"
+                android:textSize="13sp"
+                android:paddingBottom="15dp"/>
+        </FrameLayout>
+    </FrameLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

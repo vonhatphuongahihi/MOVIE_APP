@@ -102,6 +102,8 @@ class HomeFragment : Fragment() {
                 description,
                 requireContext()
             )
+
+
         }
 
 
@@ -194,6 +196,14 @@ class HomeFragment : Fragment() {
                                             description,
                                         )
                                         addMovieToFirebase(movie, context)
+                                        binding.editTextMovieName.setText("")
+                                        binding.editTextMovieType.setText("")
+                                        binding.ediTextAge.setText("")
+                                        binding.ediTextDaodien.setText("")
+                                        binding.ediTextDienvien.setText("")
+                                        binding.ediTextCategory.setText("")
+                                        binding.ediTextDescription.setText("")
+                                        binding.ediTextQuocgia.setText("")
                                         progressBar.visibility = View.GONE
                                     }
                                 }.addOnProgressListener { taskSnapshot ->
@@ -226,7 +236,10 @@ class HomeFragment : Fragment() {
     private fun addMovieToFirebase(movie: Movie, context: Context) {
         database.child("movies").child(movie.id).setValue(movie)
             .addOnSuccessListener {
-                Toast.makeText(context, "Movie added", Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(context, "Movie added", Toast.LENGTH_SHORT)
+                    .show()
+
             }
             .addOnFailureListener { e ->
                 Toast.makeText(context, "Failed to add movie: ${e.message}", Toast.LENGTH_SHORT)
