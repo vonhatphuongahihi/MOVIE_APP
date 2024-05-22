@@ -77,11 +77,6 @@ class favoriteFragment : Fragment(), AdapterView.OnItemClickListener {
                                         }
                                         updateUIWithMovies()
                                     }
-                                    Toast.makeText(
-                                        requireContext(),
-                                        "Thêm phim vào danh sách yêu thích thành công",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
 
                                 }
                             }
@@ -89,7 +84,7 @@ class favoriteFragment : Fragment(), AdapterView.OnItemClickListener {
                             override fun onCancelled(error: DatabaseError) {
                                 Toast.makeText(
                                     context,
-                                    "Thêm phim vào danh sách yêu thích thất bại: ${error.message}",
+                                    "Failed to favorite list: ${error.message}",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -102,7 +97,7 @@ class favoriteFragment : Fragment(), AdapterView.OnItemClickListener {
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(
                     context,
-                    "Thêm phim vào danh sách yêu thích thất bại: ${error.message}",
+                    "Failed to fetch movies: ${error.message}",
                     Toast.LENGTH_SHORT
                 ).show()
             }

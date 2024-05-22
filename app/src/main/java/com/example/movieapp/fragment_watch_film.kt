@@ -122,9 +122,19 @@ class fragment_watch_film : Fragment() {
                                 if (fav.contains(u)==false){
                                     ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_icon))
                                     fav=fav+u+","
+                                    Toast.makeText(
+                                        context,
+                                        "Đã thêm vào danh sách phim yêu thích",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
                                 }else{
                                     fav=fav.replace(u+",","")
                                     ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_watch_icon))
+                                    Toast.makeText(
+                                        context,
+                                        "Đã loại khỏi danh sách phim yêu thích",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
 
                                 }
                             }
