@@ -3,7 +3,11 @@ package com.example.movieapp
 import Movie
 import Comment
 import CommentAdapter
+<<<<<<< HEAD
+import android.content.Intent
+=======
 import android.content.res.Resources
+>>>>>>> 334fc4651a0196121b15146b0edaa870c262bb2f
 import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -19,9 +23,13 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
+<<<<<<< HEAD
+import androidx.navigation.fragment.findNavController
+=======
 import androidx.annotation.DrawableRes
 import com.example.movieapp.data.model.User
 import com.google.api.Context
+>>>>>>> 334fc4651a0196121b15146b0edaa870c262bb2f
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -40,9 +48,12 @@ class fragment_watch_film : Fragment() {
     private lateinit var textSubtitle : TextView
     private lateinit var videoView: VideoView
     private lateinit var progressBar: ProgressBar
+<<<<<<< HEAD
+=======
     private lateinit var ImageViewfavorite: ImageView
     private var isFavorite: Boolean = false
 
+>>>>>>> 334fc4651a0196121b15146b0edaa870c262bb2f
     private var movie: Movie? = null
 
     //private lateinit var editTextComment: EditText
@@ -67,7 +78,6 @@ class fragment_watch_film : Fragment() {
 
         mAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().reference
-
         textTitle=root.findViewById(R.id.text_ten_phim)
         textSubtitle=root.findViewById(R.id.text_thong_tin_phim)
         videoView = root.findViewById(R.id.phim)

@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_home_screen">
+    tools:context=".fragment_home_screen"
+    android:background="@color/background">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginRight="20dp">
 
                 <FrameLayout
@@ -62,6 +63,7 @@
                             android:background="@null"
                             android:fontFamily="@font/roboto_condensed_regular"
                             android:hint="Tìm kiếm"
+                            android:textColorHint="#FF000000"
                             android:inputType="text"
                             android:textColor="#FF000000"
                             android:textSize="16sp"
@@ -69,13 +71,6 @@
                     </LinearLayout>
                 </FrameLayout>
 
-                <ImageView
-                    android:id="@+id/home_search"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="right|center_vertical"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/loc_tim_kiem" />
             </FrameLayout>
 
             <ImageView
@@ -86,8 +81,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
 
-                android:layout_margin="35dp"
-                android:scaleType="centerCrop"
+                android:layout_margin="20dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/khanh_khanh_home" />
 
             <TextView
@@ -96,14 +91,14 @@
                 android:layout_height="29dp"
                 android:layout_below="@+id/imageView"
                 android:layout_gravity="top|left"
-                android:layout_marginLeft="12dp"
+                android:layout_marginLeft="15dp"
                 android:fontFamily="@font/roboto_condensed_bold"
                 android:gravity="left|center_vertical"
                 android:includeFontPadding="false"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Phim hot nhất"
-                android:textColor="#FF221FC2"
+                android:textColor="@color/primary_text"
                 android:textSize="20dp" />
 
             <GridView
