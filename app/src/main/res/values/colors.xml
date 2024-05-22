@@ -5,4 +5,7 @@
     <color name="secondary_text">#000000</color>
     <color name="third_text">#FFFFFF</color>
     <color name="fourth_text">#B6E0FF</color>
+    <color name="menu_bar_uncheck">#D9EFFF</color>
+    <color name="menu_bar_check">#0A07AF</color>
+    <color name="background_bar">#8FD0FF</color>
 </resources>
