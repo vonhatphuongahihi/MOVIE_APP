@@ -162,6 +162,7 @@ class Verification : AppCompatActivity() {
                             if (role == "admin") {
                                 // Người dùng là admin
                                 Log.d("Firebase", "User is admin")
+                                navigateToAdminActivity()
                                 isAdmin = true
                             } else {
                                 // Người dùng không phải là admin
@@ -184,18 +185,22 @@ class Verification : AppCompatActivity() {
 
     private fun setUser(phoneNumber: String, userId: String) {
         Log.w("number not null2", phoneNumber)
-        val user = User(userId, "", "", phoneNumber, "", "", "", "member","")
+        val user = User(userId, "", "", phoneNumber, "", "", "", "member", "")
         database.child("users").child(userId).setValue(user)
     }
 
     private fun navigateToAdminActivity() {
         val intent = Intent(this, AdminActivities::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
         startActivity(intent)
         finish() // Để kết thúc MainActivity
     }
 
     private fun navigateToUserActivity() {
         val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
         startActivity(intent)
         finish() // Để kết thúc MainActivity
     }

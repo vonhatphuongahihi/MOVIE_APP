@@ -170,12 +170,12 @@ class editProfileFragment : Fragment() {
                         } else {
                             Toast.makeText(
                                 context,
-                                "Profile updated successfully",
+                                "Cập nhật thông tin thành công",
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
                     } else {
-                        Toast.makeText(context, "Failed to update profile", Toast.LENGTH_SHORT)
+                        Toast.makeText(context, "Cập nhật thông tin thất bại", Toast.LENGTH_SHORT)
                             .show()
                     }
                 }
@@ -193,13 +193,13 @@ class editProfileFragment : Fragment() {
                             if (task.isSuccessful) {
                                 Toast.makeText(
                                     context,
-                                    "Profile updated successfully",
+                                    "Cập nhật thông tin thành công",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             } else {
                                 Toast.makeText(
                                     context,
-                                    "Failed to update profile",
+                                    "Cập nhật thông tin thất bại",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }

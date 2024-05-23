@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment_watch_film"
-    android:background="@drawable/background">
+    android:background="@color/background">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -53,7 +53,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="Khanh Khanh Nhật Thường - Tập 1"
-                android:textColor="#FF000000"
+                android:textColor="@color/primary_text"
                 android:textSize="19sp" />
 
             <TextView
@@ -70,7 +70,7 @@
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="2024 | 24/24 tập | Trung Quốc"
-                android:textColor="#FF000000"
+                android:textColor="@color/primary_text"
                 android:textSize="14sp"
                 tools:ignore="TextSizeCheck" />
             <FrameLayout
@@ -123,7 +123,7 @@
                     android:singleLine="true"
                     android:fontFamily="@font/roboto_condensed_regular"
                     android:text="Yêu thích"
-                    android:textColor="#FF000000"
+                    android:textColor="@color/primary_text"
                     android:textSize="11sp" />
 
                 <TextView
@@ -139,7 +139,7 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="Chia sẻ"
-                    android:textColor="#FF000000"
+                    android:textColor="@color/primary_text"
                     android:textSize="11sp"
                     tools:ignore="TextSizeCheck" />
 
@@ -155,7 +155,7 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="Đánh giá"
-                    android:textColor="#FF000000"
+                    android:textColor="@color/primary_text"
                     android:textSize="11sp" />
             </FrameLayout>
             <FrameLayout
@@ -163,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginTop="600dp"
+                android:layout_marginTop="610dp"
                 android:layout_gravity="top|left">
 
 
@@ -180,8 +180,8 @@
                     android:singleLine="true"
                     android:text="Bình luận"
                     android:fontFamily="@font/roboto_condensed_bold"
-                    android:textColor="#FF221FC2"
-                    android:textSize="20dp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="18dp" />
 
                 <FrameLayout
                     android:id="@+id/chi_tiet_binh_luan_1"
@@ -251,7 +251,7 @@
                 <TextView
                     android:id="@+id/text_phim_de_xuat"
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="top|left"
                     android:layout_marginLeft="22dp"
                     android:alpha="0.75"
@@ -261,15 +261,15 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="Phim đề xuất"
-                    android:textColor="#FF000000"
-                    android:textSize="15sp"
+                    android:textColor="@color/primary_text"
+                    android:textSize="18sp"
                     tools:ignore="TextSizeCheck" />
                 <FrameLayout
                     android:id="@+id/phim_de_xuat"
                     android:layout_width="match_parent"
                     android:layout_height="170dp"
                     android:layout_marginLeft="22dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="25dp"
                     android:layout_gravity="top|left"
                     android:background="@drawable/group_de_xuat">
                     <FrameLayout
@@ -312,7 +312,7 @@
                             android:maxLines="1"
                             android:singleLine="true"
                             android:text="2024 | 24/24 tập | Trung Quốc"
-                            android:textColor="#FF000000"
+                            android:textColor="#000000"
                             android:textSize="11sp"
                             tools:ignore="TextSizeCheck" />
                         <TextView
@@ -330,7 +330,7 @@
                             android:maxLines="1"
                             android:singleLine="true"
                             android:text="Ninh An Như Mộng - Tập 1"
-                            android:textColor="#FF000000"
+                            android:textColor="#000000"
                             android:textSize="12sp" />
                     </FrameLayout>
                     <FrameLayout
@@ -373,7 +373,7 @@
                             android:maxLines="1"
                             android:singleLine="true"
                             android:text="2024 | 8/16 tập | Hàn Quốc"
-                            android:textColor="#FF000000"
+                            android:textColor="#000000"
                             android:textSize="11sp"
                             tools:ignore="TextSizeCheck" />
 
@@ -392,7 +392,7 @@
                             android:maxLines="1"
                             android:singleLine="true"
                             android:text="Queen Of Tears - Tập 1"
-                            android:textColor="#FF000000"
+                            android:textColor="#000000"
                             android:textSize="12sp"
                             tools:ignore="TextSizeCheck" />
                     </FrameLayout>

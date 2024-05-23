@@ -3,15 +3,15 @@
 
     <item
         android:id="@+id/fragment_home_screen"
-        android:title="Home"
         android:icon="@drawable/home_icon_bar"
+        android:title="Trang chủ"
         />
     <item
         android:id="@+id/favoriteFragment"
-        android:title="Favorite"
-        android:icon="@drawable/favorite_icon_bar"/>
+        android:icon="@drawable/favorite_icon_bar"
+        android:title="Yêu thích"/>
     <item
         android:id="@+id/userFragment"
-        android:title="User"
-        android:icon="@drawable/user_icon_bar"/>
+        android:icon="@drawable/user_icon_bar"
+        android:title="Của tôi"/>
 </menu>

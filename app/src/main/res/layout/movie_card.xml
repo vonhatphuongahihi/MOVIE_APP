@@ -22,7 +22,7 @@
 
         <ImageView
             android:layout_width="165dp"
-            android:layout_height="45dp"
+            android:layout_height="55dp"
             android:layout_marginTop="167dp"
             android:layout_gravity="top"
             android:background="@drawable/khung_ten_phim_home"
@@ -31,18 +31,17 @@
 
         <TextView
             android:id="@+id/movies_title"
-            android:layout_width="135dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="top|left"
-            android:layout_marginLeft="14dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="177dp"
             android:fontFamily="@font/roboto_condensed_regular"
             android:gravity="center_horizontal|top"
             android:includeFontPadding="false"
             android:lineHeight="16dp"
             android:text="@string/app_name"
-            android:textColor="#FF000000"
+            android:textColor="#000000"
             android:textSize="13dp"
-           />
+            />
     </FrameLayout>
 </RelativeLayout>

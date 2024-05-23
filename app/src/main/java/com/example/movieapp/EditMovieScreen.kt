@@ -83,7 +83,10 @@ class EditMovieScreen : Fragment() {
         mediaController.setAnchorView(videoView)
         videoView.setMediaController(mediaController)
         progressBar = root.findViewById(R.id.progressBar)
-
+        val backButton = view?.findViewById<ImageView>(R.id.back)
+        backButton?.setOnClickListener {
+            requireActivity().onBackPressed()
+        }
         database = FirebaseDatabase.getInstance().reference
         storage = FirebaseStorage.getInstance()
         storageReference = storage.reference
