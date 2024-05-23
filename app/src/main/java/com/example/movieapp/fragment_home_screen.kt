@@ -74,7 +74,7 @@ class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
                 animatedMovieList?.clear()
                 for (movieSnapshot in snapshot.children) {
                     val movie = movieSnapshot.getValue(Movie::class.java)
-                    if (movie?.category == "Lãng mạn, Tuổi thành niên") {
+                    if (movie?.category == "Hoạt hình") {
                         movie?.let { animatedMovieList?.add(it) }
                     }
                 }
