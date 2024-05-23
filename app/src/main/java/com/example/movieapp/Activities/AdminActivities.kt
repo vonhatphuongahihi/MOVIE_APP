@@ -10,11 +10,7 @@ import com.example.movieapp.databinding.ActivityAdminActivitiesBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class AdminActivities : AppCompatActivity() {
-    override fun onBackPressed() {
-        // Do nothing or show a message, effectively disabling the back button
-        // Toast.makeText(this, "Back button is disabled", Toast.LENGTH_SHORT).show()
-        moveTaskToBack(true)
-    }
+  
 
     private lateinit var binding: ActivityAdminActivitiesBinding
 
