@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".userFragment">
+    tools:context=".userFragment"
+    android:background="@color/background">
 
-
-    <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -20,45 +19,44 @@
                 android:id="@+id/thong_bao"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_gravity="top|right"
-                android:layout_marginTop="40dp"
                 android:layout_marginRight="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="top|right"
                 android:scaleType="centerInside"
                 android:src="@drawable/thong_bao_icon" />
 
             <ImageView
-                android:id="@+id/userImageAvatar"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
-                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="80dp"
+                android:layout_gravity="center_horizontal"
                 android:background="@drawable/user_image" />
 
             <TextView
-                android:id="@+id/userNameTextField"
+                android:id="@+id/text_name"
                 android:layout_width="match_parent"
                 android:layout_height="28dp"
                 android:layout_marginTop="240dp"
                 android:layout_marginBottom="-2dp"
-                android:fontFamily="@font/roboto_condensed_bold"
                 android:gravity="center_horizontal|center_vertical"
                 android:includeFontPadding="false"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:text="VÕ NHẤT PHƯƠNG"
-                android:textColor="#FF221FC2"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:textColor="@color/primary_text"
                 android:textSize="21dp" />
 
             <FrameLayout
                 android:layout_width="310dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="320dp">
+                android:layout_marginTop="320dp"
+                android:layout_gravity="center_horizontal">
 
                 <LinearLayout
                     android:id="@+id/chinh_sua_thong_tin"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_height="55dp"
                     android:background="@drawable/khung"
                     android:clickable="true"
                     android:clipToPadding="false"
@@ -68,7 +66,6 @@
                     android:paddingTop="9dp"
                     android:paddingRight="12dp"
                     android:paddingBottom="9dp">
-
 
                     <TextView
                         android:id="@+id/text_chinh_sua_thong_tin"
@@ -101,14 +98,13 @@
                         android:layout_marginLeft="3dp"
                         android:scaleType="centerInside"
                         android:src="@drawable/chuyen_huong_icon" />
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/che_do_toi"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="60dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="70dp"
                     android:background="@drawable/khung"
                     android:clipToPadding="false"
                     android:gravity="left|center_vertical"
@@ -117,6 +113,7 @@
                     android:paddingTop="9dp"
                     android:paddingRight="12dp"
                     android:paddingBottom="9dp">
+
 
                     <TextView
                         android:id="@+id/text_che_do_toi"
@@ -130,75 +127,44 @@
                         android:text="Chế độ tối"
                         android:textColor="#FF31507F"
                         android:textSize="16dp" />
-
                     <View
                         android:layout_width="0dp"
                         android:layout_height="31dp"
                         android:layout_weight="1" />
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:thumb="@drawable/thumb"
+                        app:track="@drawable/track"/>
 
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="29.09dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/thanh_ngan" />
-
-                    <FrameLayout
-                        android:id="@+id/tat_bat_che_do_toi"
-                        android:layout_width="44dp"
-                        android:layout_height="23dp"
-                        android:layout_marginLeft="9dp">
-
-                        <FrameLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="23dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="0dp"
-                            android:background="@drawable/che_do_toi_icon">
-
-                            <ImageView
-                                android:layout_width="40.05dp"
-                                android:layout_height="23.1dp"
-                                android:background="@drawable/che_doi_toi_icon_1"
-                                android:scaleType="centerInside" />
-                        </FrameLayout>
-
-                        <ImageView
-                            android:layout_width="20.02dp"
-                            android:layout_height="20.02dp"
-                            android:layout_marginLeft="6.16dp"
-                            android:layout_marginTop="1.54dp"
-                            android:layout_marginRight="18.48dp"
-                            android:layout_marginBottom="1.54dp"
-                            android:background="@drawable/che_do_toi_icon_2"
-                            android:scaleType="centerInside" />
-                    </FrameLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/quyen_rieng_tu"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="120dp"
+                    android:layout_height="55dp"
                     android:background="@drawable/khung"
                     android:clipToPadding="false"
                     android:gravity="left|center_vertical"
+                    android:layout_marginTop="140dp"
                     android:orientation="horizontal"
+                    android:paddingBottom="9dp"
                     android:paddingLeft="12dp"
-                    android:paddingTop="9dp"
                     android:paddingRight="12dp"
-                    android:paddingBottom="9dp">
+                    android:paddingTop="9dp">
 
                     <TextView
                         android:id="@+id/text_quyen_rieng_tu"
                         android:layout_width="wrap_content"
                         android:layout_height="31dp"
-                        android:fontFamily="@font/roboto_condensed_medium"
                         android:gravity="left|center_vertical"
                         android:includeFontPadding="false"
                         android:maxLines="1"
                         android:singleLine="true"
                         android:text="Quyền riêng tư"
                         android:textColor="#FF31507F"
+                        android:fontFamily="@font/roboto_condensed_medium"
                         android:textSize="16dp" />
 
                     <View
@@ -207,9 +173,9 @@
                         android:layout_weight="1" />
 
                     <ImageView
-                        android:layout_width="23dp"
-                        android:layout_height="23dp"
-                        android:scaleType="centerInside"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:scaleType="fitXY"
                         android:src="@drawable/quyen_rieng_tu_icon" />
 
                     <ImageView
@@ -217,82 +183,35 @@
                         android:layout_width="16dp"
                         android:layout_height="16dp"
                         android:layout_marginLeft="3dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/chuyen_huong_icon" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/lich_su_xem"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="180dp"
-                    android:background="@drawable/khung"
-                    android:clipToPadding="false"
-                    android:gravity="left|center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="9dp"
-                    android:paddingRight="12dp"
-                    android:paddingBottom="9dp">
-
-                    <TextView
-                        android:id="@+id/text_lich_su_xem"
-                        android:layout_width="wrap_content"
-                        android:layout_height="31dp"
-                        android:fontFamily="@font/roboto_condensed_medium"
-                        android:gravity="left|center_vertical"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="Lịch sử xem"
-                        android:textColor="#FF31507F"
-                        android:textSize="16dp" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="31dp"
-                        android:layout_weight="1" />
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:scaleType="centerInside"
-                        android:src="@drawable/lich_su_icon" />
-
-                    <ImageView
-                        android:id="@+id/click_chuyen_huong_3"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginLeft="3dp"
-                        android:scaleType="centerInside"
+                        android:scaleType="fitXY"
                         android:src="@drawable/chuyen_huong_icon" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/dang_xuat"
                     android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="240dp"
+                    android:layout_height="55dp"
                     android:background="@drawable/khung"
                     android:clipToPadding="false"
                     android:gravity="left|center_vertical"
                     android:orientation="horizontal"
+                    android:layout_marginTop="210dp"
+                    android:paddingBottom="9dp"
                     android:paddingLeft="12dp"
-                    android:paddingTop="9dp"
                     android:paddingRight="12dp"
-                    android:paddingBottom="9dp">
+                    android:paddingTop="9dp">
 
                     <TextView
                         android:id="@+id/text_dang_xuat"
                         android:layout_width="wrap_content"
                         android:layout_height="31dp"
-                        android:fontFamily="@font/roboto_condensed_medium"
                         android:gravity="left|center_vertical"
                         android:includeFontPadding="false"
                         android:maxLines="1"
                         android:singleLine="true"
                         android:text="Đăng xuất"
                         android:textColor="#FF31507F"
+                        android:fontFamily="@font/roboto_condensed_medium"
                         android:textSize="16dp" />
 
                     <View
@@ -301,14 +220,14 @@
                         android:layout_weight="1" />
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:scaleType="centerInside"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:scaleType="fitXY"
                         android:src="@drawable/dang_xuat_icon" />
                 </LinearLayout>
             </FrameLayout>
+
         </FrameLayout>
+
     </ScrollView>
-
-
 </FrameLayout>

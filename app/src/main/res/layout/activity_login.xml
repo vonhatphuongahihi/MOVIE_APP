@@ -1,42 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
-
+    android:background="@drawable/background"
+    >
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/gautruc" />
     <ImageView
         android:layout_width="420dp"
         android:layout_height="420dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="-30dp"
+        android:layout_marginTop="45dp"
         android:scaleType="centerCrop"
         android:src="@drawable/logo" />
-
     <ImageView
         android:layout_width="200dp"
         android:layout_height="25dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="330dp"
         android:scaleType="centerInside"
-        android:src="@drawable/dang_nhap_text_1" />
-
+        android:src="@drawable/dang_nhap_text_1"
+        />
     <ImageView
         android:layout_width="320dp"
         android:layout_height="25dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="390dp"
         android:scaleType="centerInside"
-        android:src="@drawable/text_chung_toi_se_gui" />
-
+        android:src="@drawable/text_chung_toi_se_gui"
+        />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="390dp"
+        android:layout_marginTop="425dp"
         android:scaleType="centerInside"
-        android:src="@drawable/nhap_so_dt_text" />
+        android:src="@drawable/nhap_so_dt_text"
+        />
 
 
     <FrameLayout
@@ -44,7 +52,7 @@
         android:layout_width="310dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="432dp">
+        android:layout_marginTop="462dp">
 
 
         <EditText
@@ -53,30 +61,31 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:background="@drawable/edit_text_sdt"
-            android:inputType="number"
             android:padding="5dp"
-            android:paddingStart="80dp" />
+            android:paddingStart="80dp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </FrameLayout>
 
     <FrameLayout
-        android:layout_width="320dp"
+        android:layout_width="270dp"
         android:layout_height="60dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="560dp">
+        android:layout_marginTop="590dp">
 
         <Button
             android:id="@+id/button_gui_ma"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/button_send_otp" />
+            android:background="@drawable/button_send_otp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <ProgressBar
             android:id="@+id/progress_bar"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:visibility="gone" />
+            android:visibility="gone"/>
 
     </FrameLayout>
 </FrameLayout>

@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.GridView
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.ImageView
 import android.widget.Toast
@@ -43,7 +44,7 @@ class fragment_description : Fragment() {
     private lateinit var textViewContent: TextView
     private lateinit var textViewDirector: TextView
 
-    private lateinit var btnBack: Button
+    private lateinit var btnBack: ImageButton
     private lateinit var btnWatch: Button
 
     private lateinit var editTextComment: EditText
@@ -75,10 +76,10 @@ class fragment_description : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_description, container, false)
         mAuth = FirebaseAuth.getInstance()
+        btnBack=root.findViewById(R.id.back)
         database = FirebaseDatabase.getInstance().reference
         imageViewBannerPreview=root.findViewById(R.id.image_rectangle1)
         textViewTitle=root.findViewById(R.id.tua_de_phim)
-        textViewDuration=root.findViewById(R.id.text_duration)
         textViewYear=root.findViewById(R.id.text_date)
         textViewGenre1=root.findViewById(R.id.text_the_loai_1)
         textViewGenre2=root.findViewById(R.id.text_the_loai_2)
@@ -110,7 +111,7 @@ class fragment_description : Fragment() {
         }
         fetchCommentFromFirebase(movie?.id)
 
-        //btnBack.setOnClickListener {onBackClick()}
+        btnBack.setOnClickListener {onBackClick()}
         btnWatch.setOnClickListener{onWatchClick()}
         btnUpComment.setOnClickListener{onCommentClick(editTextComment.text.toString(),movie?.id,mAuth.uid)}
         return root
@@ -121,29 +122,29 @@ class fragment_description : Fragment() {
     private fun fetchCommentFromFirebase(id: String?) {
         database.child("comment").orderByChild("movieId").equalTo(id)
             .addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                commentList?.clear()
-                for (commentSnapshot in snapshot.children) {
-                    val comment  = commentSnapshot.getValue(Comment::class.java)
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    commentList?.clear()
+                    for (commentSnapshot in snapshot.children) {
+                        val comment  = commentSnapshot.getValue(Comment::class.java)
 
                         comment?.let {
-                                //if(it.movieId.equals(id))
-                                commentList?.add(it)
+                            //if(it.movieId.equals(id))
+                            commentList?.add(it)
 
                         }
 
+                    }
+                    updateUIWithComments()
                 }
-                updateUIWithComments()
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(
-                    context,
-                    "Failed to fetch movies: ${error.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(
+                        context,
+                        "Failed to fetch movies: ${error.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            })
     }
 
     private fun updateUIWithComments() {
@@ -200,4 +201,5 @@ class fragment_description : Fragment() {
                 }
             }
     }
+
 }

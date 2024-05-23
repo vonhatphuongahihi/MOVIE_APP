@@ -1,6 +1,7 @@
 package com.example.movieapp
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.bumptech.glide.Glide
@@ -29,7 +32,10 @@ class userFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: DatabaseReference
     private lateinit var storage: FirebaseStorage
-
+    private lateinit var switchMode: SwitchCompat
+    private var nightMode: Boolean = false
+    private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var editor: SharedPreferences.Editor
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
@@ -52,25 +58,39 @@ class userFragment : Fragment() {
                 .navigate(R.id.action_userFragment_to_editProfileFragment)
         }
 
-        // Dark Mode Button
-        val btnDarkMode = view.findViewById<LinearLayout>(R.id.che_do_toi)
-        btnDarkMode.setOnClickListener {
-            Snackbar.make(view, "Bật chế độ tối", Snackbar.LENGTH_SHORT).show()
+
+        //Nút tối
+        switchMode = view.findViewById(R.id.switch_mode)
+        sharedPreferences = requireActivity().getSharedPreferences("MODE", Context.MODE_PRIVATE)
+        nightMode = sharedPreferences.getBoolean("night_mode", false)
+
+        if (nightMode) {
+            switchMode.isChecked = true
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        switchMode.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                editor = sharedPreferences.edit()
+                editor.putBoolean("night_mode", true)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                editor = sharedPreferences.edit()
+                editor.putBoolean("night_mode", false)
+            }
+            editor.apply()
         }
 
-        // Privacy Button
+        //Nút quyền riêng tư
         val btnPrivate = view.findViewById<LinearLayout>(R.id.quyen_rieng_tu)
-        btnPrivate.setOnClickListener {
-            Snackbar.make(view, "Quyền riêng tư", Snackbar.LENGTH_SHORT).show()
-        }
+        btnPrivate.setOnClickListener(View.OnClickListener {
+                val intent = Intent(requireContext(), Private::class.java)
+                startActivity(intent)
 
-        // Watch History Button
-        val btnHistory = view.findViewById<LinearLayout>(R.id.lich_su_xem)
-        btnHistory.setOnClickListener {
-            Snackbar.make(view, "Lịch sử xem", Snackbar.LENGTH_SHORT).show()
-        }
+        })
 
-        // Logout Button
+
+        // Nút đăng xuất
         val btnSignOut = view.findViewById<LinearLayout>(R.id.dang_xuat)
         btnSignOut.setOnClickListener { logout() }
 

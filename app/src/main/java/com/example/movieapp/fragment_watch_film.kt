@@ -1,14 +1,17 @@
 package com.example.movieapp
 
+import Movie
 import Comment
 import CommentAdapter
-import Movie
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.GridView
 import android.widget.ImageView
 import android.widget.MediaController
@@ -16,8 +19,9 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
-import androidx.fragment.app.Fragment
+import androidx.annotation.DrawableRes
 import com.example.movieapp.data.model.User
+import com.google.api.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -32,8 +36,8 @@ class fragment_watch_film : Fragment() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
 
-    private lateinit var textTitle: TextView
-    private lateinit var textSubtitle: TextView
+    private lateinit var textTitle : TextView
+    private lateinit var textSubtitle : TextView
     private lateinit var videoView: VideoView
     private lateinit var progressBar: ProgressBar
     private lateinit var ImageViewfavorite: ImageView
@@ -59,17 +63,18 @@ class fragment_watch_film : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var root = inflater.inflate(R.layout.fragment_watch_film, container, false)
+        var root=inflater.inflate(R.layout.fragment_watch_film, container, false)
 
         mAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().reference
 
-        textTitle = root.findViewById(R.id.text_ten_phim)
-        textSubtitle = root.findViewById(R.id.text_thong_tin_phim)
+        textTitle=root.findViewById(R.id.text_ten_phim)
+        textSubtitle=root.findViewById(R.id.text_thong_tin_phim)
         videoView = root.findViewById(R.id.phim)
-        progressBar = root.findViewById(R.id.progress_bar)
+        progressBar=root.findViewById(R.id.progress_bar)
 
-        ImageViewfavorite = root.findViewById(R.id.favorite)
+        ImageViewfavorite=root.findViewById(R.id.favorite)
+
 
 
         val mediaController = MediaController(requireContext())
@@ -80,23 +85,17 @@ class fragment_watch_film : Fragment() {
         gridView = root.findViewById(R.id.comment_gridview)
         //editTextComment=root.findViewById(R.id.edittext_new_comment)
 
-        commentList = ArrayList()
+        commentList= ArrayList()
         movie = arguments?.getParcelable("movie")
 
         movie?.let {
-            textTitle.text = it.name
-            textSubtitle.text = it.releaseYear.toString() + "|" + it.director
+            textTitle.setText(it.name)
+            textSubtitle.setText(it.releaseYear.toString()+"|"+it.director)
             setupVideoPreview(it.videoUrl)
-            checkFav(it.id, this.resources)
+            checkFav(it.id,this.resources)
         }
         fetchCommentFromFirebase(movie?.id)
-        ImageViewfavorite.setOnClickListener {
-            onClickFav(
-                mAuth.currentUser?.uid,
-                movie?.id,
-                this.resources
-            )
-        }
+        ImageViewfavorite.setOnClickListener{onClickFav(mAuth.currentUser?.uid, movie?.id,this.resources)}
         //checkFav(movie?.id)
         /*if(isFavorite) {
             ImageViewfavorite.setImageDrawable(this.resources.getDrawable(R.drawable.favorite_icon))
@@ -110,7 +109,8 @@ class fragment_watch_film : Fragment() {
     }
 
 
-    private fun onClickFav(userId: String?, movieId: String?, resource: Resources) {
+
+    private fun onClickFav(userId: String?,movieId: String?,resource: Resources){
         userId?.let {
             database.child("users").child(it)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
@@ -118,13 +118,23 @@ class fragment_watch_film : Fragment() {
                         val user = snapshot.getValue(User::class.java)
                         user?.let {
                             var fav = it.fav
-                            movieId?.let { u ->
-                                if (fav.contains(u) == false) {
+                            movieId?.let{u->
+                                if (fav.contains(u)==false){
+                                    ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_icon))
+                                    fav=fav+u+","
+                                    Toast.makeText(
+                                        context,
+                                        "Đã thêm vào danh sách phim yêu thích",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }else{
+                                    fav=fav.replace(u+",","")
                                     ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_watch_icon))
-                                    fav = fav + u + ","
-                                } else {
-                                    fav = fav.replace(u + ",", "")
-                                    ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_watch_icon))
+                                    Toast.makeText(
+                                        context,
+                                        "Đã loại khỏi danh sách phim yêu thích",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
 
                                 }
                             }
@@ -145,10 +155,9 @@ class fragment_watch_film : Fragment() {
                 })
         }
     }
+    private fun checkFav(movieId: String, resource: Resources){
 
-    private fun checkFav(movieId: String, resource: Resources) {
-
-        var userId = mAuth.currentUser?.uid
+        var userId=mAuth.currentUser?.uid
 
         userId?.let {
             database.child("users").child(it)
@@ -157,8 +166,8 @@ class fragment_watch_film : Fragment() {
                         val user = snapshot.getValue(User::class.java)
                         user?.let {
                             var fav = it.fav
-                            if (fav.contains(movieId) == true) {
-                                ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_watch_icon))
+                            if (fav.contains(movieId)==true){
+                                ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_icon))
                             }
 
                         }
@@ -178,7 +187,7 @@ class fragment_watch_film : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     commentList?.clear()
                     for (commentSnapshot in snapshot.children) {
-                        val comment = commentSnapshot.getValue(Comment::class.java)
+                        val comment  = commentSnapshot.getValue(Comment::class.java)
 
                         comment?.let {
                             //if(it.movieId.equals(id))
@@ -204,9 +213,8 @@ class fragment_watch_film : Fragment() {
         commentAdapter = commentList?.let { CommentAdapter(this.requireActivity(), it) }
         gridView?.adapter = commentAdapter
     }
-
-    private fun onCommentClick(content: String?, idMovie: String?, name: String?, uid: String?) {
-        val id = UUID.randomUUID().toString()
+    private fun onCommentClick (content: String?, idMovie: String?, name: String?, uid: String?) {
+        val id= UUID.randomUUID().toString()
         val comment = Comment(
             id,
             name,
@@ -217,7 +225,6 @@ class fragment_watch_film : Fragment() {
         database.child("comment").child(id).setValue(comment)
         //editTextComment.setText("");
     }
-
     private fun setupVideoPreview(videoUrl: String?) {
         videoUrl?.let { url ->
             val uri = Uri.parse(url)
@@ -227,7 +234,6 @@ class fragment_watch_film : Fragment() {
             videoView.start()
         }
     }
-
     companion object {
 
         @JvmStatic
