@@ -39,10 +39,10 @@ class fragment_description : Fragment() {
     private lateinit var textViewTitle: TextView
     private lateinit var textViewDuration: TextView
     private lateinit var textViewYear: TextView
-    private lateinit var textViewGenre1: TextView
-    private lateinit var textViewGenre2: TextView
+    private lateinit var textViewGenre: TextView
     private lateinit var textViewContent: TextView
     private lateinit var textViewDirector: TextView
+    private lateinit var textViewActor: TextView
 
     private lateinit var btnBack: ImageButton
     private lateinit var btnWatch: Button
@@ -80,9 +80,9 @@ class fragment_description : Fragment() {
         database = FirebaseDatabase.getInstance().reference
         imageViewBannerPreview=root.findViewById(R.id.image_rectangle1)
         textViewTitle=root.findViewById(R.id.tua_de_phim)
+        textViewActor=root.findViewById(R.id.text_dien_vien)
         textViewYear=root.findViewById(R.id.text_date)
-        textViewGenre1=root.findViewById(R.id.text_the_loai_1)
-        textViewGenre2=root.findViewById(R.id.text_the_loai_2)
+        textViewGenre=root.findViewById(R.id.text_the_loai_2)
         textViewContent=root.findViewById(R.id.text_content)
         textViewDirector=root.findViewById(R.id.text_dao_dien)
         //btnBack=root.findViewById(R.id.ic_previous_ltr)
@@ -103,6 +103,8 @@ class fragment_description : Fragment() {
             textViewTitle.setText(it.name)
             textViewYear.setText(it.releaseYear.toString())
             textViewDirector.setText(it.director)
+            textViewGenre.setText(it.category)
+            textViewActor.setText(it.actor)
             //editTextActor.setText(it.actor)
             //editTextAge.setText(it.age.toString())
             textViewContent.setText(it.description)

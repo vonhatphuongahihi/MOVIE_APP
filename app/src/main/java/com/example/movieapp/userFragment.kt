@@ -132,6 +132,6 @@ class userFragment : Fragment() {
         val intent = Intent(requireContext(), Login::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
-        Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Đăng xuất khỏi tài khoản thành công", Toast.LENGTH_SHORT).show()
     }
 }

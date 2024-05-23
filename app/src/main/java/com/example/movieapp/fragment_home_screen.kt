@@ -28,9 +28,12 @@ class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
     private var _binding: FragmentHomeScreenBinding? = null
     private val binding get() = _binding!!
     private val movieList: ArrayList<Movie> = ArrayList()
+    private var animatedMovieList: ArrayList<Movie>? = null
     private val filteredMovieList: ArrayList<Movie> = ArrayList()
     private lateinit var movieAdapter: MovieAdapter
+    private var animatedMovieAdapter: MovieAdapter? = null
     private lateinit var gridView: GridView
+    private var gridView1: GridView? = null
     private lateinit var searchEditText: EditText
 
     override fun onCreateView(
@@ -40,12 +43,14 @@ class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
         _binding = FragmentHomeScreenBinding.inflate(inflater, container, false)
         val root: View = binding.root
         gridView = root.findViewById(R.id.phimHot)
+        gridView1 = root.findViewById(R.id.phimHoathinh)
         searchEditText = binding.timKiem
-
+        animatedMovieList = ArrayList()
         movieAdapter = MovieAdapter(requireContext(), filteredMovieList)
         gridView.adapter = movieAdapter
         gridView.onItemClickListener = this
-
+        gridView1?.onItemClickListener = this
+        fetchHoathinhMoviesFromFirebase()
         fetchMoviesFromFirebase()
 
         searchEditText.addTextChangedListener(object : TextWatcher {
@@ -61,6 +66,34 @@ class fragment_home_screen : Fragment(), AdapterView.OnItemClickListener {
 
         return root
     }
+
+    private fun fetchHoathinhMoviesFromFirebase() {
+        val database = FirebaseDatabase.getInstance().reference
+        database.child("movies").addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                animatedMovieList?.clear()
+                for (movieSnapshot in snapshot.children) {
+                    val movie = movieSnapshot.getValue(Movie::class.java)
+                    if (movie?.category == "Lãng mạn, Tuổi thành niên") {
+                        movie?.let { animatedMovieList?.add(it) }
+                    }
+                }
+                updateUIWithHoathinhMovies()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(
+                    context,
+                    "Failed to fetch animated movies: ${error.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
+    }
+
+    private fun updateUIWithHoathinhMovies() {
+        animatedMovieAdapter = animatedMovieList?.let { MovieAdapter(requireContext(), it) }
+        gridView1?.adapter = animatedMovieAdapter    }
 
     private fun filterMovies(query: String) {
         if (query.isNotEmpty()) {

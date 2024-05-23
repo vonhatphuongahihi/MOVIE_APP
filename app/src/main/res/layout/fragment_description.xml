@@ -153,69 +153,12 @@
                 android:layout_marginTop="25dp"
                 android:layout_below="@+id/tua_de_phim">
 
-                <FrameLayout
-                    android:id="@+id/container_group7"
-                    android:layout_width="90dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="bottom|left">
-
-                    <ImageView
-                        android:id="@+id/box_the_loai_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:background="@drawable/bg_the_loai1"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:id="@+id/text_the_loai_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="19dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="@font/roboto_condensed_regular"
-                        android:singleLine="true"
-                        android:text="Chính kịch"
-                        android:textColor="@color/secondary_text"
-                        android:textSize="14.45dp"
-                        tools:ignore="TextSizeCheck" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/the_loai_2"
-                    android:layout_width="97.68dp"
-                    android:layout_height="30.17dp"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginBottom="0.28dp">
-
-                    <ImageView
-                        android:id="@+id/box_the_loai_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="30.17dp"
-                        android:background="@drawable/bg_the_laoi2"
-                        android:scaleType="centerCrop" />
-
-                    <TextView
-                        android:id="@+id/text_the_loai_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="19dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="5dp"
-                        android:fontFamily="@font/roboto_condensed_regular"
-                        android:includeFontPadding="false"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:text="Lãng mạn"
-                        android:textColor="@color/secondary_text"
-                        android:textSize="14.45dp"
-                        tools:ignore="TextSizeCheck" />
-                </FrameLayout>
-
                 <TextView
                     android:id="@+id/text_the_loai"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:layout_gravity="top|left"
-                    android:layout_marginLeft="57.61dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginTop="-1dp"
                     android:layout_marginBottom="-1dp"
                     android:gravity="left|center_vertical"
@@ -226,8 +169,63 @@
                     android:fontFamily="@font/roboto_condensed_bold"
                     android:textColor="@color/primary_text"
                     android:textSize="19.27dp" />
+                <TextView
+                    android:id="@+id/text_the_loai_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="34.93dp"
+                    android:layout_marginBottom="0dp"
+                    android:gravity="left|center_vertical"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Kiếm hiệp"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="14.45dp"
+                    tools:ignore="TextSizeCheck" />
             </FrameLayout>
 
+            <FrameLayout
+                android:id="@+id/container_group11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/container_group8"
+                android:layout_gravity="top|left">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="-1dp"
+                    android:layout_marginBottom="-1dp"
+                    android:layout_gravity="top|left"
+                    android:gravity="left|center_vertical"
+                    android:layout_below="@+id/text_phim_hot_nhat"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="Diễn viên"
+                    android:fontFamily="@font/roboto_condensed_bold"
+                    android:textColor="@color/primary_text"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/text_dien_vien"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="34dp"
+                    android:gravity="left|top"
+                    android:includeFontPadding="false"
+                    android:lineHeight="21.68dp"
+                    android:fontFamily="@font/roboto_condensed_regular"
+                    android:text="Lưu Nhược Anh"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="16dp" />
+            </FrameLayout>
             <FrameLayout
                 android:id="@+id/container_group8"
                 android:layout_width="match_parent"
@@ -268,13 +266,14 @@
                     android:textSize="16dp" />
             </FrameLayout>
 
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="15dp"
-                android:layout_below="@+id/container_group8"                android:layout_gravity="top|left">
+                android:layout_below="@+id/container_group11"                android:layout_gravity="top|left">
 
 
 
@@ -386,6 +385,6 @@
                 android:src="@drawable/back"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </RelativeLayout>
-</ScrollView>
+    </ScrollView>
 
 </RelativeLayout>

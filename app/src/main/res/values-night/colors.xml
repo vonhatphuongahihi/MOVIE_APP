@@ -4,8 +4,8 @@
     <color name="primary_text">#E3F3FF</color>
     <color name="secondary_text">#FFFFFF</color>
     <color name="third_text">#000000</color>
-    <color name="menu_bar_uncheck">#A58186</color>
-    <color name="menu_bar_check">#FFFFFF</color>
-    <color name="background_bar">#03045E</color>
+    <color name="menu_bar_uncheck">#8A8484</color>
+    <color name="menu_bar_check">#000000</color>
+    <color name="background_bar">#FFFFFF</color>
 
 </resources>
