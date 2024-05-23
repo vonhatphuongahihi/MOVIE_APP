@@ -21,6 +21,12 @@ import android.widget.Toast
 import android.widget.VideoView
 import androidx.annotation.DrawableRes
 import com.example.movieapp.data.model.User
+import com.example.movieapp.databinding.FragmentHomeBinding
+import com.example.movieapp.databinding.FragmentWatchFilmBinding
+import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.ui.PlayerView
 import com.google.api.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -33,20 +39,26 @@ import java.util.UUID
 
 class fragment_watch_film : Fragment() {
 
+    private var _binding: FragmentWatchFilmBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
 
     private lateinit var textTitle : TextView
     private lateinit var textSubtitle : TextView
-    private lateinit var videoView: VideoView
+    //private lateinit var videoView: VideoView
     private lateinit var progressBar: ProgressBar
     private lateinit var ImageViewfavorite: ImageView
-    private var isFavorite: Boolean = false
 
     private var movie: Movie? = null
 
     //private lateinit var editTextComment: EditText
     //private lateinit var btnUpComment: Button
+
+    private lateinit var playerView:PlayerView
+    private lateinit var player:SimpleExoPlayer
+    private lateinit var btnFullScreen: ImageView
 
     private var commentList: ArrayList<Comment>? = null
     private var commentAdapter: CommentAdapter? = null
@@ -64,36 +76,45 @@ class fragment_watch_film : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var root=inflater.inflate(R.layout.fragment_watch_film, container, false)
-
+        _binding = FragmentWatchFilmBinding.inflate(inflater, container, false)
         mAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().reference
-
         textTitle=root.findViewById(R.id.text_ten_phim)
         textSubtitle=root.findViewById(R.id.text_thong_tin_phim)
-        videoView = root.findViewById(R.id.phim)
-        progressBar=root.findViewById(R.id.progress_bar)
-
+        //videoView = root.findViewById(R.id.phim)
+        //progressBar=root.findViewById(R.id.progress_bar)
         ImageViewfavorite=root.findViewById(R.id.favorite)
-
-
-
-        val mediaController = MediaController(requireContext())
-        mediaController.setAnchorView(videoView)
-        videoView.setMediaController(mediaController)
-
+        //val mediaController = MediaController(requireContext())
+        //mediaController.setAnchorView(videoView)
+        //videoView.setMediaController(mediaController)
         //btnUpComment=root.findViewById(R.id.button_comment)
         gridView = root.findViewById(R.id.comment_gridview)
         //editTextComment=root.findViewById(R.id.edittext_new_comment)
-
         commentList= ArrayList()
         movie = arguments?.getParcelable("movie")
-
+        //video
+        //btnFullScreen=root.findViewById<ImageView>(R.id.bt_fullscreen)
+        playerView = root.findViewById<PlayerView>(R.id.phim)
+        player=SimpleExoPlayer.Builder(this.requireContext()).build()
+        //binding.phim.player=player
+        var mediaItem= MediaItem.fromUri("")
+        //video
         movie?.let {
             textTitle.setText(it.name)
             textSubtitle.setText(it.releaseYear.toString()+"|"+it.director)
-            setupVideoPreview(it.videoUrl)
+            //setupVideoPreview(it.videoUrl)
             checkFav(it.id,this.resources)
+            it.videoUrl?.let {
+                mediaItem= MediaItem.fromUri(it)
+            }
         }
+        playerView.player=player
+        playerView.keepScreenOn=true
+        player.setMediaItem(mediaItem)
+        player.prepare()
+        player.play()
+
+
         fetchCommentFromFirebase(movie?.id)
         ImageViewfavorite.setOnClickListener{onClickFav(mAuth.currentUser?.uid, movie?.id,this.resources)}
         //checkFav(movie?.id)
@@ -225,7 +246,7 @@ class fragment_watch_film : Fragment() {
         database.child("comment").child(id).setValue(comment)
         //editTextComment.setText("");
     }
-    private fun setupVideoPreview(videoUrl: String?) {
+    /*private fun setupVideoPreview(videoUrl: String?) {
         videoUrl?.let { url ->
             val uri = Uri.parse(url)
             videoView.setVideoURI(uri)
@@ -233,7 +254,7 @@ class fragment_watch_film : Fragment() {
             videoView.requestFocus()
             videoView.start()
         }
-    }
+    }*/
     companion object {
 
         @JvmStatic

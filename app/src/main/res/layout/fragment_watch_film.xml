@@ -16,22 +16,26 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <VideoView
+
+                <com.google.android.exoplayer2.ui.PlayerView
                     android:id="@+id/phim"
                     android:layout_width="match_parent"
                     android:layout_height="240dp"
-                    android:layout_gravity="center"
-                    android:scaleType="centerInside"
-                    android:layout_centerInParent="true"
-                    />
+                    android:background="@color/black"
+                    app:hide_on_touch="true"
+                    app:resize_mode="fit"
+                    app:use_controller="true"
+                    app:shutter_background_color="@color/black"
+                    app:player_layout_id="@layout/exo_player_view"
 
-                <ProgressBar
-                    android:id="@+id/progress_bar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:paddingBottom="16dp"
-                    android:visibility="gone"/>
+                    app:show_timeout="4000"
+                    app:surface_type="surface_view"
+                    app:controller_layout_id="@layout/custom_playback_view"
+                    >
+
+                </com.google.android.exoplayer2.ui.PlayerView>
+
+
 
             </FrameLayout>
 
