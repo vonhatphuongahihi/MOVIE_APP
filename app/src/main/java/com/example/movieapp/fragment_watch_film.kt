@@ -3,6 +3,7 @@ package com.example.movieapp
 import Movie
 import Comment
 import CommentAdapter
+import android.content.Context
 import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.net.Uri
@@ -50,6 +51,7 @@ class fragment_watch_film : Fragment() {
     private var commentList: ArrayList<Comment>? = null
     private var commentAdapter: CommentAdapter? = null
     private var gridView: GridView? = null
+    private lateinit var simpleExoPlayer: SimpleExoPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,7 +111,7 @@ class fragment_watch_film : Fragment() {
             isFullScreen = !isFullScreen
         }
 
-        val simpleExoPlayer = SimpleExoPlayer.Builder(requireContext())
+        simpleExoPlayer = SimpleExoPlayer.Builder(requireContext())
             .setSeekBackIncrementMs(5000)
             .setSeekForwardIncrementMs(5000)
             .build()
@@ -132,11 +134,38 @@ class fragment_watch_film : Fragment() {
             val mediaItem = MediaItem.fromUri(videoSource)
             simpleExoPlayer.setMediaItem(mediaItem)
             simpleExoPlayer.prepare()
+            restorePosition(simpleExoPlayer)  // Restore video position
             simpleExoPlayer.play()
         } ?: run {
             Toast.makeText(context, "Video URL is missing", Toast.LENGTH_SHORT).show()
         }
     }
+
+    override fun onPause() {
+        super.onPause()
+        saveCurrentPosition(simpleExoPlayer)
+        simpleExoPlayer.playWhenReady = false
+    }
+
+    override fun onStop() {
+        super.onStop()
+        simpleExoPlayer.release()
+    }
+
+    private fun saveCurrentPosition(simpleExoPlayer: SimpleExoPlayer) {
+        val playerPosition = simpleExoPlayer.currentPosition
+        val sharedPreferences = requireContext().getSharedPreferences("video_prefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putLong("current_position_${movie?.id}", playerPosition)  // Save with movie ID
+        editor.apply()
+    }
+
+    private fun restorePosition(simpleExoPlayer: SimpleExoPlayer) {
+        val sharedPreferences = requireContext().getSharedPreferences("video_prefs", Context.MODE_PRIVATE)
+        val playerPosition = sharedPreferences.getLong("current_position_${movie?.id}", 0)  // Restore with movie ID
+        simpleExoPlayer.seekTo(playerPosition)
+    }
+
     private fun onClickFav(userId: String?, movieId: String?, resource: Resources) {
         userId?.let {
             database.child("users").child(it)

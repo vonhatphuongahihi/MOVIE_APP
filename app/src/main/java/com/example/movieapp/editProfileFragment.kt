@@ -24,11 +24,12 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
+import de.hdodenhof.circleimageview.CircleImageView
 import java.util.Calendar
 
 
 class editProfileFragment : Fragment() {
-    private lateinit var avatarImageView: ImageView
+    private lateinit var avatarImageView: CircleImageView
     private lateinit var nameEditText: EditText
     private lateinit var maleRadioButton: RadioButton
     private lateinit var femaleRadioButton: RadioButton

@@ -65,10 +65,16 @@ dependencies {
     implementation ("com.google.android.material:material:1.0.0")
     implementation ("androidx.cardview:cardview:1.0.0")
     implementation ("androidx.browser:browser:1.2.0")
+    implementation("com.google.firebase:firebase-storage:21.0.0")
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
     implementation("com.google.firebase:firebase-auth:23.0.0")
     implementation("androidx.appcompat:appcompat:1.1.0")
     implementation("com.google.android.material:material:1.0.0")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation("com.google.android.exoplayer:exoplayer:2.15.0")
+    implementation("com.google.firebase:firebase-database:21.0.0")
+    implementation("com.google.firebase:firebase-database-ktx")
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+
 }
