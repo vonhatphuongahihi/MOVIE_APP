@@ -16,22 +16,13 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/thong_bao"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="top|right"
-                android:layout_marginTop="40dp"
-                android:layout_marginRight="20dp"
-                android:scaleType="centerInside"
-                android:src="@drawable/thong_bao_icon" />
-
-            <ImageView
                 android:id="@+id/userImageAvatar"
                 android:layout_width="140dp"
                 android:layout_height="140dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="80dp"
-                android:background="@drawable/user_image" />
+                android:background="@drawable/user_image"
+                app:shapeAppearanceOverlay="@style/CircleImageView"/>
 
             <TextView
                 android:id="@+id/userNameTextField"

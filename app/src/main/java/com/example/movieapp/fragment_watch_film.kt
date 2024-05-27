@@ -3,6 +3,7 @@ package com.example.movieapp
 import Movie
 import Comment
 import CommentAdapter
+import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
@@ -20,8 +21,12 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
 import androidx.annotation.DrawableRes
+import androidx.core.content.ContextCompat
 import com.example.movieapp.data.model.User
-import com.google.api.Context
+import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.ui.PlayerView
+import com.google.android.exoplayer2.MediaItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -30,23 +35,17 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.UUID
 
-
 class fragment_watch_film : Fragment() {
-
+    var isFullScreen = false
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
 
-    private lateinit var textTitle : TextView
-    private lateinit var textSubtitle : TextView
-    private lateinit var videoView: VideoView
-    private lateinit var progressBar: ProgressBar
+    private lateinit var textTitle: TextView
+    private lateinit var textSubtitle: TextView
     private lateinit var ImageViewfavorite: ImageView
     private var isFavorite: Boolean = false
-
+    private var videoUrl: String? = null
     private var movie: Movie? = null
-
-    //private lateinit var editTextComment: EditText
-    //private lateinit var btnUpComment: Button
 
     private var commentList: ArrayList<Comment>? = null
     private var commentAdapter: CommentAdapter? = null
@@ -55,7 +54,8 @@ class fragment_watch_film : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
+            videoUrl = it.getString("videoUrl") // Lấy URL video từ các đối số
+            movie = it.getParcelable("movie")
         }
     }
 
@@ -63,54 +63,81 @@ class fragment_watch_film : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var root=inflater.inflate(R.layout.fragment_watch_film, container, false)
+        val root = inflater.inflate(R.layout.fragment_watch_film, container, false)
 
         mAuth = FirebaseAuth.getInstance()
         database = FirebaseDatabase.getInstance().reference
 
-        textTitle=root.findViewById(R.id.text_ten_phim)
-        textSubtitle=root.findViewById(R.id.text_thong_tin_phim)
-        videoView = root.findViewById(R.id.phim)
-        progressBar=root.findViewById(R.id.progress_bar)
-
-        ImageViewfavorite=root.findViewById(R.id.favorite)
-
-
-
-        val mediaController = MediaController(requireContext())
-        mediaController.setAnchorView(videoView)
-        videoView.setMediaController(mediaController)
-
-        //btnUpComment=root.findViewById(R.id.button_comment)
+        textTitle = root.findViewById(R.id.text_ten_phim)
+        textSubtitle = root.findViewById(R.id.text_thong_tin_phim)
+        ImageViewfavorite = root.findViewById(R.id.favorite)
         gridView = root.findViewById(R.id.comment_gridview)
-        //editTextComment=root.findViewById(R.id.edittext_new_comment)
-
-        commentList= ArrayList()
+        commentList = ArrayList()
         movie = arguments?.getParcelable("movie")
 
         movie?.let {
-            textTitle.setText(it.name)
-            textSubtitle.setText(it.releaseYear.toString()+"|"+it.director)
-            setupVideoPreview(it.videoUrl)
-            checkFav(it.id,this.resources)
+            textTitle.text = it.name
+            textSubtitle.text = "${it.releaseYear} | ${it.director}"
+            checkFav(it.id, this.resources)
         }
-        fetchCommentFromFirebase(movie?.id)
-        ImageViewfavorite.setOnClickListener{onClickFav(mAuth.currentUser?.uid, movie?.id,this.resources)}
-        //checkFav(movie?.id)
-        /*if(isFavorite) {
-            ImageViewfavorite.setImageDrawable(this.resources.getDrawable(R.drawable.favorite_icon))
-        }*/
 
-        //var temp=editTextComment.text.toString()
-        //btnUpComment.setOnClickListener{onCommentClick(editTextComment.text.toString(),movie?.id,"Anonymous",mAuth?.uid)}
+        fetchCommentFromFirebase(movie?.id)
+        ImageViewfavorite.setOnClickListener { onClickFav(mAuth.currentUser?.uid, movie?.id, this.resources) }
+
+        setupPlayer(root)
 
         return root
-
     }
 
+    private fun setupPlayer(view: View) {
+        val playerView = view.findViewById<PlayerView>(R.id.player)
+        val progressBar = view.findViewById<ProgressBar>(R.id.progress_bar)
+        val bt_fullscreen = view.findViewById<ImageView>(R.id.bt_fullscreen)
 
+        bt_fullscreen.setOnClickListener {
+            if (!isFullScreen) {
+                bt_fullscreen.setImageDrawable(
+                    ContextCompat.getDrawable(requireContext(), R.drawable.baseline_fullscreen_24)
+                )
+                requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+            } else {
+                bt_fullscreen.setImageDrawable(
+                    ContextCompat.getDrawable(requireContext(), R.drawable.baseline_fullscreen_exit_24)
+                )
+                requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            }
+            isFullScreen = !isFullScreen
+        }
 
-    private fun onClickFav(userId: String?,movieId: String?,resource: Resources){
+        val simpleExoPlayer = SimpleExoPlayer.Builder(requireContext())
+            .setSeekBackIncrementMs(5000)
+            .setSeekForwardIncrementMs(5000)
+            .build()
+
+        playerView.player = simpleExoPlayer
+        playerView.keepScreenOn = true
+
+        simpleExoPlayer.addListener(object : Player.Listener {
+            override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+                if (playbackState == Player.STATE_BUFFERING) {
+                    progressBar.visibility = View.VISIBLE
+                } else if (playbackState == Player.STATE_READY) {
+                    progressBar.visibility = View.GONE
+                }
+            }
+        })
+
+        videoUrl?.let { url ->
+            val videoSource = Uri.parse(url)
+            val mediaItem = MediaItem.fromUri(videoSource)
+            simpleExoPlayer.setMediaItem(mediaItem)
+            simpleExoPlayer.prepare()
+            simpleExoPlayer.play()
+        } ?: run {
+            Toast.makeText(context, "Video URL is missing", Toast.LENGTH_SHORT).show()
+        }
+    }
+    private fun onClickFav(userId: String?, movieId: String?, resource: Resources) {
         userId?.let {
             database.child("users").child(it)
                 .addListenerForSingleValueEvent(object : ValueEventListener {
@@ -118,36 +145,28 @@ class fragment_watch_film : Fragment() {
                         val user = snapshot.getValue(User::class.java)
                         user?.let {
                             var fav = it.fav
-                            movieId?.let{u->
-                                if (fav.contains(u)==false){
+                            movieId?.let { u ->
+                                if (!fav.contains(u)) {
                                     ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_icon))
-                                    fav=fav+u+","
+                                    fav += "$u,"
                                     Toast.makeText(
                                         context,
                                         "Đã thêm vào danh sách phim yêu thích",
                                         Toast.LENGTH_SHORT
                                     ).show()
-                                }else{
-                                    fav=fav.replace(u+",","")
+                                } else {
+                                    fav = fav.replace("$u,", "")
                                     ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_watch_icon))
                                     Toast.makeText(
                                         context,
                                         "Đã loại khỏi danh sách phim yêu thích",
                                         Toast.LENGTH_SHORT
                                     ).show()
-
                                 }
                             }
 
                             val FavUpdate = mapOf("fav" to fav)
-
                             database.child("users").child(it.userId).updateChildren(FavUpdate)
-                            /*Toast.makeText(
-                                context,
-                                "${fav}",
-                                Toast.LENGTH_SHORT
-                            ).show()*/
-
                         }
                     }
 
@@ -155,9 +174,9 @@ class fragment_watch_film : Fragment() {
                 })
         }
     }
-    private fun checkFav(movieId: String, resource: Resources){
 
-        var userId=mAuth.currentUser?.uid
+    private fun checkFav(movieId: String, resource: Resources) {
+        val userId = mAuth.currentUser?.uid
 
         userId?.let {
             database.child("users").child(it)
@@ -165,20 +184,17 @@ class fragment_watch_film : Fragment() {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val user = snapshot.getValue(User::class.java)
                         user?.let {
-                            var fav = it.fav
-                            if (fav.contains(movieId)==true){
+                            val fav = it.fav
+                            if (fav.contains(movieId)) {
                                 ImageViewfavorite.setImageDrawable(resource.getDrawable(R.drawable.favorite_icon))
                             }
-
                         }
                     }
 
                     override fun onCancelled(error: DatabaseError) {}
                 })
         }
-
     }
-
 
     private fun fetchCommentFromFirebase(id: String?) {
         val database = FirebaseDatabase.getInstance().reference
@@ -187,14 +203,10 @@ class fragment_watch_film : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     commentList?.clear()
                     for (commentSnapshot in snapshot.children) {
-                        val comment  = commentSnapshot.getValue(Comment::class.java)
-
+                        val comment = commentSnapshot.getValue(Comment::class.java)
                         comment?.let {
-                            //if(it.movieId.equals(id))
                             commentList?.add(it)
-
                         }
-
                     }
                     updateUIWithComments()
                 }
@@ -202,7 +214,7 @@ class fragment_watch_film : Fragment() {
                 override fun onCancelled(error: DatabaseError) {
                     Toast.makeText(
                         context,
-                        "Failed to fetch movies: ${error.message}",
+                        "Failed to fetch comments: ${error.message}",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -213,8 +225,9 @@ class fragment_watch_film : Fragment() {
         commentAdapter = commentList?.let { CommentAdapter(this.requireActivity(), it) }
         gridView?.adapter = commentAdapter
     }
-    private fun onCommentClick (content: String?, idMovie: String?, name: String?, uid: String?) {
-        val id= UUID.randomUUID().toString()
+
+    private fun onCommentClick(content: String?, idMovie: String?, name: String?, uid: String?) {
+        val id = UUID.randomUUID().toString()
         val comment = Comment(
             id,
             name,
@@ -223,19 +236,9 @@ class fragment_watch_film : Fragment() {
             idMovie,
         )
         database.child("comment").child(id).setValue(comment)
-        //editTextComment.setText("");
     }
-    private fun setupVideoPreview(videoUrl: String?) {
-        videoUrl?.let { url ->
-            val uri = Uri.parse(url)
-            videoView.setVideoURI(uri)
 
-            videoView.requestFocus()
-            videoView.start()
-        }
-    }
     companion object {
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             fragment_watch_film().apply {

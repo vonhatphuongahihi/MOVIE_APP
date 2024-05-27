@@ -102,7 +102,7 @@ class userFragment : Fragment() {
     private fun loadUserProfile() {
         val userId = auth.currentUser?.uid
         userId?.let {
-            database.child("users").child(it).addListenerForSingleValueEvent(object :
+            database.child("users").child(userId).addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val user = snapshot.getValue(User::class.java)
@@ -132,6 +132,6 @@ class userFragment : Fragment() {
         val intent = Intent(requireContext(), Login::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
-        Toast.makeText(requireContext(), "Đăng xuất khỏi tài khoản thành công", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Logged out successfully", Toast.LENGTH_SHORT).show()
     }
 }

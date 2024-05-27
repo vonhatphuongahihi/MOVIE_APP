@@ -52,19 +52,16 @@
             android:exported="false" />
         <activity
             android:name=".Activities.Watch_Film"
-            android:exported="false" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.Fullscreen"
+            android:configChanges="orientation|screenSize|screenLayout">
+        </activity>
         <activity
             android:name=".Activities.Search"
             android:exported="true" />
         <activity
             android:name=".Activities.Home"
             android:exported="false" />
-        <activity
-            android:name=".Activities.Change_Password"
-            android:exported="false" />
-        <activity
-            android:name=".Activities.Forget_Password"
-            android:exported="true" />
+
         <activity
             android:name=".Activities.Edit_Profile"
             android:exported="false" />

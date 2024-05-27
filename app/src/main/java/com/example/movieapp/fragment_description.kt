@@ -163,6 +163,7 @@ class fragment_description : Fragment() {
     private fun onWatchClick (){
         val bundle = Bundle().apply {
             putParcelable("movie", movie)
+            putString("videoUrl", movie?.videoUrl)
         }
         findNavController().navigate(R.id.action_fragment_description_to_fragment_watch_film, bundle)
     }
