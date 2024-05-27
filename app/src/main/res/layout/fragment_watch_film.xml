@@ -16,6 +16,7 @@
             <com.google.android.exoplayer2.ui.PlayerView
                 android:id="@+id/player"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="250dp"
                 android:layout_marginTop="0dp"
                 android:layout_gravity="top|left"
@@ -30,6 +31,31 @@
                 android:layout_height="40dp"
                 android:id="@id/progress_bar"
                 android:layout_centerInParent="true"/>
+=======
+                android:layout_height="wrap_content">
+
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/phim"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:background="@color/black"
+                    app:hide_on_touch="true"
+                    app:resize_mode="fit"
+                    app:use_controller="true"
+                    app:shutter_background_color="@color/black"
+                    app:player_layout_id="@layout/exo_player_view"
+
+                    app:show_timeout="4000"
+                    app:surface_type="surface_view"
+                    app:controller_layout_id="@layout/custom_playback_view"
+                    >
+
+                </com.google.android.exoplayer2.ui.PlayerView>
+
+
+
+            </FrameLayout>
+>>>>>>> a6f90a33cd18cdfd0d446f3bd5df216a608f47af
 
             <TextView
                 android:id="@+id/text_ten_phim"
