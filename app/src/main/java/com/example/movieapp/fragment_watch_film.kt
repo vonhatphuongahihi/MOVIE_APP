@@ -1,33 +1,34 @@
 package com.example.movieapp
 
-import Movie
 import Comment
 import CommentAdapter
+import Movie
+import RecyclerViewMovieAdapter
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.content.res.Resources
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.GridView
 import android.widget.ImageView
-import android.widget.MediaController
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.VideoView
-import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.movieapp.data.model.User
+import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.SimpleExoPlayer
 import com.google.android.exoplayer2.ui.PlayerView
-import com.google.android.exoplayer2.MediaItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -36,22 +37,23 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.UUID
 
-class fragment_watch_film : Fragment() {
+class fragment_watch_film : Fragment(), RecyclerViewMovieAdapter.OnItemClickListener {
     var isFullScreen = false
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
-
     private lateinit var textTitle: TextView
     private lateinit var textSubtitle: TextView
     private lateinit var ImageViewfavorite: ImageView
     private var isFavorite: Boolean = false
     private var videoUrl: String? = null
     private var movie: Movie? = null
-
+    private lateinit var movieAdapter: RecyclerViewMovieAdapter
     private var commentList: ArrayList<Comment>? = null
     private var commentAdapter: CommentAdapter? = null
     private var gridView: GridView? = null
     private lateinit var simpleExoPlayer: SimpleExoPlayer
+    private lateinit var recyclerView: RecyclerView
+    private var recommendedMovies: ArrayList<Movie> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,12 +86,61 @@ class fragment_watch_film : Fragment() {
         }
 
         fetchCommentFromFirebase(movie?.id)
-        ImageViewfavorite.setOnClickListener { onClickFav(mAuth.currentUser?.uid, movie?.id, this.resources) }
+        ImageViewfavorite.setOnClickListener {
+            onClickFav(
+                mAuth.currentUser?.uid,
+                movie?.id,
+                this.resources
+            )
+        }
+        recyclerView = root.findViewById(R.id.recyclerViewRecommendedMovies)
 
+        // Set up RecyclerView
+        recommendedMovies = ArrayList()
+        movieAdapter = RecyclerViewMovieAdapter(requireContext(), recommendedMovies, this)
+        recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.adapter = movieAdapter
+        fetchMoviesFromFirebase()
+
+        // Fetch and populate recommended movies data
         setupPlayer(root)
-
         return root
     }
+
+    private fun fetchMoviesFromFirebase() {
+        val database = FirebaseDatabase.getInstance().reference
+        database.child("movies").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                recommendedMovies.clear()
+                for (movieSnapshot in snapshot.children) {
+                    val movie = movieSnapshot.getValue(Movie::class.java)
+                    movie?.let { recommendedMovies.add(it) }
+                }
+                Log.d(TAG, "updateData() called with newData: $recommendedMovies")
+                movieAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(
+                    context, "Failed to fetch movies: ${error.message}", Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
+    }
+
+    override fun onItemClick(movie: Movie) {
+        // Create a bundle to pass data to the destination fragment if needed
+        val bundle = Bundle()
+        bundle.putParcelable("movie", movie)
+
+        // Navigate to the destination fragment using NavController
+        findNavController().navigate(
+            R.id.action_fragment_watch_film_to_fragment_description,
+            bundle
+        )
+    }
+
 
     private fun setupPlayer(view: View) {
         val playerView = view.findViewById<PlayerView>(R.id.player)
@@ -104,7 +155,10 @@ class fragment_watch_film : Fragment() {
                 requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
             } else {
                 bt_fullscreen.setImageDrawable(
-                    ContextCompat.getDrawable(requireContext(), R.drawable.baseline_fullscreen_exit_24)
+                    ContextCompat.getDrawable(
+                        requireContext(),
+                        R.drawable.baseline_fullscreen_exit_24
+                    )
                 )
                 requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
@@ -154,15 +208,18 @@ class fragment_watch_film : Fragment() {
 
     private fun saveCurrentPosition(simpleExoPlayer: SimpleExoPlayer) {
         val playerPosition = simpleExoPlayer.currentPosition
-        val sharedPreferences = requireContext().getSharedPreferences("video_prefs", Context.MODE_PRIVATE)
+        val sharedPreferences =
+            requireContext().getSharedPreferences("video_prefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putLong("current_position_${movie?.id}", playerPosition)  // Save with movie ID
         editor.apply()
     }
 
     private fun restorePosition(simpleExoPlayer: SimpleExoPlayer) {
-        val sharedPreferences = requireContext().getSharedPreferences("video_prefs", Context.MODE_PRIVATE)
-        val playerPosition = sharedPreferences.getLong("current_position_${movie?.id}", 0)  // Restore with movie ID
+        val sharedPreferences =
+            requireContext().getSharedPreferences("video_prefs", Context.MODE_PRIVATE)
+        val playerPosition =
+            sharedPreferences.getLong("current_position_${movie?.id}", 0)  // Restore with movie ID
         simpleExoPlayer.seekTo(playerPosition)
     }
 

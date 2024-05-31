@@ -1,45 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment_watch_film"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".fragment_watch_film">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <com.google.android.exoplayer2.ui.PlayerView
                 android:id="@+id/player"
                 android:layout_width="match_parent"
                 android:layout_height="230dp"
-                android:layout_marginTop="0dp"
                 android:layout_gravity="top|left"
+                android:layout_marginTop="0dp"
                 android:background="@android:color/black"
-                app:use_controller="true"
                 app:controller_layout_id="@layout/custom_controller"
-                app:player_layout_id="@layout/exo_player_view"/>
+                app:player_layout_id="@layout/exo_player_view"
+                app:use_controller="true" />
+
             <ProgressBar
-                android:layout_width="40dp"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="100dp"
-                android:layout_height="40dp"
                 android:id="@id/progress_bar"
-                android:layout_centerInParent="true"/>
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="100dp" />
 
             <TextView
                 android:id="@+id/text_ten_phim"
                 android:layout_width="wrap_content"
                 android:layout_height="27dp"
+                android:layout_gravity="top|left"
                 android:layout_marginLeft="17dp"
                 android:layout_marginTop="240dp"
-                android:layout_gravity="top|left"
-                android:fontFamily="@font/roboto_condensed_bold"
                 android:alpha="0.75"
+                android:fontFamily="@font/roboto_condensed_bold"
                 android:gravity="left|center_vertical"
                 android:includeFontPadding="false"
                 android:maxLines="1"
@@ -65,21 +68,22 @@
                 android:textColor="@color/primary_text"
                 android:textSize="14sp"
                 tools:ignore="TextSizeCheck" />
+
             <FrameLayout
                 android:id="@+id/chuc_nang_them"
                 android:layout_width="184dp"
                 android:layout_height="52dp"
+                android:layout_gravity="top|left"
                 android:layout_marginLeft="30dp"
-                android:layout_marginTop="321dp"
-                android:layout_gravity="top|left">
+                android:layout_marginTop="321dp">
 
                 <ImageView
                     android:id="@+id/rate"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
+                    android:layout_gravity="top"
                     android:layout_marginLeft="139dp"
                     android:layout_marginRight="11dp"
-                    android:layout_gravity="top"
                     android:scaleType="centerInside"
                     android:src="@drawable/rate_icon" />
 
@@ -87,9 +91,9 @@
                     android:id="@+id/share"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
+                    android:layout_gravity="top|left"
                     android:layout_marginLeft="70dp"
                     android:layout_marginTop="3dp"
-                    android:layout_gravity="top|left"
                     android:scaleType="centerInside"
                     android:src="@drawable/share_icon" />
 
@@ -97,23 +101,23 @@
                     android:id="@+id/favorite"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
+                    android:layout_gravity="top|left"
                     android:layout_marginLeft="7dp"
                     android:layout_marginTop="3dp"
-                    android:layout_gravity="top|left"
                     android:scaleType="centerInside"
                     android:src="@drawable/favorite_watch_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="15dp"
-                    android:layout_marginTop="37dp"
                     android:layout_gravity="left"
+                    android:layout_marginTop="37dp"
                     android:alpha="0.75"
+                    android:fontFamily="@font/roboto_condensed_regular"
                     android:gravity="left|center_vertical"
                     android:includeFontPadding="false"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:fontFamily="@font/roboto_condensed_regular"
                     android:text="Yêu thích"
                     android:textColor="@color/primary_text"
                     android:textSize="11sp" />
@@ -141,8 +145,8 @@
                     android:layout_marginLeft="133dp"
                     android:layout_marginTop="37dp"
                     android:alpha="0.75"
-                    android:gravity="left|center_vertical"
                     android:fontFamily="@font/roboto_condensed_regular"
+                    android:gravity="left|center_vertical"
                     android:includeFontPadding="false"
                     android:maxLines="1"
                     android:singleLine="true"
@@ -150,28 +154,28 @@
                     android:textColor="@color/primary_text"
                     android:textSize="11sp" />
             </FrameLayout>
+
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="top|left"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="610dp"
-                android:layout_gravity="top|left">
-
+                android:layout_marginTop="640dp"
+                android:layout_marginRight="20dp">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
+                    android:layout_gravity="top|left"
                     android:layout_marginTop="-1dp"
                     android:layout_marginBottom="-1dp"
-                    android:layout_gravity="top|left"
+                    android:fontFamily="@font/roboto_condensed_bold"
                     android:gravity="left|center_vertical"
                     android:includeFontPadding="false"
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="Bình luận"
-                    android:fontFamily="@font/roboto_condensed_bold"
                     android:textColor="@color/primary_text"
                     android:textSize="18dp" />
 
@@ -181,57 +185,23 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="37dp"
                     android:layout_marginBottom="3dp">
-                    <!--
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:orientation="horizontal"
-                        android:weightSum="10"
-                        >
-                        <EditText
-                            android:id="@+id/edittext_new_comment"
-                            android:layout_width="0dp"
-                            android:layout_height="50dp"
-                            android:paddingStart="20dp"
-                            android:background="@drawable/bg_the_loai1"
-                            android:hint="Bình luận của bạn"
-                            android:padding="5dp"
-                            android:layout_weight="8"
-                            android:textColor="#FF31507F"
-
-                            />
-                        <Button
-                            android:id="@+id/button_comment"
-                            android:layout_width="0dp"
-                            android:layout_height="50dp"
-                            android:background="@drawable/bg_the_loai1"
-                            android:layout_marginTop="60dp"
-                            android:text="Đăng"
-                            android:layout_gravity="right"
-                            android:layout_weight="2"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="#FF31507F"
-
-                            />
-                    </LinearLayout>
-                    -->
 
 
                     <GridView
+                        android:id="@+id/comment_gridview"
                         android:layout_width="match_parent"
                         android:layout_height="310dp"
                         android:layout_marginTop="0dp"
-                        android:id="@+id/comment_gridview"
                         android:verticalSpacing="10dp">
 
                     </GridView>
 
                 </FrameLayout>
+
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:layout_marginTop="350dp"
-                    >
+                    android:layout_marginTop="350dp">
 
                 </FrameLayout>
             </FrameLayout>
@@ -240,7 +210,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="400dp">
+
                 <TextView
+
                     android:id="@+id/text_phim_de_xuat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -256,140 +228,13 @@
                     android:textColor="@color/primary_text"
                     android:textSize="18sp"
                     tools:ignore="TextSizeCheck" />
-                <FrameLayout
-                    android:id="@+id/phim_de_xuat"
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewRecommendedMovies"
                     android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_marginLeft="22dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_gravity="top|left"
-                    android:background="@drawable/group_de_xuat">
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="170dp"
-                        android:layout_marginLeft="0dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_gravity="top|left">
-                        <ImageView
-                            android:layout_width="200dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/rectangle_dexuat"
-                            android:scaleType="centerCrop" />
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:cardCornerRadius="9dp"
-                            app:cardElevation="2dp">
-                            <ImageView
-                                android:id="@+id/de_xuat_1"
-                                android:layout_width="200dp"
-                                android:layout_height="130dp"
-                                android:layout_gravity="top"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/ninh_an_de_xuat" />
-                        </androidx.cardview.widget.CardView>
-
-                        <TextView
-                            android:id="@+id/text_thong_tin_phim_de_xuat_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="17dp"
-                            android:layout_gravity="left"
-                            android:layout_marginLeft="9dp"
-                            android:layout_marginTop="150dp"
-                            android:layout_marginBottom="9dp"
-                            android:alpha="0.75"
-                            android:fontFamily="@font/roboto_condensed_regular"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:includeFontPadding="false"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:text="2024 | 24/24 tập | Trung Quốc"
-                            android:textColor="#000000"
-                            android:textSize="11sp"
-                            tools:ignore="TextSizeCheck" />
-                        <TextView
-                            android:id="@+id/text_ten_phim_de_xuat_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="17dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginTop="134dp"
-                            android:fontFamily="@font/roboto_condensed_bold"
-                            android:layout_marginBottom="33dp"
-                            android:layout_gravity="left"
-                            android:alpha="0.65"
-                            android:gravity="left|center_vertical"
-                            android:includeFontPadding="false"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:text="Ninh An Như Mộng - Tập 1"
-                            android:textColor="#000000"
-                            android:textSize="12sp" />
-                    </FrameLayout>
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="170dp"
-                        android:layout_marginLeft="210dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_gravity="top|left">
-                        <ImageView
-                            android:layout_width="200dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/rectangle_dexuat"
-                            android:scaleType="centerCrop" />
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:cardCornerRadius="9dp"
-                            app:cardElevation="2dp">
-                            <ImageView
-                                android:id="@+id/de_xuat_2"
-                                android:layout_width="200dp"
-                                android:layout_height="130dp"
-                                android:layout_gravity="top"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/queen_de_xuat" />
-                        </androidx.cardview.widget.CardView>
-
-                        <TextView
-                            android:id="@+id/text_thong_tin_phim_de_xuat_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="17dp"
-                            android:layout_gravity="left"
-                            android:layout_marginLeft="9dp"
-                            android:layout_marginTop="150dp"
-                            android:layout_marginBottom="9dp"
-                            android:alpha="0.75"
-                            android:fontFamily="@font/roboto_condensed_regular"
-                            android:gravity="center_horizontal|center_vertical"
-                            android:includeFontPadding="false"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:text="2024 | 8/16 tập | Hàn Quốc"
-                            android:textColor="#000000"
-                            android:textSize="11sp"
-                            tools:ignore="TextSizeCheck" />
-
-                        <TextView
-                            android:id="@+id/text_ten_phim_de_xuat_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="17dp"
-                            android:layout_gravity="left"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginTop="134dp"
-                            android:layout_marginBottom="33dp"
-                            android:alpha="0.65"
-                            android:fontFamily="@font/roboto_condensed_bold"
-                            android:gravity="left|center_vertical"
-                            android:includeFontPadding="false"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:text="Queen Of Tears - Tập 1"
-                            android:textColor="#000000"
-                            android:textSize="12sp"
-                            tools:ignore="TextSizeCheck" />
-                    </FrameLayout>
-
-                </FrameLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal" />
             </FrameLayout>
 
         </FrameLayout>
